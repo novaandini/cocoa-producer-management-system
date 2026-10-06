@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Products - KAKAO</title>
+    <title>Produk Kakao - KAKAO</title>
 
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
@@ -15,74 +15,48 @@
 
     <!-- ================= NAVBAR ================= -->
 
-    <header class="header">
+   <header class="header">
 
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <a href="../home/index.html" class="logo">
-                <img src="../home/logo-kakao.png" alt="Logo KAKAO">
-            </a>
+        <a href="../home/index.html" class="logo">
+            <img src="../home/logo-kakao.png" alt="Logo KAKAO">
+        </a>
 
-            <div class="nav-menu">
+        <a href="../home/index.html" class="back-home">
+            ← Kembali ke Home
+        </a>
 
-                <a href="../home/index.html">
-                    Home
-                </a>
+    </nav>
 
-                <a href="index.html" class="active">
-                    Products
-                </a>
-
-                <a href="../home/index.html#process">
-                    Traceability
-                </a>
-
-                <a href="../home/index.html#about">
-                    About
-                </a>
-
-            </div>
-
-            <div class="nav-action">
-
-                <a href="../login/index.html" class="login-link">
-                    Login
-                </a>
-
-                <a href="index.html" class="shop-button">
-                    Lihat Produk
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>
+</header>
 
 
-    <!-- ================= PRODUCTS ================= -->
+    <!-- ================= MAIN ================= -->
 
     <main>
 
-        <!-- PRODUCTS HERO -->
+
+        <!-- ================= HERO ================= -->
 
         <section class="products-hero">
 
             <div class="products-hero-content">
 
                 <p class="section-label">
-                    PRODUK KAKAO
+                    KATALOG PRODUK
                 </p>
 
                 <h1>
-                    Pilihan Produk
-                    <span>Kakao Kami.</span>
+                    Temukan Kakao
+                    <span>Sesuai Kebutuhan.</span>
                 </h1>
 
                 <p>
-                    Pilih produk kakao sesuai kebutuhan Anda.
-                    Setiap produk memiliki informasi grade,
+                    Jelajahi produk kakao kami berdasarkan grade,
                     jenis pengolahan, dan ketersediaan stok.
+                    Pilih produk untuk melihat informasi lebih lengkap
+                    sebelum melakukan pemesanan.
                 </p>
 
             </div>
@@ -90,37 +64,74 @@
         </section>
 
 
-        <!-- PRODUCT LIST -->
+        <!-- ================= CATALOG ================= -->
 
-        <section class="products">
+        <section class="catalog-section">
 
-            <div class="section-heading">
+            <div class="catalog-heading">
 
                 <div>
 
                     <p class="section-label">
-                        DAFTAR PRODUK
+                        KATALOG KAKAO
                     </p>
 
                     <h2>
-                        Produk Kakao
+                        Semua Produk
                     </h2>
 
                 </div>
 
-                <p class="product-count">
+                <p class="catalog-count" id="catalogCount">
                     3 Produk tersedia
                 </p>
 
             </div>
 
 
+            <!-- ================= FILTER ================= -->
+
+            <div class="filter-wrapper">
+
+                <button
+                    type="button"
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    Semua Produk
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="fermentasi"
+                >
+                    Fermentasi
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="non-fermentasi"
+                >
+                    Non-Fermentasi
+                </button>
+
+            </div>
+
+
+            <!-- ================= PRODUCT GRID ================= -->
+
             <div class="product-grid">
 
 
                 <!-- ================= PRODUCT A ================= -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-type="fermentasi"
+                    data-grade="A"
+                >
 
                     <div class="product-image">
 
@@ -135,11 +146,20 @@
 
                     </div>
 
+
                     <div class="product-info">
 
-                        <p class="product-category">
-                            FERMENTASI
-                        </p>
+                        <div class="product-top">
+
+                            <p class="product-category">
+                                FERMENTASI
+                            </p>
+
+                            <span class="availability">
+                                Tersedia
+                            </span>
+
+                        </div>
 
                         <h3>
                             Cocoa Bean A
@@ -151,27 +171,60 @@
                             produksi dan pengolahan.
                         </p>
 
-                        <div class="product-detail-info">
 
-                            <span>
-                                Grade A
-                            </span>
+                        <div class="product-specs">
 
-                            <span>
-                                Stok: 500 kg
-                            </span>
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Grade
+                                </span>
+
+                                <strong>
+                                    A
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Pengolahan
+                                </span>
+
+                                <strong>
+                                    Fermentasi
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Stok
+                                </span>
+
+                                <strong>
+                                    500 kg
+                                </strong>
+
+                            </div>
 
                         </div>
 
+
                         <div class="product-bottom">
 
-                            <span class="product-status">
-                                Tersedia
+                            <span class="stock-info">
+                                Stok tersedia
                             </span>
 
-                            <!-- MENUJU DETAIL COCOA BEAN A -->
-                            <a href="../detail_product/index.html?product=a">
-                                Lihat Detail →
+                            <a
+                                href="../detail_product/index.html?product=a"
+                                class="detail-button"
+                            >
+                                Lihat Detail
+                                <span>→</span>
                             </a>
 
                         </div>
@@ -183,7 +236,11 @@
 
                 <!-- ================= PRODUCT B ================= -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-type="fermentasi"
+                    data-grade="B"
+                >
 
                     <div class="product-image">
 
@@ -198,11 +255,20 @@
 
                     </div>
 
+
                     <div class="product-info">
 
-                        <p class="product-category">
-                            FERMENTASI
-                        </p>
+                        <div class="product-top">
+
+                            <p class="product-category">
+                                FERMENTASI
+                            </p>
+
+                            <span class="availability">
+                                Tersedia
+                            </span>
+
+                        </div>
 
                         <h3>
                             Cocoa Bean B
@@ -214,27 +280,60 @@
                             kakao.
                         </p>
 
-                        <div class="product-detail-info">
 
-                            <span>
-                                Grade B
-                            </span>
+                        <div class="product-specs">
 
-                            <span>
-                                Stok: 800 kg
-                            </span>
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Grade
+                                </span>
+
+                                <strong>
+                                    B
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Pengolahan
+                                </span>
+
+                                <strong>
+                                    Fermentasi
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Stok
+                                </span>
+
+                                <strong>
+                                    800 kg
+                                </strong>
+
+                            </div>
 
                         </div>
 
+
                         <div class="product-bottom">
 
-                            <span class="product-status">
-                                Tersedia
+                            <span class="stock-info">
+                                Stok tersedia
                             </span>
 
-                            <!-- MENUJU DETAIL COCOA BEAN B -->
-                            <a href="../detail_product/index.html?product=b">
-                                Lihat Detail →
+                            <a
+                                href="../detail_product/index.html?product=b"
+                                class="detail-button"
+                            >
+                                Lihat Detail
+                                <span>→</span>
                             </a>
 
                         </div>
@@ -246,7 +345,11 @@
 
                 <!-- ================= PRODUCT C ================= -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-type="non-fermentasi"
+                    data-grade="C"
+                >
 
                     <div class="product-image">
 
@@ -261,11 +364,20 @@
 
                     </div>
 
+
                     <div class="product-info">
 
-                        <p class="product-category">
-                            NON-FERMENTASI
-                        </p>
+                        <div class="product-top">
+
+                            <p class="product-category">
+                                NON-FERMENTASI
+                            </p>
+
+                            <span class="availability">
+                                Tersedia
+                            </span>
+
+                        </div>
 
                         <h3>
                             Cocoa Bean C
@@ -277,27 +389,60 @@
                             pengolahan tertentu.
                         </p>
 
-                        <div class="product-detail-info">
 
-                            <span>
-                                Grade C
-                            </span>
+                        <div class="product-specs">
 
-                            <span>
-                                Stok: 300 kg
-                            </span>
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Grade
+                                </span>
+
+                                <strong>
+                                    C
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Pengolahan
+                                </span>
+
+                                <strong>
+                                    Non-Fermentasi
+                                </strong>
+
+                            </div>
+
+                            <div class="spec-item">
+
+                                <span class="spec-label">
+                                    Stok
+                                </span>
+
+                                <strong>
+                                    300 kg
+                                </strong>
+
+                            </div>
 
                         </div>
 
+
                         <div class="product-bottom">
 
-                            <span class="product-status">
-                                Tersedia
+                            <span class="stock-info">
+                                Stok tersedia
                             </span>
 
-                            <!-- MENUJU DETAIL COCOA BEAN C -->
-                            <a href="../detail_product/index.html?product=c">
-                                Lihat Detail →
+                            <a
+                                href="../detail_product/index.html?product=c"
+                                class="detail-button"
+                            >
+                                Lihat Detail
+                                <span>→</span>
                             </a>
 
                         </div>
@@ -312,14 +457,300 @@
         </section>
 
 
-        <!-- ================= INFORMATION ================= -->
+        <!-- ================= PRODUCT INFORMATION ================= -->
 
-        <section class="product-note">
+        <section class="information-section">
+
+            <div class="information-heading">
+
+                <p class="section-label">
+                    INFORMASI PRODUK
+                </p>
+
+                <h2>
+                    Kenali pilihan kakao
+                    <span>sebelum memesan.</span>
+                </h2>
+
+                <p>
+                    Setiap produk memiliki karakteristik dan jenis
+                    pengolahan yang berbeda. Informasi berikut membantu
+                    customer memilih produk yang sesuai dengan kebutuhan.
+                </p>
+
+            </div>
+
+
+            <!-- ================= GRADE ================= -->
+
+            <div class="information-block">
+
+                <div class="information-title">
+
+                    <span class="information-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <p>
+                            KUALITAS
+                        </p>
+
+                        <h3>
+                            Grade Kakao
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="information-content">
+
+                    <div class="grade-item">
+
+                        <span>
+                            GRADE A
+                        </span>
+
+                        <h4>
+                            Kualitas Tinggi
+                        </h4>
+
+                        <p>
+                            Cocoa Bean A merupakan produk dengan
+                            kualitas Grade A dan tersedia dalam
+                            kondisi fermentasi.
+                        </p>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span>
+                            GRADE B
+                        </span>
+
+                        <h4>
+                            Kualitas Menengah
+                        </h4>
+
+                        <p>
+                            Cocoa Bean B merupakan produk dengan
+                            kualitas Grade B dan tersedia dalam
+                            kondisi fermentasi.
+                        </p>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span>
+                            GRADE C
+                        </span>
+
+                        <h4>
+                            Kualitas Grade C
+                        </h4>
+
+                        <p>
+                            Cocoa Bean C merupakan produk non-fermentasi
+                            dengan kualitas Grade C untuk kebutuhan
+                            pengolahan tertentu.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROCESSING ================= -->
+
+            <div class="information-block">
+
+                <div class="information-title">
+
+                    <span class="information-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <p>
+                            PENGOLAHAN
+                        </p>
+
+                        <h3>
+                            Jenis Pengolahan
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="processing-content">
+
+                    <div class="processing-card">
+
+                        <span class="processing-icon">
+                            01
+                        </span>
+
+                        <h4>
+                            Fermentasi
+                        </h4>
+
+                        <p>
+                            Produk yang melalui proses fermentasi
+                            sebelum tersedia untuk kebutuhan
+                            produksi dan pengolahan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="processing-card">
+
+                        <span class="processing-icon">
+                            02
+                        </span>
+
+                        <h4>
+                            Non-Fermentasi
+                        </h4>
+
+                        <p>
+                            Produk yang tersedia tanpa proses
+                            fermentasi dan dapat digunakan untuk
+                            kebutuhan pengolahan tertentu.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ORDER PROCESS ================= -->
+
+            <div class="information-block order-process-block">
+
+                <div class="information-title">
+
+                    <span class="information-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <p>
+                            PEMESANAN
+                        </p>
+
+                        <h3>
+                            Cara Melakukan Pemesanan
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-steps">
+
+                    <div class="order-step">
+
+                        <span>
+                            01
+                        </span>
+
+                        <h4>
+                            Pilih Produk
+                        </h4>
+
+                        <p>
+                            Pilih produk kakao yang sesuai dengan
+                            kebutuhan Anda.
+                        </p>
+
+                    </div>
+
+
+                    <div class="order-step">
+
+                        <span>
+                            02
+                        </span>
+
+                        <h4>
+                            Lihat Detail
+                        </h4>
+
+                        <p>
+                            Periksa grade, jenis pengolahan,
+                            dan stok produk.
+                        </p>
+
+                    </div>
+
+
+                    <div class="order-step">
+
+                        <span>
+                            03
+                        </span>
+
+                        <h4>
+                            Tentukan Jumlah
+                        </h4>
+
+                        <p>
+                            Masukkan jumlah produk yang ingin
+                            dipesan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="order-step">
+
+                        <span>
+                            04
+                        </span>
+
+                        <h4>
+                            Checkout
+                        </h4>
+
+                        <p>
+                            Lanjutkan proses pemesanan melalui
+                            halaman checkout.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="products-cta">
 
             <div>
 
                 <p class="section-label">
-                    INFORMASI PEMESANAN
+                    SIAP MEMESAN?
                 </p>
 
                 <h2>
@@ -329,11 +760,13 @@
 
             </div>
 
-            <p>
-                Pilih produk untuk melihat informasi lebih lengkap
-                mengenai grade, jenis pengolahan, stok, dan
-                melakukan pemesanan.
-            </p>
+            <a
+                href="../checkout/index.html"
+                class="cta-button"
+            >
+                Mulai Pemesanan
+                <span>→</span>
+            </a>
 
         </section>
 
@@ -348,7 +781,10 @@
 
             <div class="footer-brand">
 
-                <a href="../home/index.html" class="footer-logo">
+                <a
+                    href="../home/index.html"
+                    class="footer-logo"
+                >
                     KAKAO
                 </a>
 
