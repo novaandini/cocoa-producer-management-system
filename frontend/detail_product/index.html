@@ -13,6 +13,7 @@
 
 </head>
 
+
 <body>
 
 
@@ -21,6 +22,9 @@
     <header class="header">
 
         <nav class="navbar">
+
+
+            <!-- LOGO -->
 
             <a href="../home/index.html" class="logo">
 
@@ -31,6 +35,8 @@
 
             </a>
 
+
+            <!-- MENU -->
 
             <div class="nav-menu">
 
@@ -53,6 +59,8 @@
             </div>
 
 
+            <!-- ACTION -->
+
             <div class="nav-action">
 
                 <a
@@ -71,58 +79,77 @@
 
             </div>
 
+
         </nav>
 
     </header>
 
 
-    <!-- ================= PRODUCT DETAIL ================= -->
+
+    <!-- ================= MAIN ================= -->
 
     <main>
+
+
+        <!-- PRODUCT DETAIL -->
 
         <section class="product-detail">
 
 
-            <!-- PRODUCT IMAGE -->
+            <!-- IMAGE -->
 
             <div class="detail-image">
 
                 <img
+                    id="productImage"
                     src="../home/cocoa-bean-a.jpg"
                     alt="Cocoa Bean A"
                 >
 
-                <span class="detail-badge">
+                <span
+                    class="detail-badge"
+                    id="productBadge"
+                >
                     GRADE A
                 </span>
 
             </div>
 
 
-            <!-- PRODUCT INFORMATION -->
+
+            <!-- INFORMATION -->
 
             <div class="detail-content">
 
-                <p class="section-label">
+
+                <p
+                    class="section-label"
+                    id="productCategory"
+                >
                     FERMENTASI
                 </p>
 
 
-                <h1>
+                <h1 id="productName">
                     Cocoa Bean A
                 </h1>
 
 
-                <p class="detail-description">
+                <p
+                    class="detail-description"
+                    id="productDescription"
+                >
                     Biji kakao fermentasi dengan kualitas Grade A
-                    yang diproses untuk menghasilkan kualitas
-                    kakao yang baik dan sesuai kebutuhan.
+                    yang diproses untuk menghasilkan kualitas kakao
+                    yang baik dan sesuai kebutuhan.
                 </p>
 
 
-                <!-- PRODUCT INFORMATION -->
+
+                <!-- INFORMATION -->
 
                 <div class="detail-information">
+
 
                     <div>
 
@@ -130,7 +157,7 @@
                             Grade
                         </span>
 
-                        <strong>
+                        <strong id="productGrade">
                             A
                         </strong>
 
@@ -143,7 +170,7 @@
                             Jenis
                         </span>
 
-                        <strong>
+                        <strong id="productType">
                             Fermentasi
                         </strong>
 
@@ -157,23 +184,30 @@
                         </span>
 
                         <strong>
-                            500 kg
+                            <span id="productStock">
+                                500
+                            </span>
+                            kg
                         </strong>
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- ORDER -->
 
                 <div class="order-box">
 
+
                     <div class="quantity-area">
 
                         <label for="quantity">
                             Jumlah
                         </label>
+
 
                         <div class="quantity-control">
 
@@ -184,13 +218,14 @@
                                 −
                             </button>
 
+
                             <input
                                 type="number"
                                 id="quantity"
                                 value="1"
                                 min="1"
-                                max="500"
                             >
+
 
                             <button
                                 type="button"
@@ -204,17 +239,21 @@
                     </div>
 
 
+
                     <a
                         href="../checkout/index.html"
                         class="order-button"
+                        id="orderButton"
                     >
                         Pesan Sekarang
                     </a>
 
+
                 </div>
 
 
-                <!-- TRACEABILITY NOTE -->
+
+                <!-- TRACEABILITY -->
 
                 <div class="trace-note">
 
@@ -229,14 +268,17 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- ================= PRODUCT DESCRIPTION ================= -->
+
+        <!-- ================= DESCRIPTION ================= -->
 
         <section class="detail-description-section">
+
 
             <div class="description-title">
 
@@ -253,13 +295,14 @@
 
             <div class="description-text">
 
-                <p>
+                <p id="descriptionOne">
                     Cocoa Bean A merupakan biji kakao fermentasi
                     dengan kualitas Grade A. Produk ini tersedia
                     dalam jumlah stok 500 kg.
                 </p>
 
-                <p>
+
+                <p id="descriptionTwo">
                     Customer dapat menentukan jumlah produk yang
                     ingin dipesan sebelum melanjutkan ke halaman
                     checkout.
@@ -267,7 +310,9 @@
 
             </div>
 
+
         </section>
+
 
 
         <!-- ================= BACK ================= -->
@@ -280,12 +325,15 @@
 
         </section>
 
+
     </main>
+
 
 
     <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
+
 
         <div class="footer-main">
 
@@ -299,6 +347,7 @@
                     KAKAO
                 </a>
 
+
                 <p>
                     Sistem informasi untuk membantu pengelolaan
                     penjualan kakao secara terstruktur,
@@ -308,8 +357,11 @@
             </div>
 
 
+
             <div class="footer-links">
 
+
+                <!-- MENU -->
 
                 <div>
 
@@ -332,6 +384,9 @@
                 </div>
 
 
+
+                <!-- INFORMATION -->
+
                 <div>
 
                     <h4>
@@ -353,6 +408,9 @@
                 </div>
 
 
+
+                <!-- CONTACT -->
+
                 <div>
 
                     <h4>
@@ -369,10 +427,15 @@
 
                 </div>
 
+
             </div>
+
 
         </div>
 
+
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
 
@@ -386,7 +449,9 @@
 
         </div>
 
+
     </footer>
+
 
 
     <script src="script.js"></script>
