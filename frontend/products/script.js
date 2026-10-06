@@ -71,7 +71,7 @@ const products = [
         category: "non-fermentasi",
         grade: "B",
         stock: 700,
-        image: "../home/cocoa-bean-f.jpg",
+        image: "../home/cocoa-bean-f.png",
         description:
             "Biji kakao non-fermentasi Grade B dengan stok 700 kg."
     },
