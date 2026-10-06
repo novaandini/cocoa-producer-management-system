@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pembayaran</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="payment-header">
+
+        <a href="../home/index.html" class="payment-logo">
+            <img src="../home/logo-kakao.png" alt="Logo KAKAO">
+        </a>
+
+        <a href="../products/index.html" class="back-link">
+            ← Kembali ke Produk
+        </a>
+
+    </header>
+
+
+    <main class="payment-page">
+
+        <!-- ================= PILIH PEMBAYARAN ================= -->
+
+        <div id="paymentContent">
+
+            <section class="payment-heading">
+
+                <p class="section-label">
+                    PEMBAYARAN
+                </p>
+
+                <h1>
+                    Selesaikan
+                    <span>Pembayaran Anda</span>
+                </h1>
+
+                <p class="payment-description">
+                    Pilih metode pembayaran yang ingin digunakan
+                    untuk menyelesaikan pesanan
+                </p>
+
+            </section>
+
+
+            <section class="payment-container">
+
+                <!-- METODE PEMBAYARAN -->
+
+                <div class="payment-method">
+
+                    <div class="method-heading">
+
+                        <p class="section-label">
+                            METODE PEMBAYARAN
+                        </p>
+
+                        <h2>
+                            Pilih Pembayaran
+                        </h2>
+
+                    </div>
+
+
+                    <form id="paymentForm">
+
+                        <!-- TRANSFER BANK -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="bank"
+                                required
+                            >
+
+                            <div class="option-icon">
+                                BANK
+                            </div>
+
+                            <div class="option-content">
+
+                                <strong>
+                                    Transfer Bank
+                                </strong>
+
+                                <span>
+                                    Transfer melalui rekening bank.
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- VIRTUAL ACCOUNT -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="va"
+                            >
+
+                            <div class="option-icon">
+                                VA
+                            </div>
+
+                            <div class="option-content">
+
+                                <strong>
+                                    Virtual Account
+                                </strong>
+
+                                <span>
+                                    Bayar menggunakan nomor virtual account.
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- QRIS -->
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="qris"
+                            >
+
+                            <div class="option-icon">
+                                QR
+                            </div>
+
+                            <div class="option-content">
+
+                                <strong>
+                                    QRIS
+                                </strong>
+
+                                <span>
+                                    Scan QR menggunakan aplikasi pembayaran.
+                                </span>
+
+                            </div>
+
+                        </label>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= RINGKASAN ================= -->
+
+                <aside class="order-summary">
+
+                    <div class="summary-heading">
+
+                        <p class="section-label">
+                            DETAIL PESANAN
+                        </p>
+
+                        <h2>
+                            Ringkasan Pesanan
+                        </h2>
+
+                    </div>
+
+
+                    <div class="order-number">
+
+                        <span>
+                            Nomor Pesanan
+                        </span>
+
+                        <strong>
+                            ORD-001
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-product">
+
+                        <img
+                            src="../home/cocoa-bean-a.jpg"
+                            alt="Cocoa Bean A"
+                        >
+
+                        <div class="summary-product-info">
+
+                            <span>
+                                FERMENTASI
+                            </span>
+
+                            <h3>
+                                Cocoa Bean A
+                            </h3>
+
+                            <p>
+                                Grade A
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-detail">
+
+                        <div>
+                            <span>Jumlah</span>
+                            <strong>1</strong>
+                        </div>
+
+                        <div>
+                            <span>Jenis</span>
+                            <strong>Fermentasi</strong>
+                        </div>
+
+                        <div>
+                            <span>Grade</span>
+                            <strong>A</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            Total Pembayaran
+                        </span>
+
+                        <strong>
+                            Rp -
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        form="paymentForm"
+                        class="payment-button"
+                    >
+                        Lanjutkan Pembayaran
+                    </button>
+
+                </aside>
+
+            </section>
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- DETAIL PEMBAYARAN -->
+        <!-- ========================================= -->
+
+        <section
+            class="payment-detail"
+            id="paymentDetail"
+        >
+
+            <p class="section-label">
+                DETAIL PEMBAYARAN
+            </p>
+
+            <h2 id="paymentTitle">
+                Transfer Bank
+            </h2>
+
+
+            <div
+                class="payment-detail-content"
+                id="paymentDetailContent"
+            >
+            </div>
+
+
+            <div class="payment-total-detail">
+
+                <span>
+                    Total Pembayaran
+                </span>
+
+                <strong>
+                    Rp -
+                </strong>
+
+            </div>
+
+
+            <p class="demo-note">
+                * Informasi pembayaran pada halaman ini hanya
+                digunakan untuk simulasi frontend
+            </p>
+
+
+            <button
+                type="button"
+                class="paid-button"
+                id="paidButton"
+            >
+                Saya Sudah Bayar
+            </button>
+
+
+            <button
+                type="button"
+                class="change-payment"
+                id="changePayment"
+            >
+                ← Ganti Metode Pembayaran
+            </button>
+
+        </section>
+
+
+        <!-- ========================================= -->
+        <!-- MENUNGGU VERIFIKASI -->
+        <!-- ========================================= -->
+
+        <section
+            class="payment-success"
+            id="paymentSuccess"
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <p class="section-label">
+                PEMBAYARAN DIKIRIM
+            </p>
+
+
+            <h2>
+                Pembayaran Menunggu Verifikasi
+            </h2>
+
+
+            <p class="success-description">
+                Informasi pembayaran Anda telah dikirim.
+                Admin Kakao akan melakukan verifikasi sebelum
+                pesanan masuk ke tahap persiapan produk
+            </p>
+
+
+            <div class="success-info">
+
+                <div>
+                    <span>
+                        Nomor Pesanan
+                    </span>
+
+                    <strong>
+                        ORD-001
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        Status Pembayaran
+                    </span>
+
+                    <strong class="waiting-status">
+                        Menunggu Verifikasi
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="success-actions">
+
+                <a
+                    href="../home/index.html"
+                    class="home-button"
+                >
+                    Kembali ke Beranda
+                </a>
+
+
+                <a
+                    href="../process/index.html"
+                    class="tracking-button"
+                >
+                    Lihat Status Pesanan →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="payment-footer">
+
+        <p>
+            © 2026 KAKAO
+        </p>
+
+        <p>
+            Sistem Informasi Manajemen Produsen Kakao
+        </p>
+
+    </footer>
+
+
+    <!-- script harus paling bawah -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
