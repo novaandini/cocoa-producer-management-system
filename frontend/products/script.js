@@ -1,160 +1,347 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* =====================================================
+   DATA PRODUK
+===================================================== */
 
-    /* =========================
-       FILTER PRODUK
-    ========================= */
+const products = [
 
-    const filterButtons =
-        document.querySelectorAll(".filter-button");
+    {
+        id: "a",
+        name: "Cocoa Bean A",
+        type: "Fermentasi",
+        category: "fermentasi",
+        grade: "A",
+        stock: 500,
+        image: "../home/cocoa-bean-a.jpg",
+        description:
+            "Biji kakao fermentasi Grade A untuk kebutuhan pengolahan kakao."
+    },
 
-    const productCards =
-        document.querySelectorAll(".product-card");
+    {
+        id: "b",
+        name: "Cocoa Bean B",
+        type: "Fermentasi",
+        category: "fermentasi",
+        grade: "B",
+        stock: 800,
+        image: "../home/cocoa-bean-b.jpg",
+        description:
+            "Biji kakao fermentasi Grade B dengan stok yang tersedia."
+    },
 
-    const catalogCount =
-        document.getElementById("catalogCount");
+    {
+        id: "c",
+        name: "Cocoa Bean C",
+        type: "Non-Fermentasi",
+        category: "non-fermentasi",
+        grade: "C",
+        stock: 300,
+        image: "../home/cocoa-bean-c.jpg",
+        description:
+            "Biji kakao non-fermentasi untuk kebutuhan produk kakao."
+    },
+
+    {
+        id: "d",
+        name: "Cocoa Bean D",
+        type: "Fermentasi",
+        category: "fermentasi",
+        grade: "A",
+        stock: 650,
+        image: "../home/cocoa-bean-d.jpg",
+        description:
+            "Biji kakao fermentasi Grade A dengan ketersediaan stok 650 kg."
+    },
+
+    {
+        id: "e",
+        name: "Cocoa Bean E",
+        type: "Fermentasi",
+        category: "fermentasi",
+        grade: "B",
+        stock: 450,
+        image: "../home/cocoa-bean-e.jpg",
+        description:
+            "Biji kakao fermentasi Grade B dengan ketersediaan stok 450 kg."
+    },
+
+    {
+        id: "f",
+        name: "Cocoa Bean F",
+        type: "Non-Fermentasi",
+        category: "non-fermentasi",
+        grade: "B",
+        stock: 700,
+        image: "../home/cocoa-bean-f.jpg",
+        description:
+            "Biji kakao non-fermentasi Grade B dengan stok 700 kg."
+    },
+
+    {
+        id: "g",
+        name: "Cocoa Bean G",
+        type: "Fermentasi",
+        category: "fermentasi",
+        grade: "C",
+        stock: 350,
+        image: "../home/cocoa-bean-g.jpg",
+        description:
+            "Biji kakao fermentasi Grade C dengan ketersediaan stok 350 kg."
+    },
+
+    {
+        id: "h",
+        name: "Cocoa Bean H",
+        type: "Non-Fermentasi",
+        category: "non-fermentasi",
+        grade: "A",
+        stock: 550,
+        image: "../home/cocoa-bean-h.jpg",
+        description:
+            "Biji kakao non-fermentasi Grade A dengan stok 550 kg."
+    }
+
+];
 
 
-    filterButtons.forEach(function (button) {
+/* =====================================================
+   ELEMENT HTML
+===================================================== */
 
-        button.addEventListener("click", function () {
+const productsGrid = document.getElementById("productsGrid");
 
-            /* Hapus active dari semua tombol */
+const emptyState = document.getElementById("emptyState");
 
-            filterButtons.forEach(function (item) {
-                item.classList.remove("active");
-            });
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
 
-
-            /* Tambahkan active ke tombol yang dipilih */
-
-            button.classList.add("active");
-
-
-            /* Ambil jenis filter */
-
-            const selectedFilter =
-                button.getAttribute("data-filter");
+const gradeButtons =
+    document.querySelectorAll(".grade-btn");
 
 
-            let visibleProducts = 0;
+/* =====================================================
+   FILTER YANG SEDANG AKTIF
+===================================================== */
+
+let selectedType = "all";
+
+let selectedGrade = "all";
 
 
-            /* Filter produk */
+/* =====================================================
+   TAMPILKAN PRODUK
+===================================================== */
 
-            productCards.forEach(function (card) {
+function displayProducts() {
 
-                const productType =
-                    card.getAttribute("data-type");
-
-
-                if (
-                    selectedFilter === "all" ||
-                    productType === selectedFilter
-                ) {
-
-                    card.classList.remove("hidden");
-
-                    visibleProducts++;
-
-                } else {
-
-                    card.classList.add("hidden");
-
-                }
-
-            });
+    productsGrid.innerHTML = "";
 
 
-            /* Update jumlah produk */
+    /* Filter produk */
 
-            if (visibleProducts === 1) {
+    const filteredProducts = products.filter(function(product) {
 
-                catalogCount.textContent =
-                    "1 Produk tersedia";
+        const typeMatch =
+            selectedType === "all" ||
+            product.category === selectedType;
 
-            } else {
 
-                catalogCount.textContent =
-                    visibleProducts + " Produk tersedia";
+        const gradeMatch =
+            selectedGrade === "all" ||
+            product.grade === selectedGrade;
 
-            }
 
-        });
+        return typeMatch && gradeMatch;
 
     });
 
 
-    /* =========================
-       DETAIL PRODUCT
-    ========================= */
+    /* Jika tidak ada produk */
 
-    const detailLinks =
-        document.querySelectorAll(".detail-button");
+    if (filteredProducts.length === 0) {
 
+        emptyState.style.display = "block";
 
-    detailLinks.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            const productCard =
-                link.closest(".product-card");
-
-
-            if (!productCard) {
-                return;
-            }
-
-
-            const productName =
-                productCard.querySelector("h3");
-
-
-            if (productName) {
-
-                console.log(
-                    "Membuka detail:",
-                    productName.textContent.trim()
-                );
-
-            }
-
-        });
-
-    });
-
-
-    /* =========================
-       CARD ANIMATION
-    ========================= */
-
-    const productGrid =
-        document.querySelector(".product-grid");
-
-
-    if (productGrid) {
-
-        const cards =
-            productGrid.querySelectorAll(".product-card");
-
-
-        cards.forEach(function (card, index) {
-
-            card.style.opacity = "0";
-            card.style.transform = "translateY(15px)";
-
-
-            setTimeout(function () {
-
-                card.style.transition =
-                    "opacity 0.5s ease, transform 0.5s ease";
-
-                card.style.opacity = "1";
-                card.style.transform = "translateY(0)";
-
-            }, 100 + (index * 120));
-
-        });
+        return;
 
     }
 
+
+    emptyState.style.display = "none";
+
+
+    /* Buat card produk */
+
+    filteredProducts.forEach(function(product) {
+
+        const productCard =
+            document.createElement("article");
+
+        productCard.className = "product-card";
+
+
+        productCard.innerHTML = `
+
+            <div class="product-image-wrap">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    class="product-image"
+                    loading="lazy"
+                >
+
+                <span class="product-badge">
+                    GRADE ${product.grade}
+                </span>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <span class="product-type">
+                    ${product.type}
+                </span>
+
+
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+
+
+                <p class="product-description">
+                    ${product.description}
+                </p>
+
+
+                <div class="product-info">
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Grade
+                        </span>
+
+                        <span class="info-value">
+                            ${product.grade}
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Stok
+                        </span>
+
+                        <span class="info-value">
+                            ${product.stock} kg
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="../detail_product/index.html?product=${product.id}"
+                    class="detail-button">
+
+                    Lihat Detail →
+
+                </a>
+
+            </div>
+
+        `;
+
+
+        productsGrid.appendChild(productCard);
+
+    });
+
+}
+
+
+/* =====================================================
+   FILTER JENIS PENGOLAHAN
+===================================================== */
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+
+        /* Hapus active dari semua */
+
+        filterButtons.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        /* Tambahkan active ke tombol yang dipilih */
+
+        button.classList.add("active");
+
+
+        /* Simpan filter */
+
+        selectedType =
+            button.dataset.type;
+
+
+        /* Tampilkan ulang */
+
+        displayProducts();
+
+    });
+
 });
+
+
+/* =====================================================
+   FILTER GRADE
+===================================================== */
+
+gradeButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+
+        /* Hapus active dari semua */
+
+        gradeButtons.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        /* Tambahkan active */
+
+        button.classList.add("active");
+
+
+        /* Simpan grade */
+
+        selectedGrade =
+            button.dataset.grade;
+
+
+        /* Tampilkan ulang */
+
+        displayProducts();
+
+    });
+
+});
+
+
+/* =====================================================
+   JALANKAN SAAT HALAMAN DIBUKA
+===================================================== */
+
+displayProducts();
