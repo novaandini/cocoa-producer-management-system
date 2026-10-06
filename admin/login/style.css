@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fffdf9;
+    color: #2d2118;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* LOGIN PAGE */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* LEFT */
+
+.login-left {
+    min-height: 100vh;
+    padding: 45px max(7%, 45px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #332116;
+    color: #ffffff;
+}
+
+.login-brand a {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.login-brand p {
+    margin-top: 9px;
+
+    color: #c7a985;
+    font-size: 9px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+
+.login-info {
+    max-width: 500px;
+    margin-bottom: 80px;
+}
+
+.section-label {
+    margin-bottom: 15px;
+
+    color: #a16038;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-info .section-label {
+    color: #d6a77e;
+}
+
+.login-info h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.15;
+}
+
+.login-info h1 span {
+    display: block;
+
+    color: #d5a274;
+    font-style: italic;
+}
+
+.login-info > p:last-child {
+    max-width: 430px;
+    margin-top: 22px;
+
+    color: #c5b6ab;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* RIGHT */
+
+.login-right {
+    min-height: 100vh;
+    padding: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fffdf9;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-heading {
+    margin-bottom: 35px;
+}
+
+.login-heading h2 {
+    color: #302117;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.login-heading > p:last-child {
+    margin-top: 10px;
+
+    color: #806e62;
+    font-size: 12px;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #59483c;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 14px;
+
+    border: 1px solid #d9c9bb;
+    border-radius: 2px;
+
+    background-color: #ffffff;
+
+    color: #38271c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #8a5332;
+}
+
+.form-group input::placeholder {
+    color: #aa9b91;
+}
+
+
+/* OPTIONS */
+
+.form-option {
+    margin: -3px 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #806e62;
+    font-size: 10px;
+}
+
+.form-option label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.form-option input {
+    accent-color: #3b2416;
+}
+
+.form-option a {
+    color: #8b5433;
+}
+
+.form-option a:hover {
+    color: #3b2416;
+}
+
+
+/* BUTTON */
+
+button {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 2px;
+
+    background-color: #3b2416;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #75482c;
+}
+
+
+/* MESSAGE */
+
+#message {
+    margin-top: 15px;
+
+    text-align: center;
+    font-size: 11px;
+}
+
+
+/* BACK */
+
+.back-home {
+    margin-top: 28px;
+    padding-top: 20px;
+
+    border-top: 1px solid #eadfd5;
+
+    text-align: center;
+}
+
+.back-home a {
+    color: #8b5433;
+    font-size: 10px;
+}
+
+.back-home a:hover {
+    color: #3b2416;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .login-page {
+        grid-template-columns: 1fr;
+    }
+
+    .login-left {
+        min-height: 350px;
+    }
+
+    .login-info {
+        margin-top: 70px;
+        margin-bottom: 0;
+    }
+
+    .login-info h1 {
+        font-size: 38px;
+    }
+
+    .login-right {
+        min-height: auto;
+        padding: 50px 30px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .login-left {
+        padding: 35px 25px;
+    }
+
+    .login-right {
+        padding: 40px 25px;
+    }
+
+}

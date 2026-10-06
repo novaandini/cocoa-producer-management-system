@@ -1,15 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+
+    <title>Dashboard Admin</title>
+
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- html di sini -->
 
-    <!-- script harus paling bawah -->
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <a href="../index/index.html">KAKAO</a>
+                <p>SISTEM INFORMASI<br>PRODUSEN KAKAO</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="index.html" class="active">Dashboard</a>
+                <a href="../index/index.html">Produk</a>
+                <a href="../form/index.html">Tambah Produk</a>
+                <a href="#">Pesanan</a>
+                <a href="#">Customer</a>
+            </nav>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <p class="topbar-label">ADMIN AREA</p>
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="admin-info">
+                    <strong>Admin KAKAO</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </header>
+
+
+            <section class="welcome">
+
+                <p class="section-label">DASHBOARD ADMIN</p>
+
+                <h2>
+                    Kelola data kakao
+                    <span>lebih terstruktur.</span>
+                </h2>
+
+                <p>
+                    Pantau produk, pesanan, dan data customer
+                    melalui sistem informasi manajemen produsen kakao.
+                </p>
+
+            </section>
+
+
+            <section class="stats">
+
+                <div class="stat-card">
+                    <p>Total Produk</p>
+                    <h3>12</h3>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Pesanan</p>
+                    <h3>28</h3>
+                </div>
+
+                <div class="stat-card">
+                    <p>Customer</p>
+                    <h3>18</h3>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Penjualan</p>
+                    <h3>8,5 Juta</h3>
+                </div>
+
+            </section>
+
+
+            <section class="dashboard-content">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-label">PESANAN</p>
+                            <h2>Pesanan Terbaru</h2>
+                        </div>
+
+                        <a href="#" class="view-all">
+                            Lihat Semua →
+                        </a>
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Produk</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Customer 01</td>
+                                    <td>Cocoa Bean A</td>
+                                    <td>
+                                        <span class="status process">
+                                            Diproses
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Customer 02</td>
+                                    <td>Cocoa Bean B</td>
+                                    <td>
+                                        <span class="status done">
+                                            Selesai
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Customer 03</td>
+                                    <td>Cocoa Bean C</td>
+                                    <td>
+                                        <span class="status process">
+                                            Diproses
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel quick-menu">
+
+                    <p class="section-label">MENU</p>
+
+                    <h2>Akses Cepat</h2>
+
+                    <div class="quick-links">
+
+                        <a href="../form/index.html">
+                            <span>01</span>
+                            Tambah Produk →
+                        </a>
+
+                        <a href="../index/index.html">
+                            <span>02</span>
+                            Lihat Produk →
+                        </a>
+
+                        <a href="#">
+                            <span>03</span>
+                            Lihat Pesanan →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="../index/index.html" class="footer-logo">
+                    KAKAO
+                </a>
+
+                <p>
+                    Sistem informasi untuk membantu pengelolaan
+                    penjualan kakao secara terstruktur,
+                    transparan, dan mudah dipantau.
+                </p>
+
+            </div>
+
+
+            <div class="footer-info">
+
+                <div>
+                    <h4>Menu</h4>
+                    <a href="index.html">Dashboard</a>
+                    <a href="../index/index.html">Products</a>
+                </div>
+
+                <div>
+                    <h4>Admin</h4>
+                    <a href="../form/index.html">Tambah Produk</a>
+                    <a href="#">Pesanan</a>
+                </div>
+
+                <div>
+                    <h4>Informasi</h4>
+                    <p>Indonesia</p>
+                    <p>info@kakao.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>© 2026 KAKAO</p>
+
+            <p>
+                Sistem Informasi Manajemen Produsen Kakao
+            </p>
+
+        </div>
+
+    </footer>
+
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
