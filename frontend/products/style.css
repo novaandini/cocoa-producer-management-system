@@ -32,6 +32,10 @@ button {
    NAVBAR
 ========================= */
 
+/* =========================
+   NAVBAR
+========================= */
+
 .header {
     width: 100%;
     background-color: #fffdf9;
@@ -69,91 +73,30 @@ button {
 }
 
 
-/* MENU */
+/* BACK HOME */
 
-.nav-menu {
+.back-home {
     display: flex;
     align-items: center;
-    gap: 35px;
-}
 
-.nav-menu a {
-    position: relative;
-
-    padding: 30px 0;
+    padding: 10px 16px;
 
     color: #59483c;
 
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.nav-menu a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 21px;
-
-    width: 0;
-    height: 2px;
-
-    background-color: #8c5432;
-
-    transition: 0.3s;
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: #8c5432;
-}
-
-.nav-menu a:hover::after,
-.nav-menu a.active::after {
-    width: 100%;
-}
-
-
-/* NAV ACTION */
-
-.nav-action {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.login-link {
-    color: #4d3a2e;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.login-link:hover {
-    color: #9b5d36;
-}
-
-.shop-button {
-    padding: 12px 20px;
-
-    background-color: #3b2416;
-    color: #ffffff;
-
+    border: 1px solid #ded1c7;
     border-radius: 6px;
 
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: 600;
 
     transition: 0.3s;
 }
 
-.shop-button:hover {
-    background-color: #75482c;
+.back-home:hover {
+    background-color: #3b2416;
+    border-color: #3b2416;
+
+    color: #ffffff;
 }
 
 
