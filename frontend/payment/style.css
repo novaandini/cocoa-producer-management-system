@@ -1062,6 +1062,8 @@ a {
 /* ========================================= */
 
 .success-actions {
+    margin-top: 30px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1069,8 +1071,12 @@ a {
     gap: 14px;
 }
 
-.home-button,
-.tracking-button {
+.success-actions .home-button,
+.success-actions .tracking-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 13px 20px;
 
     border-radius: 6px;
@@ -1078,27 +1084,39 @@ a {
     font-size: 11px;
     font-weight: bold;
 
+    text-decoration: none;
+
+    cursor: pointer;
+
     transition: 0.3s;
 }
 
-.home-button {
+.success-actions .home-button {
     border: 1px solid #3b2416;
+
+    background-color: #ffffff;
 
     color: #3b2416;
 }
 
-.home-button:hover {
+.success-actions .home-button:hover {
     background-color: #f7f1ec;
+
+    color: #3b2416;
 }
 
-.tracking-button {
+.success-actions .tracking-button {
+    border: 1px solid #3b2416;
+
     background-color: #3b2416;
 
     color: #ffffff;
 }
 
-.tracking-button:hover {
+.success-actions .tracking-button:hover {
+    border-color: #75482c;
+
     background-color: #75482c;
+
+    color: #ffffff;
 }
-
-
