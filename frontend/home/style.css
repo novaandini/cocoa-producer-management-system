@@ -146,25 +146,33 @@ img {
     color: #9b5d36;
 }
 
-.shop-button {
-    padding: 12px 20px;
+.nav-action {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.masuk-button {
+    padding: 11px 22px;
 
     background-color: #3b2416;
-
     color: #ffffff;
 
-    font-size: 12px;
-    font-weight: bold;
+    border-radius: 6px;
 
-    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
 
     transition: 0.3s;
 }
 
-.shop-button:hover {
+.masuk-button:hover {
     background-color: #75482c;
-}
 
+    transform: translateY(-1px);
+}
 
 /* ========================================= */
 /* HERO */
