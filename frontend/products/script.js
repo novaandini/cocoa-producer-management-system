@@ -1,52 +1,121 @@
-/* =========================
-   PRODUCTS PAGE
-========================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
-       PRODUCT CARDS
+       FILTER PRODUK
     ========================= */
 
-    const productCards = document.querySelectorAll(".product-card");
+    const filterButtons =
+        document.querySelectorAll(".filter-button");
 
-    productCards.forEach(function (card) {
+    const productCards =
+        document.querySelectorAll(".product-card");
 
-        card.addEventListener("mouseenter", function () {
-            card.classList.add("is-hovered");
-        });
+    const catalogCount =
+        document.getElementById("catalogCount");
 
-        card.addEventListener("mouseleave", function () {
-            card.classList.remove("is-hovered");
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            /* Hapus active dari semua tombol */
+
+            filterButtons.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+
+            /* Tambahkan active ke tombol yang dipilih */
+
+            button.classList.add("active");
+
+
+            /* Ambil jenis filter */
+
+            const selectedFilter =
+                button.getAttribute("data-filter");
+
+
+            let visibleProducts = 0;
+
+
+            /* Filter produk */
+
+            productCards.forEach(function (card) {
+
+                const productType =
+                    card.getAttribute("data-type");
+
+
+                if (
+                    selectedFilter === "all" ||
+                    productType === selectedFilter
+                ) {
+
+                    card.classList.remove("hidden");
+
+                    visibleProducts++;
+
+                } else {
+
+                    card.classList.add("hidden");
+
+                }
+
+            });
+
+
+            /* Update jumlah produk */
+
+            if (visibleProducts === 1) {
+
+                catalogCount.textContent =
+                    "1 Produk tersedia";
+
+            } else {
+
+                catalogCount.textContent =
+                    visibleProducts + " Produk tersedia";
+
+            }
+
         });
 
     });
 
 
     /* =========================
-       PRODUCT DETAIL LINKS
+       DETAIL PRODUCT
     ========================= */
 
-    const detailLinks = document.querySelectorAll(".product-bottom a");
+    const detailLinks =
+        document.querySelectorAll(".detail-button");
+
 
     detailLinks.forEach(function (link) {
 
         link.addEventListener("click", function () {
 
-            const productCard = link.closest(".product-card");
+            const productCard =
+                link.closest(".product-card");
+
 
             if (!productCard) {
                 return;
             }
 
+
             const productName =
                 productCard.querySelector("h3");
 
+
             if (productName) {
+
                 console.log(
                     "Membuka detail:",
                     productName.textContent.trim()
                 );
+
             }
 
         });
@@ -55,31 +124,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       SIMPLE SCROLL EFFECT
+       CARD ANIMATION
     ========================= */
 
-    const productSection = document.querySelector(".products");
+    const productGrid =
+        document.querySelector(".product-grid");
 
-    if (productSection) {
 
-        const observer = new IntersectionObserver(
-            function (entries) {
+    if (productGrid) {
 
-                entries.forEach(function (entry) {
+        const cards =
+            productGrid.querySelectorAll(".product-card");
 
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
 
-                });
+        cards.forEach(function (card, index) {
 
-            },
-            {
-                threshold: 0.1
-            }
-        );
+            card.style.opacity = "0";
+            card.style.transform = "translateY(15px)";
 
-        observer.observe(productSection);
+
+            setTimeout(function () {
+
+                card.style.transition =
+                    "opacity 0.5s ease, transform 0.5s ease";
+
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+
+            }, 100 + (index * 120));
+
+        });
+
     }
 
 });
