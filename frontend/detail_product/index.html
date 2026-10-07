@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
 
@@ -9,6 +9,7 @@
     <title>Product Detail - KAKAO</title>
 
     <link rel="icon" href="data:,">
+
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,21 +20,32 @@
 
     <!-- ================= NAVBAR ================= -->
 
- <header class="header">
+    <header class="header">
 
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <a href="../home/index.html" class="logo">
-            <img src="../home/logo-kakao.png" alt="Logo KAKAO">
-        </a>
+            <a
+                href="../home/index.html"
+                class="logo">
 
-        <a href="../home/index.html" class="back-home">
-            ← Kembali ke Home
-        </a>
+                <img
+                    src="../home/logo-kakao.png"
+                    alt="Logo KAKAO">
 
-    </nav>
+            </a>
 
-</header>
+
+            <a
+                href="../home/index.html"
+                class="back-home">
+
+                ← Kembali ke Home
+
+            </a>
+
+        </nav>
+
+    </header>
 
 
 
@@ -42,65 +54,79 @@
     <main>
 
 
-        <!-- PRODUCT DETAIL -->
+        <!-- ================= PRODUCT DETAIL ================= -->
 
         <section class="product-detail">
 
 
-            <!-- IMAGE -->
+            <!-- ================= IMAGE ================= -->
 
             <div class="detail-image">
 
                 <img
                     id="productImage"
                     src="../home/cocoa-bean-a.jpg"
-                    alt="Cocoa Bean A"
-                >
+                    alt="Cocoa Bean A">
 
                 <span
                     class="detail-badge"
-                    id="productBadge"
-                >
+                    id="productBadge">
+
                     GRADE A
+
                 </span>
 
             </div>
 
 
 
-            <!-- INFORMATION -->
+            <!-- ================= INFORMATION ================= -->
 
             <div class="detail-content">
 
 
+                <!-- CATEGORY -->
+
                 <p
                     class="section-label"
-                    id="productCategory"
-                >
+                    id="productCategory">
+
                     FERMENTASI
+
                 </p>
 
 
+
+                <!-- PRODUCT NAME -->
+
                 <h1 id="productName">
+
                     Cocoa Bean A
+
                 </h1>
 
 
+
+                <!-- DESCRIPTION -->
+
                 <p
                     class="detail-description"
-                    id="productDescription"
-                >
+                    id="productDescription">
+
                     Biji kakao fermentasi dengan kualitas Grade A
                     yang diproses untuk menghasilkan kualitas kakao
                     yang baik dan sesuai kebutuhan.
+
                 </p>
 
 
 
-                <!-- INFORMATION -->
+                <!-- ================= PRODUCT INFORMATION ================= -->
 
                 <div class="detail-information">
 
+
+                    <!-- GRADE -->
 
                     <div>
 
@@ -109,11 +135,16 @@
                         </span>
 
                         <strong id="productGrade">
+
                             A
+
                         </strong>
 
                     </div>
 
+
+
+                    <!-- TYPE -->
 
                     <div>
 
@@ -122,11 +153,16 @@
                         </span>
 
                         <strong id="productType">
+
                             Fermentasi
+
                         </strong>
 
                     </div>
 
+
+
+                    <!-- STOCK -->
 
                     <div>
 
@@ -135,10 +171,13 @@
                         </span>
 
                         <strong>
+
                             <span id="productStock">
                                 500
                             </span>
+
                             kg
+
                         </strong>
 
                     </div>
@@ -148,25 +187,31 @@
 
 
 
-                <!-- ORDER -->
+                <!-- ================= ORDER ================= -->
 
                 <div class="order-box">
 
 
+                    <!-- QUANTITY -->
+
                     <div class="quantity-area">
 
                         <label for="quantity">
+
                             Jumlah
+
                         </label>
 
 
                         <div class="quantity-control">
 
+
                             <button
                                 type="button"
-                                id="minus"
-                            >
+                                id="minus">
+
                                 −
+
                             </button>
 
 
@@ -175,15 +220,17 @@
                                 id="quantity"
                                 value="1"
                                 min="1"
-                            >
+                                max="500">
 
 
                             <button
                                 type="button"
-                                id="plus"
-                            >
+                                id="plus">
+
                                 +
+
                             </button>
+
 
                         </div>
 
@@ -191,12 +238,15 @@
 
 
 
+                    <!-- ORDER BUTTON -->
+
                     <a
                         href="../checkout/index.html"
                         class="order-button"
-                        id="orderButton"
-                    >
+                        id="orderButton">
+
                         Pesan Sekarang
+
                     </a>
 
 
@@ -204,18 +254,23 @@
 
 
 
-                <!-- TRACEABILITY -->
+                <!-- ================= TRACEABILITY NOTE ================= -->
 
                 <div class="trace-note">
+
 
                     <span>
                         ✓
                     </span>
 
+
                     <p>
+
                         Informasi produk dan proses pemesanan
                         dapat dipantau melalui sistem.
+
                     </p>
+
 
                 </div>
 
@@ -231,33 +286,51 @@
         <section class="detail-description-section">
 
 
+            <!-- TITLE -->
+
             <div class="description-title">
 
+
                 <p class="section-label">
+
                     INFORMASI PRODUK
+
                 </p>
 
+
                 <h2>
+
                     Detail Produk
+
                 </h2>
+
 
             </div>
 
 
+
+            <!-- TEXT -->
+
             <div class="description-text">
 
+
                 <p id="descriptionOne">
+
                     Cocoa Bean A merupakan biji kakao fermentasi
                     dengan kualitas Grade A. Produk ini tersedia
                     dalam jumlah stok 500 kg.
+
                 </p>
 
 
                 <p id="descriptionTwo">
+
                     Customer dapat menentukan jumlah produk yang
                     ingin dipesan sebelum melanjutkan ke halaman
                     checkout.
+
                 </p>
+
 
             </div>
 
@@ -266,13 +339,17 @@
 
 
 
-        <!-- ================= BACK ================= -->
+        <!-- ================= BACK TO PRODUCTS ================= -->
 
         <section class="back-products">
 
+
             <a href="../products/index.html">
+
                 ← Kembali ke Produk
+
             </a>
+
 
         </section>
 
@@ -289,25 +366,34 @@
         <div class="footer-main">
 
 
+            <!-- ================= FOOTER BRAND ================= -->
+
             <div class="footer-brand">
+
 
                 <a
                     href="../home/index.html"
-                    class="footer-logo"
-                >
+                    class="footer-logo">
+
                     KAKAO
+
                 </a>
 
 
                 <p>
+
                     Sistem informasi untuk membantu pengelolaan
                     penjualan kakao secara terstruktur,
                     transparan, dan mudah dipantau.
+
                 </p>
+
 
             </div>
 
 
+
+            <!-- ================= FOOTER LINKS ================= -->
 
             <div class="footer-links">
 
@@ -317,19 +403,30 @@
                 <div>
 
                     <h4>
+
                         Menu
+
                     </h4>
 
+
                     <a href="../home/index.html">
+
                         Home
+
                     </a>
+
 
                     <a href="../products/index.html">
+
                         Products
+
                     </a>
 
+
                     <a href="../home/index.html#about">
+
                         About
+
                     </a>
 
                 </div>
@@ -341,19 +438,30 @@
                 <div>
 
                     <h4>
+
                         Informasi
+
                     </h4>
 
-                    <a href="../home/index.html#process">
+
+                    <a href="../traceability/index.html">
+
                         Traceability
+
                     </a>
+
 
                     <a href="../login/index.html">
+
                         Login
+
                     </a>
 
+
                     <a href="../checkout/index.html">
+
                         Checkout
+
                     </a>
 
                 </div>
@@ -365,15 +473,23 @@
                 <div>
 
                     <h4>
+
                         Kontak
+
                     </h4>
 
-                    <p>
-                        info@kakao.com
-                    </p>
 
                     <p>
+
+                        info@kakao.com
+
+                    </p>
+
+
+                    <p>
+
                         Indonesia
+
                     </p>
 
                 </div>
@@ -386,17 +502,24 @@
 
 
 
-        <!-- FOOTER BOTTOM -->
+        <!-- ================= FOOTER BOTTOM ================= -->
 
         <div class="footer-bottom">
 
-            <p>
-                © 2026 KAKAO
-            </p>
 
             <p>
-                Sistem Informasi Manajemen Produsen Kakao
+
+                © 2026 KAKAO
+
             </p>
+
+
+            <p>
+
+                Sistem Informasi Manajemen Produsen Kakao
+
+            </p>
+
 
         </div>
 
@@ -405,7 +528,10 @@
 
 
 
+    <!-- ================= JAVASCRIPT ================= -->
+
     <script src="script.js"></script>
+
 
 </body>
 
