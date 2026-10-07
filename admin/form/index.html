@@ -1,15 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Form</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- html di sini -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Form</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<aside class="sidebar">
+			<div class="sidebar-logo">
+				<a href="../index/index.html">KAKAO</a>
+				<p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
+			</div>
 
-    <!-- script harus paling bawah -->
-    <script src="script.js"></script>
-</body>
+			<nav class="sidebar-menu">
+			<a href="../dashboard/index.html">Dashboard</a>
+			<a href="../index/index.html">Produk</a>
+			<a href="index.html" class="active">Tambah Produk</a>
+			<a href="#">Pesanan</a>
+			<a href="#">Customer</a>
+			</nav>
+		</aside>
+
+		<header class="topbar">
+			<div>
+				<p class="topbar-label">ADMIN AREA</p>
+				<h1>Form</h1>
+			</div>
+
+			<div class="admin-info">
+				<strong>Admin KAKAO</strong>
+				<span>Administrator</span>
+			</div>
+		</header>
+
+		<main>
+
+			<section class="welcome">
+
+				<p class="section-label">DASHBOARD ADMIN</p>
+
+				<h2>
+					Kelola data kakao
+					<span>lebih terstruktur.</span>
+				</h2>
+
+				<p>
+					Kelola produk, pesanan, dan data customer
+					melalui sistem informasi manajemen produsen kakao.
+				</p>
+
+			</section>
+
+			<section class="form">
+			<!-- Text -->
+				<div class="input-text">
+					<label for="inputText">Input Text</label>
+					<input type="text" name="inputText" id="inputText" />
+				</div>
+
+				<!-- Password -->
+				<div class="input-password">
+					<label for="inputPassword">Password</label>
+					<input type="password" name="inputPassword" id="inputPassword" />
+				</div>
+
+				<!-- Number -->
+				<div class="input-number">
+					<label for="inputNumber">Input Number</label>
+					<input type="number" name="inputNumber" id="inputNumber" />
+				</div>
+
+				<!-- Email -->
+				<div class="input-email">
+					<label for="inputEmail">Email</label>
+					<input type="email" name="inputEmail" id="inputEmail" />
+				</div>
+
+				<!-- Telephone -->
+				<div class="input-tel">
+					<label for="inputTel">Nomor Telepon</label>
+					<input type="tel" name="inputTel" id="inputTel" />
+				</div>
+
+				<!-- URL -->
+				<div class="input-url">
+					<label for="inputUrl">Website</label>
+					<input type="url" name="inputUrl" id="inputUrl" />
+				</div>
+
+				<!-- Search -->
+				<div class="input-search">
+					<label for="inputSearch">Search</label>
+					<input type="search" name="inputSearch" id="inputSearch" />
+				</div>
+
+				<!-- Date -->
+				<div class="input-date">
+					<label for="inputDate">Tanggal</label>
+					<input type="date" name="inputDate" id="inputDate" />
+				</div>
+
+				<!-- Time -->
+				<div class="input-time">
+					<label for="inputTime">Waktu</label>
+					<input type="time" name="inputTime" id="inputTime" />
+				</div>
+
+				<!-- Date Time Local -->
+				<div class="input-datetime">
+					<label for="inputDateTime">Tanggal dan Waktu</label>
+					<input
+					type="datetime-local"
+					name="inputDateTime"
+					id="inputDateTime"
+					/>
+				</div>
+
+				<!-- Month -->
+				<div class="input-month">
+					<label for="inputMonth">Bulan</label>
+					<input type="month" name="inputMonth" id="inputMonth" />
+				</div>
+
+				<!-- Week -->
+				<div class="input-week">
+					<label for="inputWeek">Minggu</label>
+					<input type="week" name="inputWeek" id="inputWeek" />
+				</div>
+
+				<!-- Color -->
+				<div class="input-color">
+					<label for="inputColor">Warna</label>
+					<input type="color" name="inputColor" id="inputColor" />
+				</div>
+
+				<!-- Range -->
+				<div class="input-range">
+					<label for="inputRange">Range</label>
+					<input
+					type="range"
+					name="inputRange"
+					id="inputRange"
+					min="0"
+					max="100"
+					/>
+				</div>
+
+				<!-- Checkbox -->
+				<div class="input-checkbox">
+					<label>Hobi</label>
+					<input type="checkbox" name="hobi" value="coding" id="coding" />
+					<label for="coding">Coding</label>
+
+					<input type="checkbox" name="hobi" value="gaming" id="gaming" />
+					<label for="gaming">Gaming</label>
+
+					<input type="checkbox" name="hobi" value="music" id="music" />
+					<label for="music">Musik</label>
+				</div>
+
+				<!-- Radio -->
+				<div class="input-radio">
+					<label>Jenis Kelamin</label>
+
+					<input type="radio" name="gender" value="laki-laki" id="laki" />
+					<label for="laki">Laki-laki</label>
+
+					<input
+					type="radio"
+					name="gender"
+					value="perempuan"
+					id="perempuan"
+					/>
+					<label for="perempuan">Perempuan</label>
+				</div>
+
+				<!-- File -->
+				<div class="input-file">
+					<label for="inputFile">Upload File</label>
+					<input type="file" name="inputFile" id="inputFile" />
+				</div>
+				<!-- Textarea -->
+				<div class="form-group">
+					<label for="description">Deskripsi</label>
+					<textarea 
+						name="description" 
+						id="description" 
+						rows="5" 
+						cols="30"
+						placeholder="Tulis deskripsi di sini..."
+					></textarea>
+				</div>
+
+				<!-- Select -->
+				<div class="form-group">
+					<label for="city">Kota</label>
+					<select name="city" id="city">
+						<option value="">-- Pilih Kota --</option>
+						<option value="denpasar">Denpasar</option>
+						<option value="badung">Badung</option>
+						<option value="gianyar">Gianyar</option>
+						<option value="tabanan">Tabanan</option>
+					</select>
+				</div>
+
+				<!-- Select dengan Optgroup -->
+				<div class="form-group">
+					<label for="food">Pilih Makanan</label>
+					<select name="food" id="food">
+						<option value="">-- Pilih Makanan --</option>
+
+						<optgroup label="Makanan Bali">
+							<option value="ayam_betutu">Ayam Betutu</option>
+							<option value="lawar">Lawar</option>
+							<option value="sate_lilit">Sate Lilit</option>
+						</optgroup>
+
+						<optgroup label="Makanan Indonesia">
+							<option value="nasi_goreng">Nasi Goreng</option>
+							<option value="rendang">Rendang</option>
+							<option value="gado_gado">Gado-gado</option>
+						</optgroup>
+					</select>
+				</div>
+
+				<!-- Datalist -->
+				<div class="form-group">
+					<label for="browser">Browser</label>
+					<input 
+						list="browsers" 
+						name="browser" 
+						id="browser"
+						placeholder="Ketik atau pilih browser"
+					>
+
+					<datalist id="browsers">
+						<option value="Google Chrome">
+						<option value="Mozilla Firefox">
+						<option value="Microsoft Edge">
+						<option value="Safari">
+						<option value="Opera">
+					</datalist>
+				</div>
+
+				<!-- Fieldset Radio -->
+				<fieldset>
+					<legend>Jenis Kelamin</legend>
+
+					<input type="radio" name="gender" value="male" id="male">
+					<label for="male">Laki-laki</label>
+
+					<input type="radio" name="gender" value="female" id="female">
+					<label for="female">Perempuan</label>
+				</fieldset>
+
+				<!-- Multiple Select -->
+				<div class="form-group">
+					<label for="skills">Keahlian</label>
+					<select name="skills" id="skills" multiple>
+						<option value="html">HTML</option>
+						<option value="css">CSS</option>
+						<option value="javascript">JavaScript</option>
+						<option value="php">PHP</option>
+						<option value="sql">SQL</option>
+					</select>
+				</div>
+
+				<!-- Fieldset dan Legend -->
+				<fieldset>
+					<legend>Data Pribadi</legend>
+
+					<div class="form-group">
+						<label for="fullname">Nama Lengkap</label>
+						<input type="text" name="fullname" id="fullname">
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email">
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Nomor Telepon</label>
+						<input type="tel" name="phone" id="phone">
+					</div>
+				</fieldset>
+
+				<!-- Tombol -->
+				<div class="form-buttons">
+					<button type="button">Button</button>
+					<button type="submit">Submit</button>
+					<button type="reset">Reset</button>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer-main">
+				<div class="footer-brand">
+				<a href="../index/index.html" class="footer-logo"> KAKAO </a>
+
+				<p>
+					Sistem informasi untuk membantu pengelolaan penjualan kakao secara
+					terstruktur, transparan, dan mudah dipantau.
+				</p>
+				</div>
+
+				<div class="footer-info">
+				<div>
+					<h4>Menu</h4>
+					<a href="index.html">Dashboard</a>
+					<a href="../index/index.html">Products</a>
+				</div>
+
+				<div>
+					<h4>Admin</h4>
+					<a href="../form/index.html">Tambah Produk</a>
+					<a href="#">Pesanan</a>
+				</div>
+
+				<div>
+					<h4>Informasi</h4>
+					<p>Indonesia</p>
+					<p>info@kakao.com</p>
+				</div>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 KAKAO</p>
+
+				<p>Sistem Informasi Manajemen Produsen Kakao</p>
+			</div>
+		</footer>
+
+		<!-- script harus paling bawah -->
+		<script src="script.js"></script>
+	</body>
 </html>
