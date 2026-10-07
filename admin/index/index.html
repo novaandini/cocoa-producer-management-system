@@ -7,8 +7,197 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- html di sini -->
-    
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="../index/index.html">KAKAO</a>
+            <p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
+        </div>
+
+        <nav class="sidebar-menu">
+        <a href="../dashboard/index.html">Dashboard</a>
+        <a href="index.html" class="active">Produk</a>
+        <a href="../form/index.html">Tambah Produk</a>
+        <a href="#">Pesanan</a>
+        <a href="#">Customer</a>
+        </nav>
+    </aside>
+
+    <header class="topbar">
+        <div>
+            <p class="topbar-label">ADMIN AREA</p>
+            <h1>List</h1>
+        </div>
+
+        <div class="admin-info">
+            <strong>Admin KAKAO</strong>
+            <span>Products</span>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="welcome">
+
+            <p class="section-label">DASHBOARD ADMIN</p>
+
+            <h2>
+                Kelola data kakao
+                <span>lebih terstruktur.</span>
+            </h2>
+
+            <p>
+                Kelola produk, pesanan, dan data customer
+                melalui sistem informasi manajemen produsen kakao.
+            </p>
+
+        </section>
+
+        <section class="admin-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h2>Products List</h2>
+
+                    <p>
+                        16 products registered
+                    </p>
+                </div>
+
+                <a href="#" class="add-admin">
+                    + Add Product
+                </a>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="list-toolbar">
+
+                <div class="search-box">
+
+                    <label for="searchAdmin">
+                        Search products
+                    </label>
+
+                    <input
+                        type="search"
+                        id="searchAdmin"
+                        placeholder="Search by name or email..."
+                    >
+
+                </div>
+
+                <div class="filter-box">
+
+                    <label for="gradeFilter">
+                        Grade
+                    </label>
+
+                    <select id="gradeFilter">
+
+                        <option value="">
+                            All Grades
+                        </option>
+
+                        <option value="a">
+                            Grade A
+                        </option>
+
+                        <option value="b">
+                            Grade B
+                        </option>
+
+                        <option value="c">
+                            Grade C
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-wrapper">
+                <table class="product-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product</th>
+                            <th>Type</th>
+                            <th>Grade</th>
+                            <th>Stock</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTableBody">
+                        <!-- Data products akan dimasukkan oleh JavaScript -->
+                    </tbody>
+
+                </table>
+            </div>
+
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+
+                <span>
+                    Showing 1–5 of 8
+                </span>
+
+                <div>
+                    <!-- Tombol dibuat oleh JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+            <a href="../index/index.html" class="footer-logo"> KAKAO </a>
+
+            <p>
+                Sistem informasi untuk membantu pengelolaan penjualan kakao secara
+                terstruktur, transparan, dan mudah dipantau.
+            </p>
+            </div>
+
+            <div class="footer-info">
+            <div>
+                <h4>Menu</h4>
+                <a href="index.html">Dashboard</a>
+                <a href="../index/index.html">Products</a>
+            </div>
+
+            <div>
+                <h4>Admin</h4>
+                <a href="../form/index.html">Tambah Produk</a>
+                <a href="#">Pesanan</a>
+            </div>
+
+            <div>
+                <h4>Informasi</h4>
+                <p>Indonesia</p>
+                <p>info@kakao.com</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 KAKAO</p>
+
+            <p>Sistem Informasi Manajemen Produsen Kakao</p>
+        </div>
+    </footer>
+
     <!-- script harus paling bawah -->
     <script src="script.js"></script>
 </body>
