@@ -1,6 +1,6 @@
-/* ========================================= */
-/* PRODUCT DATA */
-/* ========================================= */
+/* =========================================
+   PRODUCT DATA
+========================================= */
 
 const products = {
 
@@ -19,7 +19,6 @@ const products = {
             "Cocoa Bean A merupakan biji kakao fermentasi dengan kualitas Grade A. Produk ini tersedia dalam jumlah stok 500 kg."
     },
 
-
     b: {
         name: "Cocoa Bean B",
         category: "FERMENTASI",
@@ -35,7 +34,6 @@ const products = {
             "Cocoa Bean B merupakan biji kakao fermentasi dengan kualitas Grade B. Produk ini tersedia dalam jumlah stok 800 kg."
     },
 
-
     c: {
         name: "Cocoa Bean C",
         category: "NON-FERMENTASI",
@@ -49,73 +47,232 @@ const products = {
 
         descriptionOne:
             "Cocoa Bean C merupakan biji kakao non-fermentasi dengan kualitas Grade C. Produk ini tersedia dalam jumlah stok 300 kg."
+    },
+
+    d: {
+        name: "Cocoa Bean D",
+        category: "FERMENTASI",
+        grade: "A",
+        type: "Fermentasi",
+        stock: 650,
+        image: "../home/cocoa-bean-d.jpg",
+
+        description:
+            "Biji kakao fermentasi Grade A dengan ketersediaan stok 650 kg.",
+
+        descriptionOne:
+            "Cocoa Bean D merupakan biji kakao fermentasi dengan kualitas Grade A. Produk ini tersedia dalam jumlah stok 650 kg."
+    },
+
+    e: {
+        name: "Cocoa Bean E",
+        category: "FERMENTASI",
+        grade: "B",
+        type: "Fermentasi",
+        stock: 450,
+        image: "../home/cocoa-bean-e.jpg",
+
+        description:
+            "Biji kakao fermentasi Grade B dengan ketersediaan stok 450 kg.",
+
+        descriptionOne:
+            "Cocoa Bean E merupakan biji kakao fermentasi dengan kualitas Grade B. Produk ini tersedia dalam jumlah stok 450 kg."
+    },
+
+    f: {
+        name: "Cocoa Bean F",
+        category: "NON-FERMENTASI",
+        grade: "B",
+        type: "Non-Fermentasi",
+        stock: 700,
+        image: "../home/cocoa-bean-f.png",
+
+        description:
+            "Biji kakao non-fermentasi Grade B dengan stok 700 kg.",
+
+        descriptionOne:
+            "Cocoa Bean F merupakan biji kakao non-fermentasi dengan kualitas Grade B. Produk ini tersedia dalam jumlah stok 700 kg."
+    },
+
+    g: {
+        name: "Cocoa Bean G",
+        category: "FERMENTASI",
+        grade: "C",
+        type: "Fermentasi",
+        stock: 350,
+        image: "../home/cocoa-bean-g.jpg",
+
+        description:
+            "Biji kakao fermentasi Grade C dengan ketersediaan stok 350 kg.",
+
+        descriptionOne:
+            "Cocoa Bean G merupakan biji kakao fermentasi dengan kualitas Grade C. Produk ini tersedia dalam jumlah stok 350 kg."
+    },
+
+    h: {
+        name: "Cocoa Bean H",
+        category: "NON-FERMENTASI",
+        grade: "A",
+        type: "Non-Fermentasi",
+        stock: 550,
+        image: "../home/cocoa-bean-h.jpg",
+
+        description:
+            "Biji kakao non-fermentasi Grade A dengan stok 550 kg.",
+
+        descriptionOne:
+            "Cocoa Bean H merupakan biji kakao non-fermentasi dengan kualitas Grade A. Produk ini tersedia dalam jumlah stok 550 kg."
     }
 
 };
 
 
 
-/* ========================================= */
-/* GET PRODUCT */
-/* ========================================= */
+/* =========================================
+   GET PRODUCT ID FROM URL
+========================================= */
 
-const urlParams = new URLSearchParams(
-    window.location.search
-);
+const urlParams =
+    new URLSearchParams(window.location.search);
 
-const productId = urlParams.get("product") || "a";
-
-const product = products[productId] || products.a;
+const productId =
+    urlParams.get("product");
 
 
 
-/* ========================================= */
-/* SHOW PRODUCT */
-/* ========================================= */
+/* =========================================
+   SELECT PRODUCT
+========================================= */
 
-document.getElementById("productImage").src =
-    product.image;
+// Jika URL berisi ?product=a
+// maka yang dipilih adalah products.a
+//
+// Jika URL berisi ?product=b
+// maka yang dipilih adalah products.b
+//
+// dan seterusnya.
 
-document.getElementById("productImage").alt =
-    product.name;
-
-
-document.getElementById("productBadge").textContent =
-    `GRADE ${product.grade}`;
-
-
-document.getElementById("productCategory").textContent =
-    product.category;
-
-
-document.getElementById("productName").textContent =
-    product.name;
-
-
-document.getElementById("productDescription").textContent =
-    product.description;
-
-
-document.getElementById("productGrade").textContent =
-    product.grade;
-
-
-document.getElementById("productType").textContent =
-    product.type;
-
-
-document.getElementById("productStock").textContent =
-    product.stock;
-
-
-document.getElementById("descriptionOne").textContent =
-    product.descriptionOne;
+const product =
+    products[productId] || products.a;
 
 
 
-/* ========================================= */
-/* QUANTITY */
-/* ========================================= */
+/* =========================================
+   PRODUCT ELEMENTS
+========================================= */
+
+const productImage =
+    document.getElementById("productImage");
+
+const productBadge =
+    document.getElementById("productBadge");
+
+const productCategory =
+    document.getElementById("productCategory");
+
+const productName =
+    document.getElementById("productName");
+
+const productDescription =
+    document.getElementById("productDescription");
+
+const productGrade =
+    document.getElementById("productGrade");
+
+const productType =
+    document.getElementById("productType");
+
+const productStock =
+    document.getElementById("productStock");
+
+const descriptionOne =
+    document.getElementById("descriptionOne");
+
+
+
+/* =========================================
+   DISPLAY PRODUCT
+========================================= */
+
+if (productImage) {
+
+    productImage.src =
+        product.image;
+
+    productImage.alt =
+        product.name;
+
+}
+
+
+if (productBadge) {
+
+    productBadge.textContent =
+        `GRADE ${product.grade}`;
+
+}
+
+
+if (productCategory) {
+
+    productCategory.textContent =
+        product.category;
+
+}
+
+
+if (productName) {
+
+    productName.textContent =
+        product.name;
+
+}
+
+
+if (productDescription) {
+
+    productDescription.textContent =
+        product.description;
+
+}
+
+
+if (productGrade) {
+
+    productGrade.textContent =
+        product.grade;
+
+}
+
+
+if (productType) {
+
+    productType.textContent =
+        product.type;
+
+}
+
+
+if (productStock) {
+
+    productStock.textContent =
+        product.stock;
+
+}
+
+
+if (descriptionOne) {
+
+    descriptionOne.textContent =
+        product.descriptionOne;
+
+}
+
+
+
+/* =========================================
+   QUANTITY ELEMENTS
+========================================= */
 
 const quantityInput =
     document.getElementById("quantity");
@@ -128,70 +285,120 @@ const plusButton =
 
 
 
-/* MINUS */
+/* =========================================
+   SET MAX STOCK
+========================================= */
 
-minusButton.addEventListener("click", function () {
+if (quantityInput) {
 
-    let quantity =
-        parseInt(quantityInput.value);
+    quantityInput.max =
+        product.stock;
 
-    if (quantity > 1) {
-
-        quantityInput.value =
-            quantity - 1;
-
-    }
-
-});
+}
 
 
 
-/* PLUS */
+/* =========================================
+   MINUS BUTTON
+========================================= */
 
-plusButton.addEventListener("click", function () {
+if (minusButton && quantityInput) {
 
-    let quantity =
-        parseInt(quantityInput.value);
+    minusButton.addEventListener(
+        "click",
+        function () {
 
-    if (quantity < product.stock) {
+            let quantity =
+                parseInt(quantityInput.value);
 
-        quantityInput.value =
-            quantity + 1;
+            if (
+                isNaN(quantity) ||
+                quantity <= 1
+            ) {
 
-    }
+                quantityInput.value = 1;
 
-});
+                return;
 
-
-
-/* ========================================= */
-/* INPUT LIMIT */
-/* ========================================= */
-
-quantityInput.addEventListener(
-    "input",
-    function () {
-
-        let quantity =
-            parseInt(quantityInput.value);
-
-
-        if (
-            isNaN(quantity) ||
-            quantity < 1
-        ) {
-
-            quantityInput.value = 1;
-
-        }
-
-
-        if (quantity > product.stock) {
+            }
 
             quantityInput.value =
-                product.stock;
+                quantity - 1;
 
         }
+    );
 
-    }
-);
+}
+
+
+
+/* =========================================
+   PLUS BUTTON
+========================================= */
+
+if (plusButton && quantityInput) {
+
+    plusButton.addEventListener(
+        "click",
+        function () {
+
+            let quantity =
+                parseInt(quantityInput.value);
+
+            if (isNaN(quantity)) {
+
+                quantity = 1;
+
+            }
+
+            if (quantity < product.stock) {
+
+                quantityInput.value =
+                    quantity + 1;
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   MANUAL QUANTITY INPUT
+========================================= */
+
+if (quantityInput) {
+
+    quantityInput.addEventListener(
+        "input",
+        function () {
+
+            let quantity =
+                parseInt(quantityInput.value);
+
+
+            if (
+                isNaN(quantity) ||
+                quantity < 1
+            ) {
+
+                quantityInput.value = 1;
+
+                return;
+
+            }
+
+
+            if (quantity > product.stock) {
+
+                quantityInput.value =
+                    product.stock;
+
+            }
+
+        }
+    );
+
+}
