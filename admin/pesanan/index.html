@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Admin - KAKAO</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="stylesheet" href="../dashboard/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="../../frontend/home/index.html">KAKAO</a>
+            <p>SISTEM INFORMASI<br>PRODUSEN KAKAO</p>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="../dashboard/index.html">Beranda</a>
+            <a href="../index/index.html">Produk</a>
+            <a href="../form/index.html">Tambah Produk</a>
+            <a href="index.html" class="active">Pesanan</a>
+            <a href="../customer/index.html">Pelanggan</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="topbar-label">AREA ADMIN</p>
+                <h1>Pesanan</h1>
+            </div>
+
+            <div class="admin-info">
+                <strong>Admin KAKAO</strong>
+                <span>Administrator</span>
+            </div>
+        </header>
+
+        <section class="welcome">
+            <p class="section-label">MANAJEMEN PESANAN</p>
+
+            <h2>
+                Kelola pesanan
+                <span>pelanggan kakao.</span>
+            </h2>
+
+            <p>
+                Pantau pesanan pelanggan dan perbarui status
+                pesanan dengan mudah melalui halaman admin.
+            </p>
+        </section>
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Total Pesanan</p>
+                <h3>5</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Menunggu Pembayaran</p>
+                <h3>1</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Sedang Diproses</p>
+                <h3>2</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Pesanan Selesai</p>
+                <h3>1</h3>
+            </div>
+
+        </section>
+
+        <section class="panel orders-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <p class="section-label">DATA TRANSAKSI</p>
+                    <h2>Daftar Pesanan</h2>
+                </div>
+
+                <a href="../dashboard/index.html" class="view-all">
+                    ← Kembali ke Beranda
+                </a>
+            </div>
+
+            <div class="order-tools">
+                <input
+                    type="text"
+                    id="searchOrder"
+                    placeholder="Cari ID, customer, atau produk..."
+                    aria-label="Cari pesanan">
+
+                <select id="statusFilter" aria-label="Filter status">
+                    <option value="">Semua Status</option>
+                    <option value="Menunggu Pembayaran">Menunggu Pembayaran</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Dikirim">Dikirim</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Dibatalkan">Dibatalkan</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Pesanan</th>
+                            <th>Customer</th>
+                            <th>Produk</th>
+                            <th>Tanggal</th>
+                            <th>Total</th>
+                            <th>Status Pesanan</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="ordersTable">
+
+                        <tr>
+                            <td>ORD-001</td>
+                            <td>Customer 01</td>
+                            <td>Cocoa Bean A</td>
+                            <td>12-10-2026</td>
+                            <td>Rp 250.000</td>
+                            <td>
+                                <select class="order-status-select process">
+                                    <option>Menunggu Pembayaran</option>
+                                    <option selected>Diproses</option>
+                                    <option>Dikirim</option>
+                                    <option>Selesai</option>
+                                    <option>Dibatalkan</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ORD-002</td>
+                            <td>Customer 02</td>
+                            <td>Cocoa Bean B</td>
+                            <td>13-10-2026</td>
+                            <td>Rp 450.000</td>
+                            <td>
+                                <select class="order-status-select done">
+                                    <option>Menunggu Pembayaran</option>
+                                    <option>Diproses</option>
+                                    <option>Dikirim</option>
+                                    <option selected>Selesai</option>
+                                    <option>Dibatalkan</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ORD-003</td>
+                            <td>Customer 03</td>
+                            <td>Cocoa Bean C</td>
+                            <td>14-10-2026</td>
+                            <td>Rp 350.000</td>
+                            <td>
+                                <select class="order-status-select pending">
+                                    <option selected>Menunggu Pembayaran</option>
+                                    <option>Diproses</option>
+                                    <option>Dikirim</option>
+                                    <option>Selesai</option>
+                                    <option>Dibatalkan</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ORD-004</td>
+                            <td>Customer 04</td>
+                            <td>Cocoa Bean D</td>
+                            <td>14-10-2026</td>
+                            <td>Rp 500.000</td>
+                            <td>
+                                <select class="order-status-select process">
+                                    <option>Menunggu Pembayaran</option>
+                                    <option selected>Diproses</option>
+                                    <option>Dikirim</option>
+                                    <option>Selesai</option>
+                                    <option>Dibatalkan</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ORD-005</td>
+                            <td>Customer 05</td>
+                            <td>Cocoa Bean E</td>
+                            <td>14-10-2026</td>
+                            <td>Rp 300.000</td>
+                            <td>
+                                <select class="order-status-select cancelled">
+                                    <option>Menunggu Pembayaran</option>
+                                    <option>Diproses</option>
+                                    <option>Dikirim</option>
+                                    <option>Selesai</option>
+                                    <option selected>Dibatalkan</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <p id="emptyState">
+                    Tidak ada pesanan yang sesuai.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <a href="../../frontend/home/index.html" class="footer-logo">
+                KAKAO
+            </a>
+
+            <p>
+                Sistem informasi untuk membantu pengelolaan
+                penjualan kakao secara terstruktur,
+                transparan, dan mudah dipantau.
+            </p>
+        </div>
+
+        <div class="footer-info">
+
+            <div>
+                <h4>Menu</h4>
+                <a href="../dashboard/index.html">Beranda</a>
+                <a href="../index/index.html">Produk</a>
+            </div>
+
+            <div>
+                <h4>Admin</h4>
+                <a href="../form/index.html">Tambah Produk</a>
+                <a href="index.html">Pesanan</a>
+            </div>
+
+            <div>
+                <h4>Informasi</h4>
+                <p>Indonesia</p>
+                <p>info@kakao.com</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 KAKAO</p>
+        <p>Sistem Informasi Manajemen Produsen Kakao</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
