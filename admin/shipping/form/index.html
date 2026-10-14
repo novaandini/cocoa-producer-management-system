@@ -9,7 +9,7 @@
 	<body>
 		<aside class="sidebar">
 			<div class="sidebar-logo">
-				<a href="../../frontend/home/index.html">KAKAO</a>
+				<a href="../../../frontend/home/index.html">KAKAO</a>
 				<p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
 			</div>
 
@@ -40,34 +40,64 @@
 			<section class="form-card">
 				<div class="page-heading">
 					<div>
-						<h1>Akun</h1>
-						<div class="breadcrumb"><span>Admin</span><span>›</span><strong>Akun</strong></div>
+						<h1>Pengiriman</h1>
+						<div class="breadcrumb"><span>Admin</span><span>›</span><strong>Pengiriman</strong></div>
 					</div>
 				</div>
 			
 				<form action="" method="post" id="form" class="form">
-					<!-- Username -->
-					<div class="input-text">
-						<label for="username">Username</label>
-						<input type="text" name="username" id="username" />
+					<!-- ID Pemesanan -->
+					<div class="form-group">
+						<label for="order_id">ID Pemesanan</label>
+						<input type="text" name="order_id" id="order_id" />
 					</div>
 
-					<!-- Nama Lengkap -->
+					<!-- Nama Pemesan -->
 					<div class="input-text">
-						<label for="name">Nama Lengkap</label>
+						<label for="name">Nama Pemesan</label>
 						<input type="text" name="name" id="name" />
 					</div>
 
 					<!-- Email -->
 					<div class="input-text">
-						<label for="email">Email</label>
+						<label for="email">Email Pemesan</label>
 						<input type="email" name="email" id="email" />
 					</div>
 
 					<!-- Nomor Telepon -->
 					<div class="input-text">
-						<label for="phone_number">Nomor Telepon</label>
+						<label for="phone_number">Nomor Telepon Pemesan</label>
 						<input type="text" name="phone_number" id="phone_number" />
+					</div>
+
+					<!-- Nomor Pelacakan -->
+					<div class="input-text">
+						<label for="tracking_number">Nomor Pelacakan</label>
+						<input type="text" name="tracking_number" id="tracking_number" />
+					</div>
+
+					<!-- Status -->
+					<div class="form-group">
+						<label for="order_id">ID Pemesanan</label>
+						<select name="order_id" id="order_id">
+							<option value="">-- Pilih Status Pemesanan --</option>
+							<option value="delivered">Terkirim</option>
+							<option value="in_transit">Dalam Transit</option>
+							<option value="shipped">Sudah Terkirim</option>
+							<option value="processing">Proses Pengemasan</option>
+						</select>
+					</div>
+
+					<!-- Tanggal Pengiriman -->
+					<div class="input-date">
+						<label for="shipped_date">Tanggal Pengiriman</label>
+						<input type="date" name="shipped_date" id="shipped_date" />
+					</div>
+
+					<!-- Estimasi Selesai -->
+					<div class="input-date">
+						<label for="estimated_delivery">Estimasi Selesai</label>
+						<input type="date" name="estimated_delivery" id="estimated_delivery" />
 					</div>
 
 					<!-- Tombol -->
