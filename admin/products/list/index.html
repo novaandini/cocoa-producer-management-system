@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Admin Index</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="../../frontend/home/index.html">KAKAO</a>
+            <p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
+        </div>
+
+        <nav class="sidebar-menu">
+        <a href="../dashboard/index.html">Dashboard</a>
+        <a href="index.html" class="active">Produk</a>
+        <a href="../form/index.html">Tambah Produk</a>
+        <a href="#">Pesanan</a>
+        <a href="#">Customer</a>
+        </nav>
+    </aside>
+
+    <header class="topbar">
+        <div>
+            <p class="topbar-label">ADMIN AREA</p>
+            <h1>Produk</h1>
+        </div>
+
+        <div class="admin-info">
+            <strong>Admin KAKAO</strong>
+            <span>Produk</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-heading">
+            <div>
+                <h1>Produk</h1>
+                <div class="breadcrumb"><span>Admin</span><span>›</span><strong>Produk</strong></div>
+            </div>
+        </div>
+
+        <section class="toolbar" aria-label="Product filters">
+            <div class="filters">
+                <label class="filter-label">Tampilkan
+                    <select id="itemsPerPage" aria-label="Number of rows">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </label>
+                <select aria-label="Filter by category" id="categoryFilter">
+                    <option value="">Semua Kategori</option>
+                    <option value="Fermentasi">Fermentasi</option>
+                    <option value="Non-Fermentasi">Non-Fermentasi</option>
+                </select>
+                <select aria-label="Filter by grade" id="gradeFilter">
+                    <option value="">Semua Grade</option>
+                    <option value="a">Grade A</option>
+                    <option value="b">Grade B</option>
+                    <option value="c">Grade C</option>
+                </select>
+            </div>
+            <div class="table-actions">
+                <label class="product-search"><span>⌕</span><input type="search" name="search" id="search" placeholder="Search product"></label>
+                <a href="../form/index.html" class="add-button" aria-label="Add product" title="Add product">+ Tambah Produk</a>
+            </div>
+        </section>
+
+        <section class="table-card">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="id">ID <span class="sort">↕</span></th>
+                            <th data-sort="name">NAMA PRODUK <span class="sort">↕</span></th>
+                            <th data-sort="type">TIPE <span class="sort">↕</span></th>
+                            <th data-sort="grade">GRADE <span class="sort">↕</span></th>
+                            <th data-sort="stock">STOK <span class="sort">↕</span></th>
+                            <th>DESKRIPSI</th>
+                            <th class="action-cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer">
+                <span>Showing 1 to 1 of 1 item</span>
+                <div class="pagination">
+                    <button aria-label="Previous page">‹</button>
+                    <button class="current-page" aria-current="page">1</button>
+                    <button class="" aria-label="Next page">›</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 KAKAO
+        </p>
+
+        <p>
+            Sistem Informasi Penjualan dan Pemesanan Kakao
+        </p>
+
+    </footer>
+
+    <!-- script harus paling bawah -->
+    <script src="script.js"></script>
+</body>
+</html>
