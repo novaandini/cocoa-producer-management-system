@@ -402,3 +402,45 @@ if (quantityInput) {
     );
 
 }
+
+/* =========================================
+   CHECK LOGIN BEFORE CHECKOUT
+========================================= */
+
+const pesanButton =
+    document.getElementById("pesanButton");
+
+if (pesanButton) {
+
+    pesanButton.addEventListener(
+        "click",
+        function () {
+
+            const userRole =
+                localStorage.getItem("userRole");
+
+            if (userRole === "CUSTOMER") {
+
+                window.location.href =
+                    "../checkout/index.html";
+
+            } else {
+
+                sessionStorage.setItem(
+                    "redirectAfterLogin",
+                    "checkout"
+                );
+
+                alert(
+                    "Silakan masuk terlebih dahulu untuk melakukan pemesanan."
+                );
+
+                window.location.href =
+                    "../../admin/login/index.html";
+
+            }
+
+        }
+    );
+
+}
