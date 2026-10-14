@@ -1,0 +1,110 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pesanan - KAKAO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="../home/index.html" class="brand">
+            <img src="../home/logo-kakao.png" alt="Logo KAKAO">
+            <span>KAKAO</span>
+        </a>
+
+        <nav>
+            <a href="../home/index.html">Home</a>
+            <a href="../products/index.html">Produk</a>
+            <a href="index.html" class="active">Riwayat Pesanan</a>
+            <a href="../traceability/index.html">Traceability</a>
+        </nav>
+
+        <a href="../products/index.html" class="back-link">
+            ← Belanja Produk
+        </a>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="eyebrow">AREA CUSTOMER</p>
+            <h1>Riwayat <span>Pesanan</span></h1>
+            <p>
+                Pantau pesanan kakao, total pembayaran,
+                dan status pesanan Anda.
+            </p>
+        </section>
+
+        <section class="filters">
+            <div class="field">
+                <label for="searchOrder">Cari Pesanan</label>
+                <input
+                    type="search"
+                    id="searchOrder"
+                    placeholder="Nomor pesanan atau nama produk..."
+                >
+            </div>
+
+            <div class="field">
+                <label for="statusFilter">Status Pesanan</label>
+                <select id="statusFilter">
+                    <option value="all">Semua Status</option>
+                    <option value="Menunggu Pembayaran">Menunggu Pembayaran</option>
+                    <option value="Menunggu Verifikasi">Menunggu Verifikasi</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Dikirim">Dikirim</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="stats">
+            <article>
+                <span>Total Pesanan</span>
+                <strong id="totalOrders">0</strong>
+            </article>
+
+            <article>
+                <span>Menunggu Verifikasi</span>
+                <strong id="waitingOrders">0</strong>
+            </article>
+
+            <article>
+                <span>Total Nilai Pesanan</span>
+                <strong id="totalValue">Rp0</strong>
+            </article>
+        </section>
+
+        <section id="ordersList" class="orders-list"></section>
+
+        <section id="emptyState" class="empty-state">
+            <div class="empty-icon">▤</div>
+            <h2 id="emptyTitle">Belum Ada Riwayat Pesanan</h2>
+            <p id="emptyMessage">
+                Pesanan yang sudah dibuat akan muncul di sini.
+            </p>
+            <a href="../products/index.html" class="button primary">
+                Lihat Produk
+            </a>
+        </section>
+
+        <p class="notice">
+            Halaman ini menggunakan localStorage untuk demo frontend.
+            Data pesanan akan muncul apabila halaman Checkout dan Payment
+            menyimpan data menggunakan format yang sesuai.
+        </p>
+
+    </main>
+
+    <footer class="footer">
+        <span>© 2026 KAKAO</span>
+        <span>Sistem Informasi Manajemen Produsen Kakao</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
