@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Admin Index</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="../../frontend/home/index.html">KAKAO</a>
+            <p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="../../dashboard/index.html">Beranda</a>
+            <a href="" class="active">Pelanggan</a>
+            <a href="../../products/list/index.html">Produk</a>
+            <a href="../../pesanan/index.html">Pesanan</a>
+            <a href="../../payments/list/index.html">Pembayaran</a>
+        </nav>
+    </aside>
+
+    <header class="topbar">
+        <div>
+            <p class="topbar-label">ADMIN AREA</p>
+            <h1>Pengiriman</h1>
+        </div>
+
+        <div class="admin-info">
+            <strong>Admin KAKAO</strong>
+            <span>Pengiriman</span>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="stats" id="statsContainer"></section>
+
+        <section class="table-card">
+            <div class="page-heading">
+                <div>
+                    <h1>Pengiriman</h1>
+                    <div class="breadcrumb"><span>Admin</span><span>›</span><strong>Pengiriman</strong></div>
+                </div>
+            </div>
+
+            <section class="toolbar" aria-label="Product filters">
+                <div class="filters">
+                    <label class="filter-label">Tampilkan
+                        <select id="itemsPerPage" aria-label="Number of rows">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="table-actions">
+                    <label class="product-search"><span>⌕</span><input type="search" name="search" id="search" placeholder="Search product"></label>
+                </div>
+            </section>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="order_id">ID ORDER <span class="sort">↕</span></th>
+                            <th data-sort="tracking_number">TRACKING NUMBER <span class="sort">↕</span></th>
+                            <th data-sort="shipped_date">SHIPPED DATE <span class="sort">↕</span></th>
+                            <th data-sort="estimated_delivery">ESTIMATED DELIVERY <span class="sort">↕</span></th>
+                            <th class="action-cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer">
+                <span>Showing 1 to 1 of 1 item</span>
+                <div class="pagination">
+                    <button aria-label="Previous page">‹</button>
+                    <button class="current-page" aria-current="page">1</button>
+                    <button class="" aria-label="Next page">›</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 KAKAO
+        </p>
+
+        <p>
+            Sistem Informasi Penjualan dan Pemesanan Kakao
+        </p>
+
+    </footer>
+
+    <!-- script harus paling bawah -->
+    <script src="script.js"></script>
+</body>
+</html>
