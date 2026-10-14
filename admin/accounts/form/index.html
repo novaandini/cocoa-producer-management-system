@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Form</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<aside class="sidebar">
+			<div class="sidebar-logo">
+				<a href="../../frontend/home/index.html">KAKAO</a>
+				<p>SISTEM INFORMASI<br />PRODUSEN KAKAO</p>
+			</div>
+
+			<nav class="sidebar-menu">
+			<a href="../dashboard/index.html">Dashboard</a>
+			<a href="../index/index.html">Akun</a>
+			<a href="index.html" class="active">Tambah Akun</a>
+			<a href="#">Pesanan</a>
+			<a href="#">Customer</a>
+			</nav>
+		</aside>
+
+		<header class="topbar">
+			<div>
+				<p class="topbar-label">ADMIN AREA</p>
+				<h1>Form</h1>
+			</div>
+
+			<div class="admin-info">
+				<strong>Admin KAKAO</strong>
+				<span>Administrator</span>
+			</div>
+		</header>
+
+		<main>
+
+			<section class="form-card">
+				<div class="page-heading">
+					<div>
+						<h1>Akun</h1>
+						<div class="breadcrumb"><span>Admin</span><span>›</span><strong>Akun</strong></div>
+					</div>
+				</div>
+			
+				<form action="" method="post" id="form" class="form">
+					<!-- Username -->
+					<div class="input-text">
+						<label for="username">Username</label>
+						<input type="text" name="username" id="username" />
+					</div>
+
+					<!-- Nama Lengkap -->
+					<div class="input-text">
+						<label for="name">Nama Lengkap</label>
+						<input type="text" name="name" id="name" />
+					</div>
+
+					<!-- Email -->
+					<div class="input-text">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" />
+					</div>
+
+					<!-- Nomor Telepon -->
+					<div class="input-text">
+						<label for="phone_number">Nomor Telepon</label>
+						<input type="text" name="phone_number" id="phone_number" />
+					</div>
+
+					<!-- Tombol -->
+					<div class="form-buttons">
+						<button type="submit">Submit</button>
+						<button type="reset">Reset</button>
+					</div>
+				</form>
+			</section>
+			<!-- </section> -->
+		</main>
+
+		<footer>
+			<p>© 2026 KAKAO</p>
+			<p>Sistem Informasi Penjualan dan Pemesanan Kakao</p>
+		</footer>
+
+		<!-- script harus paling bawah -->
+		<script src="script.js"></script>
+	</body>
+</html>
