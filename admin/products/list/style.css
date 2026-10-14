@@ -106,6 +106,8 @@ header {
     padding: 0 max(5%, 40px);
 }
 
+/* TOPBAR */
+
 .topbar {
     min-height: 90px;
 
@@ -120,7 +122,7 @@ header {
     margin-bottom: 6px;
 
     color: #a15f36;
-    font-size: 12px;
+    font-size: 9px;
     font-weight: bold;
     letter-spacing: 2px;
 }
@@ -146,8 +148,9 @@ header {
     display: block;
     margin-top: 5px;
     color: #806e62;
-    font-size: 12px;
+    font-size: 10px;
 }
+
 
 .global-search input, .product-search input {
     width: 100%;
@@ -157,6 +160,38 @@ header {
     background: transparent;
     color: var(--text);
 }
+
+/* STATISTICS */
+
+.stats {
+    margin: 20px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stat-card {
+    padding: 22px;
+
+    background-color: #ffffff;
+    border: 1px solid #eadfd5;
+}
+
+.stat-card p {
+    color: #806e62;
+    font-size: 10px;
+}
+
+.stat-card h3 {
+    margin-top: 12px;
+
+    color: #38271c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: normal;
+}
+
 
 .page-heading {
     display: flex;
@@ -284,11 +319,12 @@ select:focus {
 }
 
 .table-card {
+    padding: 25px;
+    margin-top: 20px;
+    border: 1px solid #eadfd5;
     background: #fff;
-    border-radius: 7px;
     box-shadow: 0 3px 16px rgba(44, 62, 80, .045);
     overflow: hidden;
-    padding: 16px;
 }
 
 .table-scroll {
@@ -381,7 +417,6 @@ input[type="checkbox"] {
     width: 6px;
     height: 6px;
     background: #24b47e;
-    border-radius: 50%;
 }
 
 .action-cell {
@@ -414,7 +449,6 @@ input[type="checkbox"] {
     width: 27px;
     height: 27px;
     border: 1px solid #edf0f4;
-    border-radius: 4px;
     background: #fff;
     color: #697687;
 }

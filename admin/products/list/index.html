@@ -36,42 +36,44 @@
 
     <main>
 
-        <div class="page-heading">
-            <div>
-                <h1>Produk</h1>
-                <div class="breadcrumb"><span>Admin</span><span>›</span><strong>Produk</strong></div>
-            </div>
-        </div>
-
-        <section class="toolbar" aria-label="Product filters">
-            <div class="filters">
-                <label class="filter-label">Tampilkan
-                    <select id="itemsPerPage" aria-label="Number of rows">
-                        <option value="5">5</option>
-                        <option value="10" selected>10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                    </select>
-                </label>
-                <select aria-label="Filter by category" id="categoryFilter">
-                    <option value="">Semua Kategori</option>
-                    <option value="Fermentasi">Fermentasi</option>
-                    <option value="Non-Fermentasi">Non-Fermentasi</option>
-                </select>
-                <select aria-label="Filter by grade" id="gradeFilter">
-                    <option value="">Semua Grade</option>
-                    <option value="a">Grade A</option>
-                    <option value="b">Grade B</option>
-                    <option value="c">Grade C</option>
-                </select>
-            </div>
-            <div class="table-actions">
-                <label class="product-search"><span>⌕</span><input type="search" name="search" id="search" placeholder="Search product"></label>
-                <a href="../form/index.html" class="add-button" aria-label="Add product" title="Add product">+ Tambah Produk</a>
-            </div>
-        </section>
+        <section class="stats" id="statsContainer"></section>
 
         <section class="table-card">
+            <div class="page-heading">
+                <div>
+                    <h1>Produk</h1>
+                    <div class="breadcrumb"><span>Admin</span><span>›</span><strong>Produk</strong></div>
+                </div>
+            </div>
+
+            <section class="toolbar" aria-label="Product filters">
+                <div class="filters">
+                    <label class="filter-label">Tampilkan
+                        <select id="itemsPerPage" aria-label="Number of rows">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                    </label>
+                    <select aria-label="Filter by category" id="categoryFilter">
+                        <option value="">Semua Kategori</option>
+                        <option value="Fermentasi">Fermentasi</option>
+                        <option value="Non-Fermentasi">Non-Fermentasi</option>
+                    </select>
+                    <select aria-label="Filter by grade" id="gradeFilter">
+                        <option value="">Semua Grade</option>
+                        <option value="a">Grade A</option>
+                        <option value="b">Grade B</option>
+                        <option value="c">Grade C</option>
+                    </select>
+                </div>
+                <div class="table-actions">
+                    <label class="product-search"><span>⌕</span><input type="search" name="search" id="search" placeholder="Search product"></label>
+                    <a href="../form/index.html" class="add-button" aria-label="Add product" title="Add product">+ Tambah Produk</a>
+                </div>
+            </section>
+
             <div class="table-scroll">
                 <table>
                     <thead>

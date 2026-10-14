@@ -148,6 +148,39 @@ products.forEach((product) => {
     productTableBody.appendChild(row);
 });
 
+function updateStats() {
+    const statsContainer = document.getElementById("statsContainer");
+
+    // Mengambil semua grade unik dari array products
+    const grades = [...new Set(products.map(product => product.grade))];
+
+    // Membuat kartu Total Produk
+    let statsHTML = `
+        <div class="stat-card">
+            <p>Total Produk</p>
+            <h3>${products.length}</h3>
+        </div>
+    `;
+
+    // Membuat kartu untuk setiap grade yang ditemukan
+    grades.forEach(grade => {
+        const total = products.filter(
+            product => product.grade === grade
+        ).length;
+
+        statsHTML += `
+            <div class="stat-card">
+                <p>Total Produk Grade ${grade}</p>
+                <h3>${total}</h3>
+            </div>
+        `;
+    });
+
+    statsContainer.innerHTML = statsHTML;
+}
+
+updateStats();
+
 const searchInput = document.getElementById("search");
 const gradeFilter = document.getElementById("gradeFilter");
 const categoryFilter = document.getElementById("categoryFilter");
