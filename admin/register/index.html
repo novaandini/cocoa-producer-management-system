@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daftar - KAKAO</title>
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <!-- BAGIAN KIRI -->
+        <section class="login-left">
+
+            <div class="login-brand">
+                <a href="../../frontend/home/index.html">KAKAO</a>
+
+                <p>
+                    SISTEM INFORMASI<br>
+                    PRODUSEN KAKAO
+                </p>
+            </div>
+
+            <div class="login-info">
+
+                <p class="section-label">
+                    SISTEM INFORMASI PRODUSEN KAKAO
+                </p>
+
+                <h1>
+                    Kelola kakao
+                    <span>lebih terstruktur.</span>
+                </h1>
+
+                <p>
+                    Platform untuk melakukan pemesanan,
+                    memantau pesanan, dan mengelola
+                    operasional produsen kakao.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BAGIAN KANAN -->
+        <section class="login-right">
+
+            <div class="login-box">
+
+                <!-- FORM SIGN UP -->
+                <div id="signupView">
+
+                    <div class="login-heading">
+
+                        <p class="section-label">
+                            BERGABUNG BERSAMA KAKAO
+                        </p>
+
+                        <h2>Buat Akun</h2>
+
+                        <p>
+                            Daftarkan akun pelanggan kamu.
+                        </p>
+
+                    </div>
+
+                    <form id="signupForm">
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+                                Nama lengkap
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Masukkan nama lengkap"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="newUsername">
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newUsername"
+                                name="newUsername"
+                                placeholder="Buat username"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="newPassword">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                name="newPassword"
+                                placeholder="Buat password (min. 8 karakter)"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="confirmPassword">
+                                Konfirmasi password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Ulangi password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                        </div>
+
+                        <button type="submit">
+                            Daftar
+                        </button>
+
+                        <p id="signupMessage" class="form-message"
+                           role="status"></p>
+
+                    </form>
+
+                    <div class="signup-link">
+
+                        <p>
+                            Sudah punya akun?
+                            <a href="../login/index.html" id="showLogin">
+                                Login
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KEMBALI KE HOME -->
+                <div class="back-home">
+
+                    <a href="../../frontend/home/index.html">
+                        ← Kembali ke halaman utama
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

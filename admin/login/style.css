@@ -1,13 +1,7 @@
-
 /* =========================================
    RESET
 ========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -15,34 +9,26 @@ body {
     color: #38271c;
 }
 
-a {
-    text-decoration: none;
-}
-
+a { text-decoration: none; }
 
 /* =========================================
    MAIN LAYOUT
 ========================================= */
-
 .login-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
 }
 
-
 /* =========================================
    LEFT SECTION
 ========================================= */
-
 .login-left {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding: 45px 9%;
-
     background-color: #3b2416;
     color: #fffdf9;
 }
@@ -103,28 +89,20 @@ a {
     line-height: 1.9;
 }
 
-
 /* =========================================
    RIGHT SECTION
 ========================================= */
-
 .login-right {
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 45px 8%;
     background-color: #fffdf9;
 }
 
-.login-box {
-    width: 100%;
-    max-width: 440px;
-}
+.login-box { width: 100%; max-width: 440px; }
 
-.login-heading {
-    margin-bottom: 32px;
-}
+.login-heading { margin-bottom: 32px; }
 
 .login-heading h2 {
     margin: 8px 0 10px;
@@ -140,14 +118,10 @@ a {
     line-height: 1.7;
 }
 
-
 /* =========================================
    FORM
 ========================================= */
-
-.form-group {
-    margin-bottom: 22px;
-}
+.form-group { margin-bottom: 22px; }
 
 .form-group label {
     display: block;
@@ -161,37 +135,26 @@ a {
     width: 100%;
     height: 48px;
     padding: 0 14px;
-
     border: 1px solid #e4d8cd;
     border-radius: 5px;
     outline: none;
-
     background-color: #ffffff;
     color: #38271c;
     font-size: 13px;
-
     transition: border-color 0.2s;
 }
 
-.form-group input::placeholder {
-    color: #b4a69b;
-}
-
-.form-group input:focus {
-    border-color: #8c5432;
-}
-
+.form-group input::placeholder { color: #b4a69b; }
+.form-group input:focus { border-color: #8c5432; }
 
 /* =========================================
    FORM OPTIONS
 ========================================= */
-
 .form-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-
     margin: 3px 0 28px;
 }
 
@@ -199,102 +162,56 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-
     color: #806e62;
     font-size: 12px;
 }
 
-.remember-option input {
-    accent-color: #8c5432;
-}
+.remember-option input { accent-color: #8c5432; }
 
-.form-option > a {
-    color: #8c5432;
-    font-size: 12px;
-}
-
-.form-option > a:hover {
-    color: #3b2416;
-}
-
+.form-option > a { color: #8c5432; font-size: 12px; }
+.form-option > a:hover { color: #3b2416; }
 
 /* =========================================
    BUTTON
 ========================================= */
-
 #loginForm button,
 #signupForm button {
     width: 100%;
     min-height: 49px;
     padding: 14px;
-
     border: none;
     border-radius: 4px;
-
     background-color: #3b2416;
     color: #ffffff;
-
     font-size: 13px;
     font-weight: bold;
-
     cursor: pointer;
     transition: background-color 0.25s;
 }
 
 #loginForm button:hover,
-#signupForm button:hover {
-    background-color: #75482c;
-}
-
+#signupForm button:hover { background-color: #75482c; }
 
 /* =========================================
    SIGN UP LINK
 ========================================= */
+.signup-link { margin-top: 25px; text-align: center; }
 
-.signup-link {
-    margin-top: 25px;
-    text-align: center;
-}
+.signup-link p { color: #806e62; font-size: 13px; line-height: 1.8; }
 
-.signup-link p {
-    color: #806e62;
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.signup-link a {
-    color: #8c5432;
-    font-weight: bold;
-}
-
-.signup-link a:hover {
-    color: #3b2416;
-}
-
+.signup-link a { color: #8c5432; font-weight: bold; }
+.signup-link a:hover { color: #3b2416; }
 
 /* =========================================
    MESSAGES
 ========================================= */
-
-.form-message {
-    margin-top: 12px;
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.form-message.error {
-    color: #b42318;
-}
-
-.form-message.success {
-    color: #52683a;
-}
-
+.form-message { margin-top: 12px; font-size: 12px; line-height: 1.6; }
+.form-message.error { color: #b42318; }
+.form-message.success { color: #52683a; }
 
 /* =========================================
    BACK HOME
 ========================================= */
-
 .back-home {
     margin-top: 30px;
     padding-top: 24px;
@@ -302,59 +219,26 @@ a {
     text-align: center;
 }
 
-.back-home a {
-    color: #8c5432;
-    font-size: 12px;
-    line-height: 1.8;
-}
-
-.back-home a:hover {
-    color: #3b2416;
-}
-
+.back-home a { color: #8c5432; font-size: 12px; line-height: 1.8; }
+.back-home a:hover { color: #3b2416; }
 
 /* =========================================
    HIDDEN
 ========================================= */
-
-[hidden] {
-    display: none !important;
-}
-
+[hidden] { display: none !important; }
 
 /* =========================================
    RESPONSIVE
 ========================================= */
-
 @media (max-width: 768px) {
+    .login-page { grid-template-columns: 1fr; }
 
-    .login-page {
-        grid-template-columns: 1fr;
-    }
+    .login-left { min-height: 260px; padding: 28px 7%; }
 
-    .login-left {
-        min-height: 260px;
-        padding: 28px 7%;
-    }
+    .login-info { padding: 45px 0 15px; }
+    .login-info h1 { font-size: 36px; }
+    .login-info > p:last-child { font-size: 13px; }
 
-    .login-info {
-        padding: 45px 0 15px;
-    }
-
-    .login-info h1 {
-        font-size: 36px;
-    }
-
-    .login-info > p:last-child {
-        font-size: 13px;
-    }
-
-    .login-right {
-        padding: 45px 7%;
-    }
-
-    .login-heading h2 {
-        font-size: 30px;
-    }
-
+    .login-right { padding: 45px 7%; }
+    .login-heading h2 { font-size: 30px; }
 }
