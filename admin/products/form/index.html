@@ -58,13 +58,13 @@
 						<input type="text" name="product_name" id="product_name" />
 					</div>
 
-					<!-- Kategori -->
+					<!-- Tipe Produk -->
 					<div class="form-group">
-						<label for="category">Kategori</label>
-						<select name="category" id="category">
-							<option value="">-- Pilih Kategori --</option>
-							<option value="fermentasi">Fermentasi</option>
-							<option value="non-fermentasi">Non-Fermentasi</option>
+						<label for="product_type">Tipe Produk</label>
+						<select name="product_type" id="product_type">
+							<option value="">-- Pilih Tipe Produk --</option>
+							<option value="fermented">Fermentasi</option>
+							<option value="non_fermented">Non-Fermentasi</option>
 						</select>
 					</div>
 
@@ -73,10 +73,22 @@
 						<label for="grade">Grade</label>
 						<select name="grade" id="grade">
 							<option value="">-- Pilih Grade --</option>
-							<option value="a">Grade A</option>
-							<option value="b">Grade B</option>
-							<option value="c">Grade C</option>
+							<option value="A">Grade A</option>
+							<option value="B">Grade B</option>
+							<option value="C">Grade C</option>
 						</select>
+					</div>
+					
+					<!-- Harga per KG -->
+					<div class="input-text">
+						<label for="price_per_kg">Harga per KG</label>
+						<input type="number" name="price_per_kg" id="price_per_kg" step="0.01" />
+					</div>
+					
+					<!-- Image -->
+					<div class="input-file">
+						<label for="image">Gambar</label>
+					<input type="file" name="image" id="image" accept="image/*" />
 					</div>
 
 					<!-- Deskripsi -->
@@ -90,11 +102,15 @@
 							placeholder="Tulis deskripsi di sini..."
 						></textarea>
 					</div>
-					
-					<!-- Image -->
-					<div class="input-file">
-						<label for="image">Gambar</label>
-						<input type="file" name="image" id="image" />
+
+					<!-- Status -->
+					<div class="form-group">
+						<label for="is_active">Status</label>
+						<select name="is_active" id="is_active">
+							<option value="">-- Pilih Status --</option>
+							<option value="1">Aktif</option>
+							<option value="0">Tidak Aktif</option>
+						</select>
 					</div>
 
 					<!-- Tombol -->
@@ -102,6 +118,8 @@
 						<button type="submit">Submit</button>
 						<button type="reset">Reset</button>
 					</div>
+
+					<p id="storeMessage" class="form-message" role="status"></p>
 				</form>
 			</section>
 			<!-- </section> -->
@@ -113,6 +131,7 @@
 		</footer>
 
 		<!-- script harus paling bawah -->
-		<script src="script.js"></script>
+    <script src="../../shared/auth.js"></script>
+    <script src="script.js"></script>
 	</body>
 </html>
