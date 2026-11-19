@@ -1,0 +1,770 @@
+<!-- Home KAKAO: hasil konversi HTML lama ke Vue 3 -->
+<template>
+  <div class="kakao-home">
+  <!-- ========================================= -->
+  <!-- HEADER / NAVBAR -->
+  <!-- ========================================= -->
+
+  <header class="header">
+
+      <nav class="navbar">
+
+          <a href="#home" class="logo">
+              <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO">
+          </a>
+
+
+          <!-- MENU NAVIGASI -->
+          <div class="nav-menu">
+
+              <a href="#home" class="active">
+                  Beranda
+              </a>
+
+              <a href="/products/">
+                  Produk
+              </a>
+
+              <a href="/traceability">
+                  Telusuri
+              </a>
+
+              <a href="#about">
+                  Tentang
+              </a>
+
+          </div>
+
+          <div class="nav-action">
+
+          <a     
+            href="/admin/login/index.html"
+            class="masuk-button"
+            :style="{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }"
+          >
+              Daftar
+          </a>
+
+          </div>
+
+      </nav>
+
+  </header>
+
+
+      <main>
+
+
+          <!-- ================= HERO ================= -->
+
+          <section
+              class="hero"
+              id="home"
+          >
+
+
+              <div class="hero-content">
+
+
+                  <p class="hero-label">
+                      PLATFORM PENJUALAN DAN PEMESANAN KAKAO
+                  </p>
+
+
+                  <h1>
+
+                      Kakao Berkualitas
+
+                      <span>
+                          Proses Transparan
+                      </span>
+
+                  </h1>
+
+
+                  <p class="hero-description">
+
+                      Temukan berbagai pilihan biji kakao berkualitas sesuai kebutuhan Anda. Melalui platform KAKAO, anda dapat melihat informasi produk, melakukan pemesanan dan pembayaran secara online, serta memantau setiap tahapan pesanan hingga proses pengiriman.
+
+                  </p>
+
+
+                  <div class="hero-buttons">
+
+
+                      <a
+                        href="#products"
+                        class="btn-primary"
+                        style="color: white !important; -webkit-text-fill-color: white !important;"
+                    >
+                        Lihat Produk
+                      </a>
+
+
+                      <a
+                           href="/traceability">
+                          Lihat Proses →
+                      </a>
+
+
+                  </div>
+
+
+              </div>
+
+
+
+              <div class="hero-image">
+
+                  <img
+                      src="/kakao-home/hero-kakao.jpg"
+                      alt="Buah dan biji kakao"
+                  >
+
+              </div>
+
+
+          </section>
+
+
+
+          <!-- ================= ABOUT ================= -->
+
+          <section
+              class="about"
+              id="about"
+          >
+
+
+              <div class="about-container">
+
+
+                  <div class="about-title">
+
+
+                      <p class="section-label">
+                          TENTANG SISTEM
+                      </p>
+
+
+                      <h2>
+
+                          Pemesanan kakao yang
+
+                          <span>
+                              Mudah dan Transparan
+                          </span>
+
+                      </h2>
+
+
+                  </div>
+
+
+
+                  <div class="about-description">
+
+
+                      <p>
+
+                          KAKAO merupakan platform penjualan dan pemesanan produk kakao berbasis web yang dirancang untuk memudahkan proses transaksi secara lebih terstruktur, efisien, dan transparan.
+
+                      </p>
+
+
+                      <p>
+
+                          Melalui platform ini, pelanggan dapat melihat informasi produk, melakukan pemesanan, memilih metode pembayaran, serta memantau perkembangan pesanan hingga tahap pengiriman. Sementara itu, admin dapat mengelola data produk, stok, pesanan, pembayaran, dan proses pengiriman agar kegiatan penjualan berjalan lebih terorganisir.
+
+                      </p>
+
+
+                  </div>
+
+
+              </div>
+
+
+          </section>
+
+
+
+          <!-- ================= PRODUCTS ================= -->
+
+          <section
+              class="products"
+              id="products"
+          >
+
+
+              <div class="section-heading">
+
+
+                  <div>
+
+                      <p class="section-label">
+                          PRODUK KAKAO
+                      </p>
+
+
+                      <h2>
+                          Pilihan Produk Kami
+                      </h2>
+
+                  </div>
+
+
+                  <a
+                    href="/products"
+                    class="view-all"
+                  >
+                      Lihat Semua Produk →
+                  </a>
+
+
+              </div>
+
+
+
+              <div class="product-grid">
+
+
+                  <!-- ================= PRODUCT A ================= -->
+
+                  <article class="product-card">
+
+
+                      <div class="product-image">
+
+                          <img
+                              src="/kakao-home/cocoa-bean-a.jpg"
+                              alt="Cocoa Bean A"
+                          >
+
+
+                          <span class="product-badge">
+                              GRADE A
+                          </span>
+
+                      </div>
+
+
+
+                      <div class="product-info">
+
+
+                          <p class="product-category">
+                              FERMENTASI
+                          </p>
+
+
+                          <h3>
+                              Cocoa Bean A
+                          </h3>
+
+
+                          <p class="product-description">
+
+                              Biji kakao fermentasi dengan kualitas Grade A
+
+                          </p>
+
+
+                          <div class="product-detail-info">
+
+                              <span>
+                                  Grade A
+                              </span>
+
+                              <span>
+                                  Stok: 500 kg
+                              </span>
+
+                          </div>
+
+
+
+                          <div class="product-bottom">
+
+
+                              <span class="product-status">
+                                  Tersedia
+                              </span>
+
+
+                              <!-- PRODUK A -->
+
+                              <a
+                                  href="/detail-product?product=a">
+                
+                                  Lihat Detail →
+                              </a>
+
+
+                          </div>
+
+
+                      </div>
+
+
+                  </article>
+
+
+
+                  <!-- ================= PRODUCT B ================= -->
+
+                  <article class="product-card">
+
+
+                      <div class="product-image">
+
+                          <img
+                              src="/kakao-home/cocoa-bean-b.jpg"
+                              alt="Cocoa Bean B"
+                          >
+
+
+                          <span class="product-badge">
+                              GRADE B
+                          </span>
+
+                      </div>
+
+
+
+                      <div class="product-info">
+
+
+                          <p class="product-category">
+                              FERMENTASI
+                          </p>
+
+
+                          <h3>
+                              Cocoa Bean B
+                          </h3>
+
+
+                          <p class="product-description">
+
+                              Biji kakao fermentasi dengan kualitas Grade B
+
+                          </p>
+
+
+                          <div class="product-detail-info">
+
+                              <span>
+                                  Grade B
+                              </span>
+
+                              <span>
+                                  Stok: 800 kg
+                              </span>
+
+                          </div>
+
+
+
+                          <div class="product-bottom">
+
+
+                              <span class="product-status">
+                                  Tersedia
+                              </span>
+
+
+                              <!-- PRODUK B -->
+
+                              <a
+                                  href="/detail-product?product=b">
+                              
+                                  Lihat Detail →
+                              </a>
+
+
+                          </div>
+
+
+                      </div>
+
+
+                  </article>
+
+
+
+                  <!-- ================= PRODUCT C ================= -->
+
+                  <article class="product-card">
+
+
+                      <div class="product-image">
+
+                          <img
+                              src="/kakao-home/cocoa-bean-c.jpg"
+                              alt="Cocoa Bean C"
+                          >
+
+
+                          <span class="product-badge">
+                              GRADE C
+                          </span>
+
+                      </div>
+
+
+
+                      <div class="product-info">
+
+
+                          <p class="product-category">
+                              NON-FERMENTASI
+                          </p>
+
+
+                          <h3>
+                              Cocoa Bean C
+                          </h3>
+
+
+                          <p class="product-description">
+
+                              Biji kakao non-fermentasi dengan kualitas Grade C
+
+                          </p>
+
+
+                          <div class="product-detail-info">
+
+                              <span>
+                                  Grade C
+                              </span>
+
+                              <span>
+                                  Stok: 300 kg
+                              </span>
+
+                          </div>
+
+
+
+                          <div class="product-bottom">
+
+
+                              <span class="product-status">
+                                  Tersedia
+                              </span>
+
+
+                              <!-- PRODUK C -->
+
+                              <a
+                                  href="/detail-product?product=c">
+                              
+                                  Lihat Detail →
+                              </a>
+
+
+                          </div>
+
+
+                      </div>
+
+
+                  </article>
+
+
+              </div>
+
+
+          </section>
+
+
+
+          <!-- ================= TRACEABILITY ================= -->
+
+          <section
+              class="process"
+              id="process"
+          >
+
+
+              <div class="process-heading">
+
+
+                  <p class="section-label light">
+                      PROSES PEMESANAN
+                  </p>
+
+
+                  <h2>
+
+                      Pantau Proses
+
+                      <span>
+                          Pesanan Kakao.
+                      </span>
+
+                  </h2>
+
+
+                  <p>
+
+                      Setiap tahapan pesanan dicatat sehingga customer
+                      dapat mengetahui perkembangan pesanannya dengan jelas.
+
+                  </p>
+
+
+              </div>
+
+
+
+              <div class="process-list">
+
+
+                  <!-- 01 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          01
+                      </span>
+
+                      <strong>
+                          Pemesanan
+                      </strong>
+
+                      <p>
+                          Pelanggan melakukan pemesanan produk.
+                      </p>
+
+                  </div>
+
+
+                  <div class="process-line"></div>
+
+
+
+                  <!-- 02 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          02
+                      </span>
+
+                      <strong>
+                          Verifikasi
+                      </strong>
+
+                      <p>
+                          Pesanan dan pembayaran diverifikasi.
+                      </p>
+
+                  </div>
+
+
+                  <div class="process-line"></div>
+
+
+
+                  <!-- 03 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          03
+                      </span>
+
+                      <strong>
+                          Persiapan
+                      </strong>
+
+                      <p>
+                          Produk dipersiapkan sesuai pesanan.
+                      </p>
+
+                  </div>
+
+
+                  <div class="process-line"></div>
+
+
+
+                  <!-- 04 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          04
+                      </span>
+
+                      <strong>
+                          Quality Control
+                      </strong>
+
+                      <p>
+                          Kualitas produk diperiksa sebelum dikemas.
+                      </p>
+
+                  </div>
+
+
+                  <div class="process-line"></div>
+
+
+
+                  <!-- 05 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          05
+                      </span>
+
+                      <strong>
+                          Pengemasan
+                      </strong>
+
+                      <p>
+                          Produk dikemas dengan aman.
+                      </p>
+
+                  </div>
+
+                  <div class="process-line"></div>
+
+
+                  <!-- 06 -->
+
+                  <div class="process-item">
+
+                      <span>
+                          06
+                      </span>
+
+                      <strong>
+                          Pengiriman
+                      </strong>
+
+                      <p>
+                          Pesanan dikirim kepada pelanggan.
+                      </p>
+
+                  </div>
+
+              </div>
+
+          </section>
+
+      </main>
+
+
+      <!-- ================= FOOTER ================= -->
+
+      <footer class="footer">
+
+          <div class="footer-main">
+
+
+              <!-- FOOTER BRAND -->
+
+              <div class="footer-brand">
+
+                  <a
+                      href="#home"
+                      class="footer-logo"
+                  >
+                      KAKAO
+                  </a>
+
+                  <p>
+
+                      Platform penjualan dan pemesanan produk kakao yang memudahkan pelanggan dalam memilih produk, melakukan transaksi, dan memantau proses pesanan secara transparan
+
+                  </p>
+              </div>
+
+
+              <!-- FOOTER LINKS -->
+
+              <div class="footer-links">
+
+
+                  <div>
+
+                      <h4>
+                          Menu
+                      </h4>
+
+                      <a href="#home">
+                          Beranda
+                      </a>
+
+                      <a href="#products">
+                          Produk
+                      </a>
+
+                      <a href="#about">
+                          Tentang
+                      </a>
+                  </div>
+
+                  <div>
+                      <h4>
+                          Informasi
+                      </h4>
+
+
+                      <a href="/traceability">
+                          Telusuri
+                      </a>
+
+                      <a href="/admin/login/index.html">
+                          Daftar
+                      </a>
+
+                  </div>
+
+                  <div>
+                      <h4>
+                          Kontak
+                      </h4>
+
+                      <p>
+                          info@kakao.com
+                      </p>
+
+                      <p>
+                          Indonesia
+                      </p>
+
+                  </div>
+              </div>
+          </div>
+
+
+
+          <!-- FOOTER BOTTOM -->
+
+          <div class="footer-bottom">
+
+
+              <p>
+                  © 2026 KAKAO
+              </p>
+
+
+              <p>
+                  Sistem Informasi Penjualan dan Pemesanan Kakao
+              </p>
+
+          </div>
+
+      </footer>
+  </div>
+</template>
+
+<!-- JavaScript Home lama kosong, sehingga tidak perlu script setup. -->
+<style scoped src="./HomeView.css"></style>
