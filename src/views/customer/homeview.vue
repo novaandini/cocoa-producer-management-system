@@ -1,10 +1,12 @@
+
 <template>
   <div class="min-h-screen overflow-x-clip bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#2d2118]">
 
     <!-- HEADER / NAVBAR -->
     <header class="sticky top-0 z-1000 w-full border-b border-[#eadfd3] bg-[rgba(255,253,249,0.97)]">
-      <nav class="flex h-20 items-center justify-between bg-[#fffdf9] px-[max(7%,45px)] max-[1100px]:px-[4%] max-[800px]:h-auto max-[800px]:min-h-19 max-[800px]:flex-wrap max-[800px]:px-6 max-[520px]:px-4.5">
+      <nav class="relative flex h-20 items-center justify-between bg-[#fffdf9] px-[max(7%,45px)] max-[1100px]:px-[4%] max-[800px]:h-auto max-[800px]:min-h-19 max-[800px]:flex-wrap max-[800px]:px-6 max-[520px]:px-4.5">
 
+        <!-- LOGO -->
         <a href="#home" class="flex items-center justify-center no-underline">
           <img
             src="/kakao-home/logo-kakao.png"
@@ -14,7 +16,7 @@
         </a>
 
         <!-- MENU NAVIGASI -->
-        <div class="flex items-center gap-20 max-[1100px]:gap-8 max-[800px]:order-3 max-[800px]:w-full max-[800px]:justify-between max-[800px]:gap-3 max-[800px]:overflow-x-auto max-[520px]:gap-4">
+        <div class="absolute left-1/2 flex -translate-x-1/2 items-center gap-20 max-[1100px]:gap-8 max-[800px]:static max-[800px]:order-3 max-[800px]:w-full max-[800px]:translate-x-0 max-[800px]:justify-between max-[800px]:gap-3 max-[800px]:overflow-x-auto max-[520px]:gap-4">
 
           <a
             href="#home"
@@ -45,13 +47,14 @@
           </a>
         </div>
 
+        <!-- TOMBOL DAFTAR -->
         <div class="ml-auto flex items-center gap-4.5">
-       <a
-          href="/login"
-          class="rounded-md bg-[#3b2416] px-5.5 py-2.75 text-xs font-semibold text-white no-underline transition hover:-translate-y-px hover:bg-[#75482c] max-[520px]:px-4 max-[520px]:py-2.5"
-        >
-          Daftar
-      </a>
+          <a
+            href="/login"
+            class="rounded-md bg-[#3b2416] px-5.5 py-2.75 text-xs font-semibold text-white no-underline transition hover:-translate-y-px hover:bg-[#75482c] max-[520px]:px-4 max-[520px]:py-2.5"
+          >
+            Daftar
+          </a>
         </div>
 
       </nav>
@@ -469,7 +472,7 @@
               Telusuri
             </a>
 
-          <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/login">
+            <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/login">
               Daftar
             </a>
           </div>
