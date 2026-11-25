@@ -1,7 +1,7 @@
 
 <script setup>
 import homeview from './views/customer/homeview.vue'
-import productsview from './views/customer/ProductsView.vue'
+import ProductsView from './views/customer/ProductsView.vue'
 import ProductDetailView from './views/customer/ProductDetailView.vue'
 import CheckoutView from './views/customer/CheckoutView.vue'
 
@@ -79,7 +79,7 @@ const path = window.location.pathname.replace(/\/$/, '') || '/'
     v-else-if="path === '/detail-product'"
   />
 
-  <productsview
+  <ProductsView
     v-else-if="path === '/products'"
   />
 
