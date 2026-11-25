@@ -1,45 +1,45 @@
 <!-- Home KAKAO: hasil konversi HTML lama ke Vue 3 -->
 <template>
-  <div class="kakao-home">
+  <div class="min-h-screen overflow-x-clip bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#2d2118]">
   <!-- ========================================= -->
   <!-- HEADER / NAVBAR -->
   <!-- ========================================= -->
 
-  <header class="header">
+  <header class="sticky top-0 z-[1000] w-full border-b border-[#eadfd3] bg-[rgba(255,253,249,0.97)]">
 
-      <nav class="navbar">
+      <nav class="flex h-20 items-center justify-between border-b border-[#eadfd5] bg-[#fffdf9] px-[max(7%,45px)] max-[1100px]:px-[4%] max-[800px]:h-auto max-[800px]:min-h-[76px] max-[800px]:flex-wrap max-[800px]:px-6 max-[520px]:px-[18px]">
 
-          <a href="#home" class="logo">
-              <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO">
+          <a href="#home" class="flex items-center justify-center no-underline">
+              <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO" class="block h-[70px] w-[90px] object-contain max-[800px]:h-[65px] max-[800px]:w-20">
           </a>
 
 
           <!-- MENU NAVIGASI -->
-          <div class="nav-menu">
+          <div class="flex items-center gap-20 max-[1100px]:gap-8 max-[800px]:order-3 max-[800px]:w-full max-[800px]:justify-between max-[800px]:gap-3 max-[800px]:overflow-x-auto max-[520px]:gap-4">
 
-              <a href="#home" class="active">
+              <a href="#home" class="relative whitespace-nowrap py-[30px] text-[13px] font-semibold text-[#8c5432] transition after:absolute after:bottom-[21px] after:left-0 after:h-0.5 after:w-full after:bg-[#8c5432] after:transition-all max-[800px]:py-[13px] max-[800px]:text-xs max-[800px]:after:bottom-[6px]">
                   Beranda
               </a>
 
-              <a href="/products/">
+              <a href="/products/" class="relative whitespace-nowrap py-[30px] text-[13px] font-semibold text-[#59483c] transition hover:text-[#8c5432] after:absolute after:bottom-[21px] after:left-0 after:h-0.5 after:w-0 after:bg-[#8c5432] after:transition-all hover:after:w-full max-[800px]:py-[13px] max-[800px]:text-xs max-[800px]:after:bottom-[6px]">
                   Produk
               </a>
 
-              <a href="/traceability">
+              <a href="/traceability" class="relative whitespace-nowrap py-[30px] text-[13px] font-semibold text-[#59483c] transition hover:text-[#8c5432] after:absolute after:bottom-[21px] after:left-0 after:h-0.5 after:w-0 after:bg-[#8c5432] after:transition-all hover:after:w-full max-[800px]:py-[13px] max-[800px]:text-xs max-[800px]:after:bottom-[6px]">
                   Telusuri
               </a>
 
-              <a href="#about">
+              <a href="#about" class="relative whitespace-nowrap py-[30px] text-[13px] font-semibold text-[#59483c] transition hover:text-[#8c5432] after:absolute after:bottom-[21px] after:left-0 after:h-0.5 after:w-0 after:bg-[#8c5432] after:transition-all hover:after:w-full max-[800px]:py-[13px] max-[800px]:text-xs max-[800px]:after:bottom-[6px]">
                   Tentang
               </a>
 
           </div>
 
-          <div class="nav-action">
+          <div class="ml-auto flex items-center gap-[18px]">
 
           <a     
             href="/admin/login/index.html"
-            class="masuk-button"
+            class="rounded-md bg-[#3b2416] px-[22px] py-[11px] text-xs font-semibold text-white no-underline transition hover:-translate-y-px hover:bg-[#75482c] max-[520px]:px-4 max-[520px]:py-[10px]"
             :style="{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }"
           >
               Daftar
@@ -58,43 +58,43 @@
           <!-- ================= HERO ================= -->
 
           <section
-              class="hero"
+              class="mx-auto flex min-h-[calc(100vh-78px)] max-w-[1300px] items-center justify-between gap-20 px-[55px] py-[60px] max-[1100px]:gap-[45px] max-[1100px]:px-[4%] max-[800px]:min-h-0 max-[800px]:flex-col max-[800px]:items-stretch max-[800px]:gap-[45px] max-[800px]:px-6 max-[800px]:py-[65px] max-[520px]:px-[18px] max-[520px]:py-[45px]"
               id="home"
           >
 
 
-              <div class="hero-content">
+              <div class="max-w-[570px] flex-1 max-[800px]:max-w-full">
 
 
-                  <p class="hero-label">
+                  <p class="mb-[18px] text-[10px] font-bold tracking-[3px] text-[#a15f36]">
                       PLATFORM PENJUALAN DAN PEMESANAN KAKAO
                   </p>
 
 
-                  <h1>
+                  <h1 class="font-serif text-[62px] font-normal leading-[1.08] text-[#302117] max-[1100px]:text-[51px] max-[800px]:text-[clamp(36px,7vw,56px)] max-[520px]:text-[39px]">
 
                       Kakao Berkualitas
 
-                      <span>
+                      <span class="block italic text-[#8a5332]">
                           Proses Transparan
                       </span>
 
                   </h1>
 
 
-                  <p class="hero-description">
+                  <p class="mt-[25px] max-w-[520px] text-sm leading-[1.9] text-[#6e5c50]">
 
                       Temukan berbagai pilihan biji kakao berkualitas sesuai kebutuhan Anda. Melalui platform KAKAO, anda dapat melihat informasi produk, melakukan pemesanan dan pembayaran secara online, serta memantau setiap tahapan pesanan hingga proses pengiriman.
 
                   </p>
 
 
-                  <div class="hero-buttons">
+                  <div class="mt-8 flex items-center gap-7 max-[520px]:flex-wrap max-[520px]:gap-[18px]">
 
 
                       <a
                         href="#products"
-                        class="btn-primary"
+                        class="inline-block bg-[#3b2416] px-6 py-[14px] text-[11px] font-bold tracking-[0.5px] text-white transition hover:-translate-y-0.5 hover:bg-[#75482c]"
                         style="color: white !important; -webkit-text-fill-color: white !important;"
                     >
                         Lihat Produk
@@ -102,7 +102,8 @@
 
 
                       <a
-                           href="/traceability">
+                           href="/traceability"
+                           class="text-xs font-bold text-[#3b2416] transition hover:text-[#9b5d36]">
                           Lihat Proses →
                       </a>
 
@@ -114,11 +115,11 @@
 
 
 
-              <div class="hero-image">
+              <div class="h-[500px] flex-[0_0_44%] overflow-hidden rounded-t-[180px] rounded-b-lg shadow-[0_15px_30px_rgba(0,0,0,0.30)] max-[1100px]:h-[450px] max-[800px]:h-[420px] max-[800px]:w-full max-[800px]:flex-none max-[520px]:h-[310px]">
 
                   <img
                       src="/kakao-home/hero-kakao.jpg"
-                      alt="Buah dan biji kakao"
+                      alt="Buah dan biji kakao" class="h-full w-full object-cover object-center transition duration-500 hover:scale-[1.03]"
                   >
 
               </div>
@@ -131,27 +132,27 @@
           <!-- ================= ABOUT ================= -->
 
           <section
-              class="about"
+              class="bg-[#f4ede4] px-[max(7%,45px)] py-[100px] max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-[75px] max-[520px]:px-[18px] max-[520px]:py-[60px]"
               id="about"
           >
 
 
-              <div class="about-container">
+              <div class="mx-auto grid max-w-[1200px] grid-cols-[1.2fr_1fr] items-center gap-[90px] max-[1100px]:gap-[50px] max-[800px]:grid-cols-1 max-[800px]:gap-[30px]">
 
 
-                  <div class="about-title">
+                  <div class="">
 
 
-                      <p class="section-label">
+                      <p class="mb-[18px] text-[10px] font-bold tracking-[3px] text-[#a15f36]">
                           TENTANG SISTEM
                       </p>
 
 
-                      <h2>
+                      <h2 class="font-serif text-[45px] font-normal leading-[1.2] text-[#302117] max-[800px]:text-[38px] max-[520px]:text-[32px]">
 
                           Pemesanan kakao yang
 
-                          <span>
+                          <span class="italic text-[#9a5d37]">
                               Mudah dan Transparan
                           </span>
 
@@ -162,17 +163,17 @@
 
 
 
-                  <div class="about-description">
+                  <div class="border-l border-[#d7c5b5] pl-[35px] max-[800px]:pl-5">
 
 
-                      <p>
+                      <p class="mb-[17px] text-justify text-sm leading-[1.9] text-[#6c5a4d] last:mb-0">
 
                           KAKAO merupakan platform penjualan dan pemesanan produk kakao berbasis web yang dirancang untuk memudahkan proses transaksi secara lebih terstruktur, efisien, dan transparan.
 
                       </p>
 
 
-                      <p>
+                      <p class="mb-[17px] text-justify text-sm leading-[1.9] text-[#6c5a4d] last:mb-0">
 
                           Melalui platform ini, pelanggan dapat melihat informasi produk, melakukan pemesanan, memilih metode pembayaran, serta memantau perkembangan pesanan hingga tahap pengiriman. Sementara itu, admin dapat mengelola data produk, stok, pesanan, pembayaran, dan proses pengiriman agar kegiatan penjualan berjalan lebih terorganisir.
 
@@ -192,22 +193,22 @@
           <!-- ================= PRODUCTS ================= -->
 
           <section
-              class="products"
+              class="bg-[#fffdf9] px-[max(7%,45px)] pt-[100px] pb-[35px] max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-[75px] max-[520px]:px-[18px] max-[520px]:py-[60px]"
               id="products"
           >
 
 
-              <div class="section-heading">
+              <div class="mx-auto mb-[45px] flex max-w-[1200px] items-end justify-between max-[520px]:flex-col max-[520px]:items-start max-[520px]:gap-[18px]">
 
 
                   <div>
 
-                      <p class="section-label">
+                      <p class="mb-[18px] text-[10px] font-bold tracking-[3px] text-[#a15f36]">
                           PRODUK KAKAO
                       </p>
 
 
-                      <h2>
+                      <h2 class="font-serif text-[42px] font-normal text-[#302117] max-[800px]:text-[36px] max-[520px]:text-[32px]">
                           Pilihan Produk Kami
                       </h2>
 
@@ -216,7 +217,7 @@
 
                   <a
                     href="/products"
-                    class="view-all"
+                    class="border-b border-[#3b2416] pb-[5px] text-[11px] font-bold text-[#3b2416] transition hover:border-[#9b5d36] hover:text-[#9b5d36]"
                   >
                       Lihat Semua Produk →
                   </a>
@@ -226,23 +227,23 @@
 
 
 
-              <div class="product-grid">
+              <div class="mx-auto grid max-w-[1200px] grid-cols-3 gap-[25px] max-[800px]:grid-cols-2 max-[520px]:grid-cols-1">
 
 
                   <!-- ================= PRODUCT A ================= -->
 
-                  <article class="product-card">
+                  <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
 
-                      <div class="product-image">
+                      <div class="relative h-[220px] overflow-hidden">
 
                           <img
                               src="/kakao-home/cocoa-bean-a.jpg"
-                              alt="Cocoa Bean A"
+                              alt="Cocoa Bean A" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
                           >
 
 
-                          <span class="product-badge">
+                          <span class="absolute top-4 left-4 bg-[#3b2416] px-[10px] py-[7px] text-[8px] font-bold tracking-[1px] text-white">
                               GRADE A
                           </span>
 
@@ -250,29 +251,29 @@
 
 
 
-                      <div class="product-info">
+                      <div class="p-5 px-6">
 
 
-                          <p class="product-category">
+                          <p class="mb-[9px] text-[9px] font-bold tracking-[2px] text-[#a16038]">
                               FERMENTASI
                           </p>
 
 
-                          <h3>
+                          <h3 class="mb-[10px] font-serif text-xl text-[#38271c]">
                               Cocoa Bean A
                           </h3>
 
 
-                          <p class="product-description">
+                          <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
 
                               Biji kakao fermentasi dengan kualitas Grade A
 
                           </p>
 
 
-                          <div class="product-detail-info">
+                          <div class="mt-[18px] flex justify-between border-y border-[#eee4da] py-3 text-[11px] text-[#6e5c50]">
 
-                              <span>
+                              <span class="font-bold text-[#8a5332]">
                                   Grade A
                               </span>
 
@@ -284,10 +285,10 @@
 
 
 
-                          <div class="product-bottom">
+                          <div class="mt-[18px] flex items-center justify-between gap-[10px]">
 
 
-                              <span class="product-status">
+                              <span class="text-[11px] font-bold text-[#66764a]">
                                   Tersedia
                               </span>
 
@@ -295,7 +296,7 @@
                               <!-- PRODUK A -->
 
                               <a
-                                  href="/detail-product?product=a">
+                                  href="/detail-product?product=a" class="text-[10px] font-bold text-[#8b5433] transition hover:text-[#3b2416]">
                 
                                   Lihat Detail →
                               </a>
@@ -313,18 +314,18 @@
 
                   <!-- ================= PRODUCT B ================= -->
 
-                  <article class="product-card">
+                  <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
 
-                      <div class="product-image">
+                      <div class="relative h-[220px] overflow-hidden">
 
                           <img
                               src="/kakao-home/cocoa-bean-b.jpg"
-                              alt="Cocoa Bean B"
+                              alt="Cocoa Bean B" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
                           >
 
 
-                          <span class="product-badge">
+                          <span class="absolute top-4 left-4 bg-[#3b2416] px-[10px] py-[7px] text-[8px] font-bold tracking-[1px] text-white">
                               GRADE B
                           </span>
 
@@ -332,29 +333,29 @@
 
 
 
-                      <div class="product-info">
+                      <div class="p-5 px-6">
 
 
-                          <p class="product-category">
+                          <p class="mb-[9px] text-[9px] font-bold tracking-[2px] text-[#a16038]">
                               FERMENTASI
                           </p>
 
 
-                          <h3>
+                          <h3 class="mb-[10px] font-serif text-xl text-[#38271c]">
                               Cocoa Bean B
                           </h3>
 
 
-                          <p class="product-description">
+                          <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
 
                               Biji kakao fermentasi dengan kualitas Grade B
 
                           </p>
 
 
-                          <div class="product-detail-info">
+                          <div class="mt-[18px] flex justify-between border-y border-[#eee4da] py-3 text-[11px] text-[#6e5c50]">
 
-                              <span>
+                              <span class="font-bold text-[#8a5332]">
                                   Grade B
                               </span>
 
@@ -366,10 +367,10 @@
 
 
 
-                          <div class="product-bottom">
+                          <div class="mt-[18px] flex items-center justify-between gap-[10px]">
 
 
-                              <span class="product-status">
+                              <span class="text-[11px] font-bold text-[#66764a]">
                                   Tersedia
                               </span>
 
@@ -377,7 +378,7 @@
                               <!-- PRODUK B -->
 
                               <a
-                                  href="/detail-product?product=b">
+                                  href="/detail-product?product=b" class="text-[10px] font-bold text-[#8b5433] transition hover:text-[#3b2416]">
                               
                                   Lihat Detail →
                               </a>
@@ -395,18 +396,18 @@
 
                   <!-- ================= PRODUCT C ================= -->
 
-                  <article class="product-card">
+                  <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
 
-                      <div class="product-image">
+                      <div class="relative h-[220px] overflow-hidden">
 
                           <img
                               src="/kakao-home/cocoa-bean-c.jpg"
-                              alt="Cocoa Bean C"
+                              alt="Cocoa Bean C" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
                           >
 
 
-                          <span class="product-badge">
+                          <span class="absolute top-4 left-4 bg-[#3b2416] px-[10px] py-[7px] text-[8px] font-bold tracking-[1px] text-white">
                               GRADE C
                           </span>
 
@@ -414,29 +415,29 @@
 
 
 
-                      <div class="product-info">
+                      <div class="p-5 px-6">
 
 
-                          <p class="product-category">
+                          <p class="mb-[9px] text-[9px] font-bold tracking-[2px] text-[#a16038]">
                               NON-FERMENTASI
                           </p>
 
 
-                          <h3>
+                          <h3 class="mb-[10px] font-serif text-xl text-[#38271c]">
                               Cocoa Bean C
                           </h3>
 
 
-                          <p class="product-description">
+                          <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
 
                               Biji kakao non-fermentasi dengan kualitas Grade C
 
                           </p>
 
 
-                          <div class="product-detail-info">
+                          <div class="mt-[18px] flex justify-between border-y border-[#eee4da] py-3 text-[11px] text-[#6e5c50]">
 
-                              <span>
+                              <span class="font-bold text-[#8a5332]">
                                   Grade C
                               </span>
 
@@ -448,10 +449,10 @@
 
 
 
-                          <div class="product-bottom">
+                          <div class="mt-[18px] flex items-center justify-between gap-[10px]">
 
 
-                              <span class="product-status">
+                              <span class="text-[11px] font-bold text-[#66764a]">
                                   Tersedia
                               </span>
 
@@ -459,7 +460,7 @@
                               <!-- PRODUK C -->
 
                               <a
-                                  href="/detail-product?product=c">
+                                  href="/detail-product?product=c" class="text-[10px] font-bold text-[#8b5433] transition hover:text-[#3b2416]">
                               
                                   Lihat Detail →
                               </a>
@@ -484,31 +485,31 @@
           <!-- ================= TRACEABILITY ================= -->
 
           <section
-              class="process"
+              class="bg-[#332116] px-[max(7%,45px)] py-[105px] text-white max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-[75px] max-[520px]:px-[18px] max-[520px]:py-[60px]"
               id="process"
           >
 
 
-              <div class="process-heading">
+              <div class="mx-auto max-w-[700px] text-center">
 
 
-                  <p class="section-label light">
+                  <p class="mb-[18px] text-[10px] font-bold tracking-[3px] text-[#d6a77e]">
                       PROSES PEMESANAN
                   </p>
 
 
-                  <h2>
+                  <h2 class="font-serif text-[44px] font-normal leading-[1.2] max-[520px]:text-[32px]">
 
                       Pantau Proses
 
-                      <span>
+                      <span class="italic text-[#d5a274]">
                           Pesanan Kakao.
                       </span>
 
                   </h2>
 
 
-                  <p>
+                  <p class="mx-auto mt-[22px] max-w-[560px] text-[13px] leading-[1.8] text-[#c5b6ab]">
 
                       Setiap tahapan pesanan dicatat sehingga customer
                       dapat mengetahui perkembangan pesanannya dengan jelas.
@@ -520,135 +521,135 @@
 
 
 
-              <div class="process-list">
+              <div class="mx-auto mt-[65px] flex max-w-[1200px] items-start justify-center max-[800px]:flex-wrap max-[800px]:gap-x-3 max-[800px]:gap-y-[30px]">
 
 
                   <!-- 01 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           01
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Pemesanan
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Pelanggan melakukan pemesanan produk.
                       </p>
 
                   </div>
 
 
-                  <div class="process-line"></div>
+                  <div class="mt-[22px] h-px w-[30px] bg-[#71543f] max-[800px]:hidden"></div>
 
 
 
                   <!-- 02 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           02
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Verifikasi
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Pesanan dan pembayaran diverifikasi.
                       </p>
 
                   </div>
 
 
-                  <div class="process-line"></div>
+                  <div class="mt-[22px] h-px w-[30px] bg-[#71543f] max-[800px]:hidden"></div>
 
 
 
                   <!-- 03 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           03
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Persiapan
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Produk dipersiapkan sesuai pesanan.
                       </p>
 
                   </div>
 
 
-                  <div class="process-line"></div>
+                  <div class="mt-[22px] h-px w-[30px] bg-[#71543f] max-[800px]:hidden"></div>
 
 
 
                   <!-- 04 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           04
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Quality Control
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Kualitas produk diperiksa sebelum dikemas.
                       </p>
 
                   </div>
 
 
-                  <div class="process-line"></div>
+                  <div class="mt-[22px] h-px w-[30px] bg-[#71543f] max-[800px]:hidden"></div>
 
 
 
                   <!-- 05 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           05
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Pengemasan
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Produk dikemas dengan aman.
                       </p>
 
                   </div>
 
-                  <div class="process-line"></div>
+                  <div class="mt-[22px] h-px w-[30px] bg-[#71543f] max-[800px]:hidden"></div>
 
 
                   <!-- 06 -->
 
-                  <div class="process-item">
+                  <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
 
-                      <span>
+                      <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
                           06
                       </span>
 
-                      <strong>
+                      <strong class="mt-[17px] block font-serif text-sm">
                           Pengiriman
                       </strong>
 
-                      <p>
+                      <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
                           Pesanan dikirim kepada pelanggan.
                       </p>
 
@@ -663,23 +664,23 @@
 
       <!-- ================= FOOTER ================= -->
 
-      <footer class="footer">
+      <footer class="mt-[85px] bg-[#24170f] px-[max(7%,45px)] pt-[65px] pb-[25px] text-white max-[1100px]:px-[4%] max-[800px]:mt-[50px] max-[800px]:px-6 max-[800px]:pt-[55px] max-[520px]:px-[18px] max-[520px]:pt-[50px] max-[520px]:pb-6">
 
-          <div class="footer-main">
+          <div class="mx-auto flex max-w-[1200px] justify-between gap-20 max-[800px]:flex-col max-[800px]:gap-[35px]">
 
 
               <!-- FOOTER BRAND -->
 
-              <div class="footer-brand">
+              <div class="max-w-[340px]">
 
                   <a
                       href="#home"
-                      class="footer-logo"
+                      class="font-serif text-[22px] font-bold text-white no-underline"
                   >
                       KAKAO
                   </a>
 
-                  <p>
+                  <p class="mt-[18px] text-xs leading-[1.8] text-[#a99b91]">
 
                       Platform penjualan dan pemesanan produk kakao yang memudahkan pelanggan dalam memilih produk, melakukan transaksi, dan memantau proses pesanan secara transparan
 
@@ -689,54 +690,54 @@
 
               <!-- FOOTER LINKS -->
 
-              <div class="footer-links">
+              <div class="flex gap-[75px] max-[800px]:flex-wrap max-[800px]:justify-between max-[800px]:gap-7 max-[520px]:gap-[26px]">
 
 
-                  <div>
+                  <div class="flex flex-col gap-[11px]">
 
-                      <h4>
+                      <h4 class="mb-[7px] text-[10px] tracking-[2px] text-[#d6a67c] uppercase">
                           Menu
                       </h4>
 
-                      <a href="#home">
+                      <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="#home">
                           Beranda
                       </a>
 
-                      <a href="#products">
+                      <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="#products">
                           Produk
                       </a>
 
-                      <a href="#about">
+                      <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="#about">
                           Tentang
                       </a>
                   </div>
 
-                  <div>
-                      <h4>
+                  <div class="flex flex-col gap-[11px]">
+                      <h4 class="mb-[7px] text-[10px] tracking-[2px] text-[#d6a67c] uppercase">
                           Informasi
                       </h4>
 
 
-                      <a href="/traceability">
+                      <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/traceability">
                           Telusuri
                       </a>
 
-                      <a href="/admin/login/index.html">
+                      <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/admin/login/index.html">
                           Daftar
                       </a>
 
                   </div>
 
-                  <div>
-                      <h4>
+                  <div class="flex flex-col gap-[11px]">
+                      <h4 class="mb-[7px] text-[10px] tracking-[2px] text-[#d6a67c] uppercase">
                           Kontak
                       </h4>
 
-                      <p>
+                      <p class="text-[11px] text-[#b6a89e]">
                           info@kakao.com
                       </p>
 
-                      <p>
+                      <p class="text-[11px] text-[#b6a89e]">
                           Indonesia
                       </p>
 
@@ -748,7 +749,7 @@
 
           <!-- FOOTER BOTTOM -->
 
-          <div class="footer-bottom">
+          <div class="mx-auto mt-[50px] flex max-w-[1200px] justify-between border-t border-[#49362a] pt-5 text-[9px] tracking-[1px] text-[#77695f] max-[520px]:flex-col max-[520px]:gap-3">
 
 
               <p>
@@ -767,4 +768,4 @@
 </template>
 
 <!-- JavaScript Home lama kosong, sehingga tidak perlu script setup. -->
-<style scoped src="./HomeView.css"></style>
+
