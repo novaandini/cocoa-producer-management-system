@@ -1,9 +1,8 @@
-
 <template>
   <div class="min-h-screen overflow-x-clip bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#2d2118]">
 
     <!-- HEADER / NAVBAR -->
-    <header class="sticky top-0 z-[1000] w-full border-b border-[#eadfd3] bg-[rgba(255,253,249,0.97)]">
+    <header class="sticky top-0 z-1000 w-full border-b border-[#eadfd3] bg-[rgba(255,253,249,0.97)]">
       <nav class="flex h-20 items-center justify-between bg-[#fffdf9] px-[max(7%,45px)] max-[1100px]:px-[4%] max-[800px]:h-auto max-[800px]:min-h-19 max-[800px]:flex-wrap max-[800px]:px-6 max-[520px]:px-4.5">
 
         <a href="#home" class="flex items-center justify-center no-underline">
@@ -63,10 +62,10 @@
       <!-- HERO -->
       <section
         id="home"
-        class="mx-auto flex min-h-[calc(100vh-78px)] max-w-[1300px] items-center justify-between gap-20 px-13.75 py-15 max-[1100px]:gap-11.25 max-[1100px]:px-[4%] max-[800px]:min-h-0 max-[800px]:flex-col max-[800px]:items-stretch max-[800px]:gap-11.25 max-[800px]:px-6 max-[800px]:py-16.25 max-[520px]:px-4.5 max-[520px]:py-11.25"
+        class="mx-auto flex min-h-[calc(100vh-78px)] max-w-325 items-center justify-between gap-20 px-13.75 py-15 max-[1100px]:gap-11.25 max-[1100px]:px-[4%] max-[800px]:min-h-0 max-[800px]:flex-col max-[800px]:items-stretch max-[800px]:gap-11.25 max-[800px]:px-6 max-[800px]:py-16.25 max-[520px]:px-4.5 max-[520px]:py-11.25"
       >
 
-        <div class="max-w-[570px] flex-1 max-[800px]:max-w-full">
+        <div class="max-w-142.5 flex-1 max-[800px]:max-w-full">
 
           <p class="mb-4.5 text-[10px] font-bold tracking-[3px] text-[#a15f36]">
             PLATFORM PENJUALAN DAN PEMESANAN KAKAO
@@ -79,7 +78,7 @@
             </span>
           </h1>
 
-          <p class="mt-6.25 max-w-[520px] text-sm leading-[1.9] text-[#6e5c50]">
+          <p class="mt-6.25 max-w-130 text-sm leading-[1.9] text-[#6e5c50]">
             Temukan berbagai pilihan biji kakao berkualitas sesuai kebutuhan Anda. Melalui platform KAKAO, anda dapat melihat informasi produk, melakukan pemesanan dan pembayaran secara online, serta memantau setiap tahapan pesanan hingga proses pengiriman.
           </p>
 
@@ -102,7 +101,7 @@
           </div>
         </div>
 
-        <div class="h-[500px] flex-[0_0_44%] overflow-hidden rounded-t-[180px] rounded-b-lg shadow-[0_15px_30px_rgba(0,0,0,0.30)] max-[1100px]:h-[450px] max-[800px]:h-[420px] max-[800px]:w-full max-[800px]:flex-none max-[520px]:h-[310px]">
+        <div class="h-125 flex-[0_0_44%] overflow-hidden rounded-t-[180px] rounded-b-lg shadow-[0_15px_30px_rgba(0,0,0,0.30)] max-[1100px]:h-112.5 max-[800px]:h-105 max-[800px]:w-full max-[800px]:flex-none max-[520px]:h-77.5">
           <img
             src="/kakao-home/hero-kakao.jpg"
             alt="Buah dan biji kakao"
@@ -118,7 +117,7 @@
         class="bg-[#f4ede4] px-[max(7%,45px)] py-25 max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-18.75 max-[520px]:px-4.5 max-[520px]:py-15"
       >
 
-        <div class="mx-auto grid max-w-[1200px] grid-cols-[1.2fr_1fr] items-center gap-22.5 max-[1100px]:gap-12.5 max-[800px]:grid-cols-1 max-[800px]:gap-7.5">
+        <div class="mx-auto grid max-w-300 grid-cols-[1.2fr_1fr] items-center gap-22.5 max-[1100px]:gap-12.5 max-[800px]:grid-cols-1 max-[800px]:gap-7.5">
 
           <div>
             <p class="mb-4.5 text-[10px] font-bold tracking-[3px] text-[#a15f36]">
@@ -152,7 +151,7 @@
         class="bg-[#fffdf9] px-[max(7%,45px)] pt-25 pb-8.75 max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-18.75 max-[520px]:px-4.5 max-[520px]:py-15"
       >
 
-        <div class="mx-auto mb-11.25 flex max-w-[1200px] items-end justify-between max-[520px]:flex-col max-[520px]:items-start max-[520px]:gap-4.5">
+        <div class="mx-auto mb-11.25 flex max-w-300 items-end justify-between max-[520px]:flex-col max-[520px]:items-start max-[520px]:gap-4.5">
 
           <div>
             <p class="mb-4.5 text-[10px] font-bold tracking-[3px] text-[#a15f36]">
@@ -173,12 +172,12 @@
 
         </div>
 
-        <div class="mx-auto grid max-w-[1200px] grid-cols-3 gap-6.25 max-[800px]:grid-cols-2 max-[520px]:grid-cols-1">
+        <div class="mx-auto grid max-w-300 grid-cols-3 gap-6.25 max-[800px]:grid-cols-2 max-[520px]:grid-cols-1">
 
           <!-- PRODUCT A -->
-          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
+          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-1.25 hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
-            <div class="relative h-[220px] overflow-hidden">
+            <div class="relative h-55 overflow-hidden">
               <img
                 src="/kakao-home/cocoa-bean-a.jpg"
                 alt="Cocoa Bean A"
@@ -199,7 +198,7 @@
                 Cocoa Bean A
               </h3>
 
-              <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
+              <p class="min-h-8.75 text-xs leading-[1.7] text-[#806e62]">
                 Biji kakao fermentasi dengan kualitas Grade A
               </p>
 
@@ -221,9 +220,9 @@
           </article>
 
           <!-- PRODUCT B -->
-          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
+          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-1.25 hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
-            <div class="relative h-[220px] overflow-hidden">
+            <div class="relative h-55 overflow-hidden">
               <img
                 src="/kakao-home/cocoa-bean-b.jpg"
                 alt="Cocoa Bean B"
@@ -244,7 +243,7 @@
                 Cocoa Bean B
               </h3>
 
-              <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
+              <p class="min-h-8.75 text-xs leading-[1.7] text-[#806e62]">
                 Biji kakao fermentasi dengan kualitas Grade B
               </p>
 
@@ -266,9 +265,9 @@
           </article>
 
           <!-- PRODUCT C -->
-          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
+          <article class="group overflow-hidden rounded-[10px] border border-[#eadfd5] bg-white transition duration-300 hover:-translate-y-1.25 hover:shadow-[0_16px_35px_rgba(65,40,24,0.10)]">
 
-            <div class="relative h-[220px] overflow-hidden">
+            <div class="relative h-55 overflow-hidden">
               <img
                 src="/kakao-home/cocoa-bean-c.jpg"
                 alt="Cocoa Bean C"
@@ -289,7 +288,7 @@
                 Cocoa Bean C
               </h3>
 
-              <p class="min-h-[35px] text-xs leading-[1.7] text-[#806e62]">
+              <p class="min-h-8.75 text-xs leading-[1.7] text-[#806e62]">
                 Biji kakao non-fermentasi dengan kualitas Grade C
               </p>
 
@@ -316,10 +315,10 @@
       <!-- TRACEABILITY / PROSES PEMESANAN -->
       <section
         id="process"
-        class="bg-[#332116] px-[max(7%,45px)] py-[105px] text-white max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-18.75 max-[520px]:px-4.5 max-[520px]:py-15"
+        class="bg-[#332116] px-[max(7%,45px)] py-26.25 text-white max-[1100px]:px-[4%] max-[800px]:px-6 max-[800px]:py-18.75 max-[520px]:px-4.5 max-[520px]:py-15"
       >
 
-        <div class="mx-auto max-w-[700px] text-center">
+        <div class="mx-auto max-w-175 text-center">
 
           <p class="mb-4.5 text-[10px] font-bold tracking-[3px] text-[#d6a77e]">
             PROSES PEMESANAN
@@ -332,21 +331,21 @@
             </span>
           </h2>
 
-          <p class="mx-auto mt-5.5 max-w-[560px] text-[13px] leading-[1.8] text-[#c5b6ab]">
+          <p class="mx-auto mt-5.5 max-w-140 text-[13px] leading-[1.8] text-[#c5b6ab]">
             Setiap tahapan pesanan dicatat sehingga customer dapat mengetahui perkembangan pesanannya dengan jelas.
           </p>
 
         </div>
 
-        <div class="mx-auto mt-16.25 flex max-w-[1200px] items-start justify-center max-[800px]:flex-wrap max-[800px]:gap-x-3 max-[800px]:gap-y-7.5">
+        <div class="mx-auto mt-16.25 flex max-w-300 items-start justify-center max-[800px]:flex-wrap max-[800px]:gap-x-3 max-[800px]:gap-y-7.5">
 
           <!-- 01 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               01
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Pemesanan</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Pelanggan melakukan pemesanan produk.
             </p>
           </div>
@@ -354,12 +353,12 @@
           <div class="mt-5.5 h-px w-7.5 bg-[#71543f] max-[800px]:hidden"></div>
 
           <!-- 02 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               02
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Verifikasi</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Pesanan dan pembayaran diverifikasi.
             </p>
           </div>
@@ -367,12 +366,12 @@
           <div class="mt-5.5 h-px w-7.5 bg-[#71543f] max-[800px]:hidden"></div>
 
           <!-- 03 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               03
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Persiapan</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Produk dipersiapkan sesuai pesanan.
             </p>
           </div>
@@ -380,12 +379,12 @@
           <div class="mt-5.5 h-px w-7.5 bg-[#71543f] max-[800px]:hidden"></div>
 
           <!-- 04 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               04
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Quality Control</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Kualitas produk diperiksa sebelum dikemas.
             </p>
           </div>
@@ -393,12 +392,12 @@
           <div class="mt-5.5 h-px w-7.5 bg-[#71543f] max-[800px]:hidden"></div>
 
           <!-- 05 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               05
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Pengemasan</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Produk dikemas dengan aman.
             </p>
           </div>
@@ -406,12 +405,12 @@
           <div class="mt-5.5 h-px w-7.5 bg-[#71543f] max-[800px]:hidden"></div>
 
           <!-- 06 -->
-          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%_-_14px)] max-[520px]:flex-[0_0_calc(50%_-_10px)]">
+          <div class="flex-1 text-center max-[800px]:flex-[0_0_calc(33.33%-14px)] max-[520px]:flex-[0_0_calc(50%-10px)]">
             <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#9c765a] font-serif text-xs text-[#ddb086] transition hover:border-[#d5a274] hover:bg-[#d5a274] hover:text-[#332116]">
               06
             </span>
             <strong class="mt-4.25 block font-serif text-sm">Pengiriman</strong>
-            <p class="mx-auto mt-2 max-w-[130px] text-[10px] leading-[1.6] text-[#aa9a8f]">
+            <p class="mx-auto mt-2 max-w-32.5 text-[10px] leading-[1.6] text-[#aa9a8f]">
               Pesanan dikirim kepada pelanggan.
             </p>
           </div>
@@ -422,12 +421,12 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="mt-[85px] bg-[#24170f] px-[max(7%,45px)] pt-16.25 pb-6.25 text-white max-[1100px]:px-[4%] max-[800px]:mt-12.5 max-[800px]:px-6 max-[800px]:pt-13.75 max-[520px]:px-4.5 max-[520px]:pt-12.5 max-[520px]:pb-6">
+    <footer class="mt-21.25 bg-[#24170f] px-[max(7%,45px)] pt-16.25 pb-6.25 text-white max-[1100px]:px-[4%] max-[800px]:mt-12.5 max-[800px]:px-6 max-[800px]:pt-13.75 max-[520px]:px-4.5 max-[520px]:pt-12.5 max-[520px]:pb-6">
 
-      <div class="mx-auto flex max-w-[1200px] justify-between gap-20 max-[800px]:flex-col max-[800px]:gap-8.75">
+      <div class="mx-auto flex max-w-300 justify-between gap-20 max-[800px]:flex-col max-[800px]:gap-8.75">
 
         <!-- FOOTER BRAND -->
-        <div class="max-w-[340px]">
+        <div class="max-w-85">
           <a
             href="#home"
             class="font-serif text-[22px] font-bold text-white no-underline"
@@ -441,7 +440,7 @@
         </div>
 
         <!-- FOOTER LINKS -->
-        <div class="flex gap-18.75 max-[800px]:flex-wrap max-[800px]:justify-between max-[800px]:gap-7 max-[520px]:gap-6.5">
+        <div class="flex gap-18.75 max-[800px]:flex-wrap max-[800px]:justify-between max-[800px]:gap-7.5 max-[520px]:gap-6.5">
 
           <div class="flex flex-col gap-2.75">
             <h4 class="mb-1.75 text-[10px] tracking-[2px] text-[#d6a67c] uppercase">
@@ -493,7 +492,7 @@
       </div>
 
       <!-- FOOTER BOTTOM -->
-      <div class="mx-auto mt-12.5 flex max-w-[1200px] justify-between border-t border-[#49362a] pt-5 text-[9px] tracking-[1px] text-[#77695f] max-[520px]:flex-col max-[520px]:gap-3">
+      <div class="mx-auto mt-12.5 flex max-w-300 justify-between border-t border-[#49362a] pt-5 text-[9px] tracking-[1px] text-[#77695f] max-[520px]:flex-col max-[520px]:gap-3">
 
         <p>© 2026 KAKAO</p>
 
