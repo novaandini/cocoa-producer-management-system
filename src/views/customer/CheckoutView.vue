@@ -100,7 +100,7 @@ function submitOrder() {
   <div class="min-h-screen bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#2d2118]">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 flex min-h-[76px] items-center justify-between border-b border-[#eadfd3] bg-[#fffdf9] px-5 shadow-sm sm:px-8 lg:px-16">
+    <header class="sticky top-0 z-50 flex min-h-19 items-center justify-between border-b border-[#eadfd3] bg-[#fffdf9] px-5 shadow-sm sm:px-8 lg:px-16">
       <a href="/" class="flex items-center">
         <img
           src="/kakao-home/logo-kakao.png"
@@ -117,7 +117,7 @@ function submitOrder() {
       </a>
     </header>
 
-    <main class="mx-auto w-full max-w-[1200px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
+    <main class="mx-auto w-full max-w-300 px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
 
       <!-- JUDUL HALAMAN -->
       <section class="mb-10 text-center">
@@ -130,7 +130,7 @@ function submitOrder() {
           <span class="italic text-[#98633e]">Pesanan Anda</span>
         </h1>
 
-        <p class="mx-auto mt-4 max-w-[620px] text-sm leading-7 text-[#82766c]">
+        <p class="mx-auto mt-4 max-w-155 text-sm leading-7 text-[#82766c]">
           Lengkapi informasi pemesanan dan pengiriman untuk melanjutkan proses pembelian kakao.
         </p>
       </section>
@@ -138,7 +138,7 @@ function submitOrder() {
       <!-- BELUM LOGIN -->
       <section
         v-if="!isCustomer"
-        class="mx-auto max-w-[650px] rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
+        class="mx-auto max-w-162.5 rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
       >
         <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#f5ede4] text-2xl text-[#8a5a38]">
           <span>♙</span>
@@ -148,7 +148,7 @@ function submitOrder() {
           Silakan masuk terlebih dahulu
         </h2>
 
-        <p class="mx-auto mt-3 max-w-[440px] text-sm leading-7 text-[#82766c]">
+        <p class="mx-auto mt-3 max-w-110 text-sm leading-7 text-[#82766c]">
           Pelanggan dapat melihat produk tanpa login, tetapi perlu masuk sebelum checkout dan pembayaran.
         </p>
 
@@ -170,7 +170,7 @@ function submitOrder() {
       <!-- BELUM MEMILIH PRODUK -->
       <section
         v-else-if="!product"
-        class="mx-auto max-w-[650px] rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
+        class="mx-auto max-w-162.5 rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
       >
         <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#f5ede4] text-2xl">
           🛒
@@ -180,7 +180,7 @@ function submitOrder() {
           Belum ada produk yang dipilih
         </h2>
 
-        <p class="mx-auto mt-3 max-w-[440px] text-sm leading-7 text-[#82766c]">
+        <p class="mx-auto mt-3 max-w-110 text-sm leading-7 text-[#82766c]">
           Buka halaman produk, pilih Cocoa Bean, kemudian tekan “Pesan Sekarang”.
         </p>
 
@@ -407,7 +407,7 @@ function submitOrder() {
 
     <!-- FOOTER -->
     <footer class="mt-12 border-t border-[#eadfd3] bg-[#f5ede4] px-5 py-6 sm:px-8">
-      <div class="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-2 text-center text-[11px] text-[#82766c] sm:flex-row sm:text-left">
+      <div class="mx-auto flex max-w-300 flex-col items-center justify-between gap-2 text-center text-[11px] text-[#82766c] sm:flex-row sm:text-left">
         <p>© 2026 KAKAO</p>
         <p>Sistem Informasi Penjualan dan Pemesanan Kakao</p>
       </div>
