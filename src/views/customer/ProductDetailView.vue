@@ -175,7 +175,7 @@ onMounted(() => {
                 </button>
                 <input id="quantity" type="number" min="1" :max="product.stock" :value="quantity"
                   @change="updateQuantity" @blur="updateQuantity" aria-label="Jumlah pesanan dalam kilogram"
-                  class="h-full w-auto min-w-0 flex-1 appearance-none bg-white px-1 text-center text-[13px] text-[#3b2416] outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none min-[601px]:w-13.75 min-[601px]:flex-none" />
+                  class="h-full w-auto min-w-0 flex-1 appearance-none bg-white px-1 text-center text-[13px] text-[#3b2416] outline-none appearance:textfield; [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none min-[601px]:w-13.75 min-[601px]:flex-none" />
                 <button type="button" aria-label="Tambah jumlah" :disabled="quantity >= product.stock" @click="increaseQuantity"
                   class="h-full w-10 shrink-0 cursor-pointer bg-[#f5eee8] text-lg text-[#3b2416] transition-colors duration-200 hover:bg-[#3b2416] hover:text-white disabled:cursor-not-allowed disabled:opacity-50">
                   +
