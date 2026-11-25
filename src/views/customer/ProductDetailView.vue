@@ -79,31 +79,37 @@ function increaseQuantity() {
   quantity.value = normalizedQuantity(quantity.value + 1)
 }
 
+const showLoginModal = ref(false)
+
 function pesanSekarang() {
   quantity.value = normalizedQuantity(quantity.value)
-  // Simpan pilihan untuk tahap checkout berikutnya.
+
+  // Simpan produk untuk Checkout
   sessionStorage.setItem('selectedProduct', JSON.stringify({
     id: productId,
     name: product.value.name,
     quantity_kg: quantity.value
   }))
 
-  // Pemeriksaan role ini hanya untuk demo frontend.
-  // Otorisasi yang sebenarnya tetap harus divalidasi backend.
   const role = localStorage.getItem('userRole')
 
   if (role === 'CUSTOMER') {
     window.location.href = '/checkout'
   } else {
     sessionStorage.setItem('redirectAfterLogin', 'checkout')
-    window.alert('Silakan masuk sebagai pelanggan terlebih dahulu untuk melakukan pemesanan.')
-    window.location.href = '/login'
+
+    // Tampilkan pop-up custom, bukan alert browser
+    showLoginModal.value = true
   }
 }
-// Animasi masuk menggunakan utility Tailwind, tanpa CSS custom.
+
+// Animasi masuk menggunakan Tailwind
 const isReady = ref(false)
+
 onMounted(() => {
-  requestAnimationFrame(() => { isReady.value = true })
+  requestAnimationFrame(() => {
+    isReady.value = true
+  })
 })
 </script>
 
@@ -175,7 +181,7 @@ onMounted(() => {
                 </button>
                 <input id="quantity" type="number" min="1" :max="product.stock" :value="quantity"
                   @change="updateQuantity" @blur="updateQuantity" aria-label="Jumlah pesanan dalam kilogram"
-                  class="h-full w-auto min-w-0 flex-1 appearance-none bg-white px-1 text-center text-[13px] text-[#3b2416] outline-none appearance:textfield; [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none min-[601px]:w-13.75 min-[601px]:flex-none" />
+                  class="h-full w-auto min-w-0 flex-1 appearance-none bg-white px-1 text-center text-[13px] text-[#3b2416] outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none min-[601px]:w-13.75 min-[601px]:flex-none" />
                 <button type="button" aria-label="Tambah jumlah" :disabled="quantity >= product.stock" @click="increaseQuantity"
                   class="h-full w-10 shrink-0 cursor-pointer bg-[#f5eee8] text-lg text-[#3b2416] transition-colors duration-200 hover:bg-[#3b2416] hover:text-white disabled:cursor-not-allowed disabled:opacity-50">
                   +
@@ -250,5 +256,50 @@ onMounted(() => {
         <p>Sistem Informasi Manajemen Produsen Kakao</p>
       </div>
     </footer>
+
+
+    <!-- MODAL LOGIN -->
+    <div
+  v-if="showLoginModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-5"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="login-modal-title"
+>
+  <div class="w-full max-w-sm rounded-xl bg-[#fffdf9] p-7 text-center shadow-2xl">
+
+    <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#f3ebe3] text-2xl text-[#3b2416]">
+      !
+    </div>
+
+    <h2 id="login-modal-title" class="mb-3 font-serif text-2xl text-[#3b2416]">
+      Login Diperlukan
+    </h2>
+
+    <p class="mb-6 text-sm leading-relaxed text-[#806e62]">
+      Silakan masuk sebagai pelanggan terlebih dahulu
+      untuk melakukan pemesanan produk kakao.
+    </p>
+
+    <div class="flex gap-3">
+      <button
+        type="button"
+        class="flex-1 rounded-md border border-[#ded1c7] px-4 py-3 text-xs font-semibold text-[#3b2416] hover:bg-[#f3ebe3]"
+        @click="showLoginModal = false"
+      >
+        Batal
+      </button>
+
+      <a
+        href="/login"
+        class="flex-1 rounded-md bg-[#3b2416] px-4 py-3 text-center text-xs font-semibold text-white no-underline hover:bg-[#75482c]"
+      >
+        Masuk
+      </a>
+    </div>
+
+  </div>
+</div>
+
   </div>
 </template>

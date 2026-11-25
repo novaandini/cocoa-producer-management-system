@@ -226,40 +226,85 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- GRID: 1 kolom HP, 2 tablet, 3 desktop -->
-        <div id="productsGrid" class="grid grid-cols-1 gap-6.25 min-[751px]:grid-cols-2 min-[1001px]:grid-cols-3">
-          <article v-for="(product, index) in filteredProducts" :key="product.id"
-            class="group overflow-hidden rounded-lg border border-[#eadfd5] bg-white transition-all duration-300 hover:-translate-y-1.25 hover:shadow-[0_12px_30px_rgba(70,45,28,0.08)] motion-reduce:transform-none motion-reduce:opacity-100"
-            :class="isReady ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'"
-            :style="{ transitionDelay: isReady ? `${Math.min(index * 55, 350)}ms` : '0ms' }">
-            <div class="relative h-56.25 w-full overflow-hidden bg-[#eee4da]">
-              <img :src="product.image" :alt="product.name" loading="lazy"
-                class="block h-full w-full object-cover transition-transform duration-400 group-hover:scale-104" />
-              <span class="absolute top-3.75 left-3.75 rounded bg-white px-2.5 py-1.75 text-[10px] font-bold tracking-[0.5px] text-[#68452f]">
-                GRADE {{ product.grade }}
-              </span>
-            </div>
-            <div class="p-5.5">
-              <span class="mb-1.5 block text-[10px] font-bold tracking-[1.3px] text-[#a16e4c] uppercase">{{ product.type }}</span>
-              <h3 class="mb-2.5 text-[21px] font-bold text-[#3b2416]">{{ product.name }}</h3>
-              <p class="mb-4.5 min-h-12 text-xs leading-[1.7] text-[#766458]">{{ product.description }}</p>
-              <div class="mb-5 grid grid-cols-2 gap-2.5">
-                <div class="rounded-[5px] bg-[#faf6f1] p-2.75">
-                  <span class="mb-0.75 block text-[9px] tracking-[0.5px] text-[#927e70] uppercase">Grade</span>
-                  <span class="text-xs font-bold text-[#4b3628]">{{ product.grade }}</span>
-                </div>
-                <div class="rounded-[5px] bg-[#faf6f1] p-2.75">
-                  <span class="mb-0.75 block text-[9px] tracking-[0.5px] text-[#927e70] uppercase">Stok</span>
-                  <span class="text-xs font-bold text-[#4b3628]">{{ product.stock }} kg</span>
-                </div>
-              </div>
-              <a :href="`/detail-product?product=${product.id}`"
-                class="flex w-full items-center justify-center rounded-[5px] bg-[#3b2416] px-3.75 py-3 text-[11px] font-bold text-white no-underline transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#75482c] hover:text-white">
-                Lihat Detail →
-              </a>
-            </div>
-          </article>
+<!-- PRODUCT GRID -->
+<div
+  id="productsGrid"
+  class="grid grid-cols-1 gap-6.25 min-[751px]:grid-cols-2 min-[1001px]:grid-cols-3"
+>
+  <article
+    v-for="(product, index) in filteredProducts"
+    :key="product.id"
+    class="group overflow-hidden rounded-lg border border-[#eadfd5] bg-white transition-all duration-300 hover:-translate-y-1.25 hover:shadow-[0_12px_30px_rgba(70,45,28,0.08)] motion-reduce:transform-none motion-reduce:opacity-100"
+    :class="isReady ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'"
+    :style="{ transitionDelay: isReady ? `${Math.min(index * 55, 350)}ms` : '0ms' }"
+  >
+    <!-- FOTO PRODUK -->
+    <a
+      :href="`/detail-product?product=${product.id}`"
+      :aria-label="`Lihat detail ${product.name}`"
+      class="relative block h-50 w-full cursor-pointer overflow-hidden bg-[#eee4da]"
+    >
+      <img
+        :src="product.image"
+        :alt="product.name"
+        loading="lazy"
+        class="block h-full w-full object-cover transition-transform duration-400 group-hover:scale-104"
+      />
+
+      <span
+        class="absolute top-3.5 left-3.5 rounded bg-white px-2.5 py-1.5 text-[10px] font-bold tracking-wider text-[#68452f]"
+      >
+        GRADE {{ product.grade }}
+      </span>
+    </a>
+
+    <!-- INFORMASI PRODUK -->
+    <div class="p-5">
+      <span
+        class="mb-1 block text-[10px] font-bold tracking-wider text-[#a16e4c] uppercase"
+      >
+        {{ product.type }}
+      </span>
+
+      <h3 class="mb-2 text-xl font-bold text-[#3b2416]">
+        {{ product.name }}
+      </h3>
+
+      <p
+        class="mb-4 min-h-10 text-xs leading-relaxed text-[#766458]"
+      >
+        {{ product.description }}
+      </p>
+
+      <!-- GRADE DAN STOK -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <div class="rounded-md bg-[#faf6f1] p-3">
+          <span
+            class="mb-1 block text-[10px] text-[#927e70] uppercase"
+          >
+            Grade
+          </span>
+          <span class="text-xs font-bold text-[#4b3628]">
+            {{ product.grade }}
+          </span>
         </div>
+
+        <div class="rounded-md bg-[#faf6f1] p-3">
+          <span
+            class="mb-1 block text-[10px] text-[#927e70] uppercase"
+          >
+            Stok
+          </span>
+          <span class="text-xs font-bold text-[#4b3628]">
+            {{ product.stock }} kg
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+
 
         <div v-if="filteredProducts.length === 0" class="rounded-lg border border-dashed border-[#ded1c7] bg-[#faf6f1] px-5 py-17.5 text-center">
           <div class="mb-2.5 text-3xl text-[#9b6847]">—</div>
