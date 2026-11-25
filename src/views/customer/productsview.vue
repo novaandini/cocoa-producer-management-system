@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 // Data produk lama; nanti dapat diganti dengan data API/MySQL.
 const products = [
@@ -96,669 +96,252 @@ const filteredProducts = computed(() =>
     return typeMatch && gradeMatch
   })
 )
+
+const typeFilters = [
+  { value: 'all', label: 'Semua Produk' },
+  { value: 'fermentasi', label: 'Fermentasi' },
+  { value: 'non-fermentasi', label: 'Non-Fermentasi' }
+]
+
+const gradeFilters = [
+  { value: 'all', label: 'Semua Grade' },
+  { value: 'A', label: 'Grade A' },
+  { value: 'B', label: 'Grade B' },
+  { value: 'C', label: 'Grade C' }
+]
+
+const informationCards = [
+  { number: '01', title: 'Grade Kakao', description: 'Grade menunjukkan tingkat kualitas produk kakao yang tersedia.' },
+  { number: '02', title: 'Jenis Pengolahan', description: 'Produk tersedia dalam jenis fermentasi dan non-fermentasi.' },
+  { number: '03', title: 'Ketersediaan Stok', description: 'Jumlah stok ditampilkan secara transparan pada setiap produk.' },
+  { number: '04', title: 'Detail Produk', description: 'Lihat detail produk sebelum menentukan jumlah pesanan yang dibutuhkan.' }
+]
+
+const orderSteps = [
+  { number: '01', title: 'Pilih Produk', description: 'Tentukan produk kakao yang sesuai dengan kebutuhan.' },
+  { number: '02', title: 'Lihat Detail', description: 'Periksa grade, jenis pengolahan, dan stok produk.' },
+  { number: '03', title: 'Tentukan Jumlah', description: 'Tentukan jumlah produk yang ingin dipesan.' },
+  { number: '04', title: 'Checkout', description: 'Lanjutkan pesanan melalui halaman checkout.' }
+]
+
+// Transisi Tailwind, tanpa CSS keyframe tambahan.
+const isReady = ref(false)
+onMounted(() => {
+  requestAnimationFrame(() => { isReady.value = true })
+})
 </script>
 
 <template>
-<div class="kakao-products">
-
-
-    <!-- ==================== NAVBAR ==================== -->
-
-    <header class="header">
-
-        <nav class="navbar">
-
-            <a href="/" class="logo">
-                <img
-                    src="/kakao-home/logo-kakao.png"
-                    alt="Logo KAKAO">
-            </a>
-
-            <a
-                href="/"
-                class="back-home">
-
-                ← Kembali ke Beranda
-
-            </a>
-
-        </nav>
-
+  <div class="kakao-products min-h-screen bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#3b2a20] leading-[1.6]">
+    <!-- NAVBAR -->
+    <header class="w-full bg-[#fffdf9]">
+      <nav class="flex h-20 items-center justify-between border-b border-[#eadfd5] bg-[#fffdf9] px-[max(7%,45px)] max-[750px]:h-17.5 max-[750px]:px-[5%]">
+        <a href="/" class="flex items-center" aria-label="Kembali ke Beranda KAKAO">
+          <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO" class="block h-17.5 w-22.5 object-contain max-[750px]:h-15 max-[750px]:w-18.75" />
+        </a>
+        <a href="/" class="flex items-center rounded-md border border-[#ded1c7] px-4 py-2.5 text-xs font-semibold text-[#59483c] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3b2416] hover:bg-[#3b2416] hover:text-white max-[750px]:px-3 max-[750px]:py-2 max-[750px]:text-[10px]">
+          ← Kembali ke Beranda
+        </a>
+      </nav>
     </header>
 
+    <!-- HERO -->
+    <section class="flex flex-col items-start gap-8.75 overflow-hidden border-b border-[#eadfd5] bg-[#f3ebe3] px-[7%] py-15 min-[751px]:min-h-97.5 min-[751px]:flex-row min-[751px]:items-center min-[751px]:justify-between min-[751px]:gap-17.5 min-[751px]:px-[max(7%,45px)] min-[751px]:py-16.25 min-[751px]:max-[1000px]:gap-10">
+      <div class="max-w-180 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100"
+        :class="isReady ? 'translate-y-0 opacity-100' : 'translate-y-6.25 opacity-0'">
+        <span class="mb-3.5 inline-block text-[11px] font-bold tracking-[2px] text-[#9b6847]">KATALOG PRODUK KAKAO</span>
+        <h1 class="mb-5.5 max-w-175 text-[40px] leading-[1.08] font-bold text-[#3b2416] max-[450px]:text-[34px] min-[751px]:text-[clamp(38px,5vw,62px)]">
+          Temukan Kakao yang<br />Sesuai Kebutuhan.
+        </h1>
+        <p class="max-w-162.5 text-[15px] leading-[1.8] text-[#715d4e]">
+          Pilih produk kakao berdasarkan jenis pengolahan, grade, dan ketersediaan stok sesuai kebutuhan Anda.
+        </p>
+      </div>
 
-    <!-- ==================== HERO ==================== -->
-
-    <section class="product-hero">
-
-        <div class="hero-content">
-
-            <span class="hero-label">
-                KATALOG PRODUK KAKAO
-            </span>
-
-            <h1>
-                Temukan Kakao yang
-                <br>
-                Sesuai Kebutuhan.
-            </h1>
-
-            <p>
-                Pilih produk kakao berdasarkan jenis pengolahan,
-                grade, dan ketersediaan stok sesuai kebutuhan Anda.
-            </p>
-
+      <div class="w-full max-w-100 shrink-0 overflow-hidden rounded-xl border border-[#d9c5b5] bg-[#fffaf5] shadow-[0_15px_35px_rgba(59,36,22,0.1)] transition-all delay-200 duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 min-[751px]:w-75 min-[751px]:max-[1000px]:w-65"
+        :class="isReady ? 'translate-x-0 opacity-100' : 'translate-x-8.75 opacity-0'">
+        <div class="flex min-h-26.25 items-center gap-5 border-b border-[#e4d5c9] px-6 py-5 max-[450px]:px-4.5 max-[450px]:py-4.25">
+          <div class="min-w-20.5 text-[32px] leading-none font-bold text-[#9b5d36] max-[450px]:min-w-15 max-[450px]:text-[26px]">{{ String(products.length).padStart(2, '0') }}</div>
+          <div class="flex flex-col gap-1">
+            <strong class="text-[13px] font-bold tracking-[0.3px] text-[#3b2416]">Produk</strong>
+            <span class="text-[11px] leading-[1.4] tracking-[0.8px] text-[#a16e4c] uppercase">Tersedia</span>
+          </div>
         </div>
-
-
-        <!-- ==================== CATALOG SUMMARY ==================== -->
-
-        <div class="catalog-summary">
-
-            <div class="summary-item">
-
-                <div class="summary-number">
-                    {{ String(products.length).padStart(2, '0') }}
-                </div>
-
-                <div class="summary-text">
-
-                    <strong>
-                        Produk
-                    </strong>
-
-                    <span>
-                        Tersedia
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="summary-item">
-
-                <div class="summary-number">
-                    02
-                </div>
-
-                <div class="summary-text">
-
-                    <strong>
-                        Jenis
-                    </strong>
-
-                    <span>
-                        Pengolahan
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="summary-item">
-
-                <div class="summary-number">
-                    A–C
-                </div>
-
-                <div class="summary-text">
-
-                    <strong>
-                        Grade
-                    </strong>
-
-                    <span>
-                        Produk
-                    </span>
-
-                </div>
-
-            </div>
-
+        <div class="flex min-h-26.25 items-center gap-5 border-b border-[#e4d5c9] px-6 py-5 max-[450px]:px-4.5 max-[450px]:py-4.25">
+          <div class="min-w-20.5 text-[32px] leading-none font-bold text-[#9b5d36] max-[450px]:min-w-15 max-[450px]:text-[26px]">02</div>
+          <div class="flex flex-col gap-1">
+            <strong class="text-[13px] font-bold tracking-[0.3px] text-[#3b2416]">Jenis</strong>
+            <span class="text-[11px] leading-[1.4] tracking-[0.8px] text-[#a16e4c] uppercase">Pengolahan</span>
+          </div>
         </div>
-
+        <div class="flex min-h-26.25 items-center gap-5 px-6 py-5 max-[450px]:px-4.5 max-[450px]:py-4.25">
+          <div class="min-w-20.5 text-[32px] leading-none font-bold text-[#9b5d36] max-[450px]:min-w-15 max-[450px]:text-[26px]">A-C</div>
+          <div class="flex flex-col gap-1">
+            <strong class="text-[13px] font-bold tracking-[0.3px] text-[#3b2416]">Grade</strong>
+            <span class="text-[11px] leading-[1.4] tracking-[0.8px] text-[#a16e4c] uppercase">Produk</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-
-    <!-- ==================== MAIN ==================== -->
-
     <main>
+      <!-- KATALOG + FILTER -->
+      <section class="mx-auto max-w-300 px-[7%] py-16.25 min-[751px]:pt-22.5 min-[751px]:pb-25">
+        <div class="mb-11.25 flex flex-col gap-4 min-[751px]:flex-row min-[751px]:items-end min-[751px]:justify-between min-[751px]:gap-10">
+          <div>
+            <span class="mb-3.5 inline-block text-[11px] font-bold tracking-[2px] text-[#9b6847]">PRODUK TERSEDIA</span>
+            <h2 class="mb-3 text-[34px] leading-[1.2] font-bold text-[#3b2416] max-[450px]:text-[28px]">Pilihan Produk Kakao</h2>
+          </div>
+          <p class="max-w-105 text-sm text-[#79685b]">Temukan berbagai pilihan biji kakao dengan karakteristik dan kualitas yang berbeda.</p>
+        </div>
 
-
-        <!-- ==================== PRODUCT SECTION ==================== -->
-
-        <section class="products-section">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-label">
-                        PRODUK TERSEDIA
-                    </span>
-
-                    <h2>
-                        Pilihan Produk Kakao
-                    </h2>
-
-                </div>
-
-
-                <p>
-                    Temukan berbagai pilihan biji kakao
-                    dengan karakteristik dan kualitas yang berbeda.
-                </p>
-
+        <div class="mb-11.25 flex flex-col justify-between gap-7.5 rounded-lg border border-[#eadfd5] bg-[#faf6f1] p-6.25 min-[751px]:flex-row">
+          <div class="flex flex-col gap-3">
+            <span class="text-xs font-bold tracking-[0.8px] text-[#4f3b2d] uppercase">Jenis Pengolahan</span>
+            <div class="flex flex-wrap gap-2">
+              <button v-for="filter in typeFilters" :key="filter.value" type="button"
+                :aria-pressed="selectedType === filter.value"
+                @click="selectedType = filter.value"
+                class="cursor-pointer rounded-[5px] border px-3.5 py-2.25 text-[11px] transition-all duration-300 hover:-translate-y-px"
+                :class="selectedType === filter.value
+                  ? 'border-[#3b2416] bg-[#3b2416] text-white'
+                  : 'border-[#ded1c7] bg-white text-[#695649] hover:border-[#9b6847] hover:text-[#8c5432]'">
+                {{ filter.label }}
+              </button>
             </div>
-
-
-            <!-- ==================== FILTER ==================== -->
-
-            <div class="filter-area">
-
-
-                <!-- JENIS PENGOLAHAN -->
-
-                <div class="filter-group">
-
-                    <span class="filter-title">
-                        Jenis Pengolahan
-                    </span>
-
-
-                    <div class="filter-buttons">
-
-                        <button
-                            type="button" class="filter-btn" :class="{ active: selectedType === 'all' }" @click="selectedType = 'all'">
-
-                            Semua Produk
-
-                        </button>
-
-
-                        <button
-                            type="button" class="filter-btn" :class="{ active: selectedType === 'fermentasi' }" @click="selectedType = 'fermentasi'">
-
-                            Fermentasi
-
-                        </button>
-
-
-                        <button
-                            type="button" class="filter-btn" :class="{ active: selectedType === 'non-fermentasi' }" @click="selectedType = 'non-fermentasi'">
-
-                            Non-Fermentasi
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- GRADE -->
-
-                <div class="filter-group">
-
-                    <span class="filter-title">
-                        Grade
-                    </span>
-
-
-                    <div class="filter-buttons">
-
-                        <button
-                            type="button" class="grade-btn" :class="{ active: selectedGrade === 'all' }" @click="selectedGrade = 'all'">
-
-                            Semua Grade
-
-                        </button>
-
-
-                        <button
-                            type="button" class="grade-btn" :class="{ active: selectedGrade === 'A' }" @click="selectedGrade = 'A'">
-
-                            Grade A
-
-                        </button>
-
-
-                        <button
-                            type="button" class="grade-btn" :class="{ active: selectedGrade === 'B' }" @click="selectedGrade = 'B'">
-
-                            Grade B
-
-                        </button>
-
-
-                        <button
-                            type="button" class="grade-btn" :class="{ active: selectedGrade === 'C' }" @click="selectedGrade = 'C'">
-
-                            Grade C
-
-                        </button>
-
-                    </div>
-
-                </div>
-
+          </div>
+          <div class="flex flex-col gap-3">
+            <span class="text-xs font-bold tracking-[0.8px] text-[#4f3b2d] uppercase">Grade</span>
+            <div class="flex flex-wrap gap-2">
+              <button v-for="filter in gradeFilters" :key="filter.value" type="button"
+                :aria-pressed="selectedGrade === filter.value"
+                @click="selectedGrade = filter.value"
+                class="cursor-pointer rounded-[5px] border px-3.5 py-2.25 text-[11px] transition-all duration-300 hover:-translate-y-px"
+                :class="selectedGrade === filter.value
+                  ? 'border-[#3b2416] bg-[#3b2416] text-white'
+                  : 'border-[#ded1c7] bg-white text-[#695649] hover:border-[#9b6847] hover:text-[#8c5432]'">
+                {{ filter.label }}
+              </button>
             </div>
+          </div>
+        </div>
 
-
-            <!-- ==================== PRODUCT GRID ==================== -->
-
-            <div class="products-grid" id="productsGrid">
-                <article v-for="product in filteredProducts" :key="product.id" class="product-card">
-                    <div class="product-image-wrap">
-                        <img :src="product.image" :alt="product.name" class="product-image" loading="lazy">
-                        <span class="product-badge">GRADE {{ product.grade }}</span>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-type">{{ product.type }}</span>
-                        <h3 class="product-name">{{ product.name }}</h3>
-                        <p class="product-description">{{ product.description }}</p>
-                        <div class="product-info">
-                            <div class="info-box">
-                                <span class="info-label">Grade</span>
-                                <span class="info-value">{{ product.grade }}</span>
-                            </div>
-                            <div class="info-box">
-                                <span class="info-label">Stok</span>
-                                <span class="info-value">{{ product.stock }} kg</span>
-                            </div>
-                        </div>
-                        <a   :href="`/detail-product?product=${product.id}`"
-                            class="detail-button"
-                            >
-                            Lihat Detail →
-                            </a>
-                    </div>
-                </article>
+        <!-- GRID: 1 kolom HP, 2 tablet, 3 desktop -->
+        <div id="productsGrid" class="grid grid-cols-1 gap-6.25 min-[751px]:grid-cols-2 min-[1001px]:grid-cols-3">
+          <article v-for="(product, index) in filteredProducts" :key="product.id"
+            class="group overflow-hidden rounded-lg border border-[#eadfd5] bg-white transition-all duration-300 hover:-translate-y-1.25 hover:shadow-[0_12px_30px_rgba(70,45,28,0.08)] motion-reduce:transform-none motion-reduce:opacity-100"
+            :class="isReady ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'"
+            :style="{ transitionDelay: isReady ? `${Math.min(index * 55, 350)}ms` : '0ms' }">
+            <div class="relative h-56.25 w-full overflow-hidden bg-[#eee4da]">
+              <img :src="product.image" :alt="product.name" loading="lazy"
+                class="block h-full w-full object-cover transition-transform duration-400 group-hover:scale-104" />
+              <span class="absolute top-3.75 left-3.75 rounded bg-white px-2.5 py-1.75 text-[10px] font-bold tracking-[0.5px] text-[#68452f]">
+                GRADE {{ product.grade }}
+              </span>
             </div>
-
-
-            <!-- ==================== EMPTY STATE ==================== -->
-
-            <div
-                class="empty-state"
-                v-if="filteredProducts.length === 0"
-                id="emptyState">
-
-                <div class="empty-icon">
-                    —
+            <div class="p-5.5">
+              <span class="mb-1.5 block text-[10px] font-bold tracking-[1.3px] text-[#a16e4c] uppercase">{{ product.type }}</span>
+              <h3 class="mb-2.5 text-[21px] font-bold text-[#3b2416]">{{ product.name }}</h3>
+              <p class="mb-4.5 min-h-12 text-xs leading-[1.7] text-[#766458]">{{ product.description }}</p>
+              <div class="mb-5 grid grid-cols-2 gap-2.5">
+                <div class="rounded-[5px] bg-[#faf6f1] p-2.75">
+                  <span class="mb-0.75 block text-[9px] tracking-[0.5px] text-[#927e70] uppercase">Grade</span>
+                  <span class="text-xs font-bold text-[#4b3628]">{{ product.grade }}</span>
                 </div>
-
-                <h3>
-                    Produk tidak ditemukan
-                </h3>
-
-                <p>
-                    Coba ubah filter untuk melihat produk lainnya.
-                </p>
-
+                <div class="rounded-[5px] bg-[#faf6f1] p-2.75">
+                  <span class="mb-0.75 block text-[9px] tracking-[0.5px] text-[#927e70] uppercase">Stok</span>
+                  <span class="text-xs font-bold text-[#4b3628]">{{ product.stock }} kg</span>
+                </div>
+              </div>
+              <a :href="`/detail-product?product=${product.id}`"
+                class="flex w-full items-center justify-center rounded-[5px] bg-[#3b2416] px-3.75 py-3 text-[11px] font-bold text-white no-underline transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#75482c] hover:text-white">
+                Lihat Detail →
+              </a>
             </div>
-
-        </section>
-
-
-
-        <!-- ==================== INFORMATION ==================== -->
-
-        <section class="information-section">
-
-            <div class="information-heading">
-
-                <span class="section-label">
-                    INFORMASI PRODUK
-                </span>
-
-                <h2>
-                    Kenali Produk Kakao
-                </h2>
-
-                <p>
-                    Setiap produk memiliki karakteristik yang berbeda.
-                    Pilih produk sesuai kebutuhan pengolahan Anda.
-                </p>
-
-            </div>
-
-
-            <div class="information-grid">
-
-
-                <!-- CARD 1 -->
-
-                <div class="information-card">
-
-                    <div class="information-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Grade Kakao
-                    </h3>
-
-                    <p>
-                        Grade menunjukkan tingkat kualitas
-                        produk kakao yang tersedia.
-                    </p>
-
-                </div>
-
-
-                <!-- CARD 2 -->
-
-                <div class="information-card">
-
-                    <div class="information-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Jenis Pengolahan
-                    </h3>
-
-                    <p>
-                        Produk tersedia dalam jenis fermentasi
-                        dan non-fermentasi.
-                    </p>
-
-                </div>
-
-
-                <!-- CARD 3 -->
-
-                <div class="information-card">
-
-                    <div class="information-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Ketersediaan Stok
-                    </h3>
-
-                    <p>
-                        Jumlah stok ditampilkan secara transparan
-                        pada setiap produk.
-                    </p>
-
-                </div>
-
-
-                <!-- CARD 4 -->
-
-                <div class="information-card">
-
-                    <div class="information-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Detail Produk
-                    </h3>
-
-                    <p>
-                        Lihat detail produk sebelum menentukan
-                        jumlah pesanan yang dibutuhkan.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== ORDER GUIDE ==================== -->
-
-        <section class="order-section">
-
-            <div class="order-content">
-
-                <span class="section-label">
-                    CARA PEMESANAN
-                </span>
-
-                <h2>
-                    Pesan Produk dengan Mudah
-                </h2>
-
-                <p>
-                    Ikuti beberapa langkah sederhana untuk
-                    mendapatkan produk kakao yang Anda butuhkan.
-                </p>
-
-            </div>
-
-
-            <div class="order-steps">
-
-
-                <!-- STEP 1 -->
-
-                <div class="order-step">
-
-                    <span>
-                        01
-                    </span>
-
-                    <h3>
-                        Pilih Produk
-                    </h3>
-
-                    <p>
-                        Tentukan produk kakao yang sesuai
-                        dengan kebutuhan.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 2 -->
-
-                <div class="order-step">
-
-                    <span>
-                        02
-                    </span>
-
-                    <h3>
-                        Lihat Detail
-                    </h3>
-
-                    <p>
-                        Periksa grade, jenis pengolahan,
-                        dan stok produk.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 3 -->
-
-                <div class="order-step">
-
-                    <span>
-                        03
-                    </span>
-
-                    <h3>
-                        Tentukan Jumlah
-                    </h3>
-
-                    <p>
-                        Tentukan jumlah produk yang
-                        ingin dipesan.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 4 -->
-
-                <div class="order-step">
-
-                    <span>
-                        04
-                    </span>
-
-                    <h3>
-                        Checkout
-                    </h3>
-
-                    <p>
-                        Lanjutkan pesanan melalui
-                        halaman checkout.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== CTA ==================== -->
-
-        <section class="cta-section">
-
-            <div class="cta-box">
-
-                <div>
-
-                    <span class="section-label">
-                        SIAP MEMESAN?
-                    </span>
-
-                    <h2>
-                        Temukan Produk Kakao Anda
-                    </h2>
-
-                    <p>
-                        Pilih produk dan lihat detailnya
-                        sebelum melakukan pemesanan.
-                    </p>
-
-                </div>
-
-
-                <a
-                    href="#productsGrid"
-                    class="cta-button">
-
-                    Lihat Produk
-
-                </a>
-
-            </div>
-
-        </section>
-
+          </article>
+        </div>
+
+        <div v-if="filteredProducts.length === 0" class="rounded-lg border border-dashed border-[#ded1c7] bg-[#faf6f1] px-5 py-17.5 text-center">
+          <div class="mb-2.5 text-3xl text-[#9b6847]">—</div>
+          <h3 class="mb-1.25 text-xl text-[#3b2416]">Produk tidak ditemukan</h3>
+          <p class="text-[13px] text-[#79685b]">Coba ubah filter untuk melihat produk lainnya.</p>
+        </div>
+      </section>
+
+      <!-- INFORMASI PRODUK -->
+      <section class="border-y border-[#eadfd5] bg-[#f3ebe3] px-[7%] py-22.5">
+        <div class="mx-auto mb-11.25 max-w-175 text-center">
+          <span class="mb-3.5 inline-block text-[11px] font-bold tracking-[2px] text-[#9b6847]">INFORMASI PRODUK</span>
+          <h2 class="mb-3 text-[34px] leading-[1.2] font-bold text-[#3b2416] max-[450px]:text-[28px]">Kenali Produk Kakao</h2>
+          <p class="text-sm text-[#79685b]">Setiap produk memiliki karakteristik yang berbeda. Pilih produk sesuai kebutuhan pengolahan Anda.</p>
+        </div>
+        <div class="mx-auto grid max-w-300 grid-cols-1 gap-5 min-[751px]:grid-cols-2 min-[1001px]:grid-cols-4">
+          <div v-for="card in informationCards" :key="card.number"
+            class="rounded-[7px] border border-[#e5d9cf] bg-[#fffdf9] p-6.25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(70,45,28,0.06)]">
+            <span class="mb-5 block text-xs font-bold text-[#b18463]">{{ card.number }}</span>
+            <h3 class="mb-2.5 text-[17px] font-bold text-[#3b2416]">{{ card.title }}</h3>
+            <p class="text-xs leading-[1.7] text-[#79685b]">{{ card.description }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARA PEMESANAN -->
+      <section class="mx-auto max-w-300 px-[7%] py-22.5">
+        <div class="mb-12.5 max-w-162.5">
+          <span class="mb-3.5 inline-block text-[11px] font-bold tracking-[2px] text-[#9b6847]">CARA PEMESANAN</span>
+          <h2 class="mb-3 text-[34px] leading-[1.2] font-bold text-[#3b2416] max-[450px]:text-[28px]">Pesan Produk dengan Mudah</h2>
+          <p class="text-sm text-[#79685b]">Ikuti beberapa langkah sederhana untuk mendapatkan produk kakao yang Anda butuhkan.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-5 min-[751px]:grid-cols-2 min-[1001px]:grid-cols-4">
+          <div v-for="step in orderSteps" :key="step.number"
+            class="border-t-2 border-[#8c5432] p-6.25 transition-transform duration-300 hover:-translate-y-1">
+            <span class="mb-5 block text-xs font-bold text-[#a16e4c]">{{ step.number }}</span>
+            <h3 class="mb-2.25 text-[17px] font-bold text-[#3b2416]">{{ step.title }}</h3>
+            <p class="text-xs leading-[1.7] text-[#79685b]">{{ step.description }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="px-[5%] pb-16.25 min-[751px]:px-[7%] min-[751px]:pb-22.5">
+        <div class="mx-auto flex max-w-300 flex-col items-start justify-between gap-7.5 rounded-lg bg-[#3b2416] p-7.5 min-[751px]:flex-row min-[751px]:items-center min-[751px]:p-11.25">
+          <div>
+            <span class="mb-3.5 inline-block text-[11px] font-bold tracking-[2px] text-[#cba78d]">SIAP MEMESAN?</span>
+            <h2 class="mb-2.5 text-[34px] leading-[1.2] font-bold text-white max-[450px]:text-[28px]">Temukan Produk Kakao Anda</h2>
+            <p class="text-[13px] text-[#d8c4b4]">Pilih produk dan lihat detailnya sebelum melakukan pemesanan.</p>
+          </div>
+          <a href="#productsGrid"
+            class="shrink-0 rounded-[5px] bg-white px-5.5 py-3.25 text-[11px] font-bold text-[#3b2416] no-underline transition-all duration-300 hover:-translate-y-0.75 hover:bg-[#eee4da] hover:text-[#3b2416] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]">
+            Lihat Produk
+          </a>
+        </div>
+      </section>
     </main>
 
-
-
-    <!-- ==================== FOOTER ==================== -->
-
-    <footer class="footer">
-
-        <div class="footer-content">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <img
-                    src="/kakao-home/logo-kakao.png"
-                    alt="Logo KAKAO">
-
-                <p>
-                    Sistem Informasi Manajemen
-                    Produsen Kakao.
-                </p>
-
-            </div>
-
-
-            <!-- NAVIGASI -->
-
-            <div class="footer-links">
-
-                <h4>
-                    Navigasi
-                </h4>
-
-
-                <a href="/">
-                    Home
-                </a>
-
-
-                <a href="/products">
-                    Products
-                </a>
-
-
-                <a href="/source_code/frontend/checkout/index.html">
-                    Checkout
-                </a>
-
-            </div>
-
-
-            <!-- INFORMASI -->
-
-            <div class="footer-links">
-
-                <h4>
-                    Informasi
-                </h4>
-
-
-                <a href="#">
-                    About
-                </a>
-
-
-                <a href="/source_code/frontend/traceability/index.html">
-                    Traceability
-                </a>
-
-
-                <a href="/admin/login/index.html">
-                    Login
-                </a>
-
-            </div>
-
+    <!-- FOOTER -->
+    <footer class="bg-[#2b1b12] text-white">
+      <div class="mx-auto grid max-w-300 grid-cols-1 gap-8.75 px-[7%] py-13.75 min-[751px]:grid-cols-[2fr_1fr_1fr] min-[751px]:gap-15">
+        <div>
+          <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO"
+            class="mb-3.75 block h-15 w-18.75 rounded-[5px] bg-[#fffdf9] object-contain" />
+          <p class="max-w-75 text-xs leading-[1.7] text-[#cdb9aa]">Sistem Informasi Manajemen Produsen Kakao.</p>
         </div>
-
-
-        <!-- FOOTER BOTTOM -->
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Sistem Informasi Manajemen Produsen Kakao
-            </p>
-
+        <div class="flex flex-col gap-2.25">
+          <h4 class="mb-1.25 text-[13px] font-bold text-white">Navigasi</h4>
+          <a href="/" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">Home</a>
+          <a href="/products" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">Products</a>
+          <a href="/checkout" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">Checkout</a>
         </div>
-
+        <div class="flex flex-col gap-2.25">
+          <h4 class="mb-1.25 text-[13px] font-bold text-white">Informasi</h4>
+          <a href="#" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">About</a>
+          <a href="/traceability" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">Traceability</a>
+          <a href="/login" class="text-xs text-[#cdb9aa] no-underline transition-all duration-300 hover:translate-x-0.75 hover:text-white">Login</a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 px-[7%] py-5 text-center">
+        <p class="text-[10px] text-[#a99384]">© 2026 Sistem Informasi Manajemen Produsen Kakao</p>
+      </div>
     </footer>
-
-
-
-    <!-- ==================== JAVASCRIPT ==================== -->
-
-    
-</div>
+  </div>
 </template>
-
-<style scoped src="./ProductsView.css"></style>
