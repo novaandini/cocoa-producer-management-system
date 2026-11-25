@@ -46,12 +46,12 @@
         </div>
 
         <div class="ml-auto flex items-center gap-4.5">
-          <a
-            href="/admin/login/index.html"
-            class="rounded-md bg-[#3b2416] px-5.5 py-2.75 text-xs font-semibold text-white no-underline transition hover:-translate-y-px hover:bg-[#75482c] max-[520px]:px-4 max-[520px]:py-2.5"
-          >
-            Daftar
-          </a>
+       <a
+          href="/login"
+          class="rounded-md bg-[#3b2416] px-5.5 py-2.75 text-xs font-semibold text-white no-underline transition hover:-translate-y-px hover:bg-[#75482c] max-[520px]:px-4 max-[520px]:py-2.5"
+        >
+          Daftar
+      </a>
         </div>
 
       </nav>
@@ -469,7 +469,7 @@
               Telusuri
             </a>
 
-            <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/admin/login/index.html">
+          <a class="text-[11px] text-[#b6a89e] transition hover:text-white" href="/login">
               Daftar
             </a>
           </div>
