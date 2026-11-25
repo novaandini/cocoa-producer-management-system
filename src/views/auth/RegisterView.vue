@@ -1,8 +1,8 @@
+
 <script setup>
 import { ref } from 'vue'
 
-// Saat migrasi frontend, API sengaja dinonaktifkan.
-// Ubah menjadi true setelah backend Laravel siap digunakan.
+// API registrasi diaktifkan setelah backend Laravel siap.
 const BACKEND_ENABLED = false
 const REGISTER_API_URL = 'http://127.0.0.1:8000/api/auth/register'
 
@@ -36,7 +36,6 @@ async function submitRegister() {
     password_confirmation: confirmPassword.value
   }
 
-  // Mode frontend: tampilkan hasil validasi tanpa membuat akun palsu.
   if (!BACKEND_ENABLED) {
     showMessage(
       'Formulir sudah valid. Pendaftaran akun belum diaktifkan karena backend Laravel belum terhubung.',
@@ -64,14 +63,18 @@ async function submitRegister() {
       const validationErrors = data.errors
         ? Object.values(data.errors).flat().join(' ')
         : ''
-      throw new Error(validationErrors || data.message || 'Pendaftaran gagal.')
+
+      throw new Error(
+        validationErrors || data.message || 'Pendaftaran gagal.'
+      )
     }
 
-    // Setelah akun benar-benar dibuat, pengguna login melalui halaman Vue.
-    // Jangan menyimpan token di sini jika alurnya mengharuskan login ulang.
     window.location.href = '/login?registered=1'
   } catch (error) {
-    showMessage(error.message || 'Terjadi kesalahan saat mendaftar.', 'error')
+    showMessage(
+      error.message || 'Terjadi kesalahan saat mendaftar.',
+      'error'
+    )
   } finally {
     isSubmitting.value = false
   }
@@ -79,44 +82,82 @@ async function submitRegister() {
 </script>
 
 <template>
-  <main class="login-page">
+  <main class="min-h-screen flex flex-col lg:flex-row bg-[#fffdf9] text-[#332116]">
+
     <!-- BAGIAN KIRI -->
-    <section class="login-left">
+    <section
+      class="login-left flex flex-col justify-between w-full lg:w-1/2 bg-[#332116] text-white p-8 sm:p-12 lg:p-16"
+    >
       <div class="login-brand">
-        <a href="/">KAKAO</a>
-        <p>
+        <a
+          href="/"
+          class="text-3xl font-bold tracking-widest text-[#d5a274]"
+        >
+          KAKAO
+        </a>
+
+        <p class="mt-2 text-xs leading-relaxed tracking-wider text-[#e8d8c9]">
           SISTEM INFORMASI<br />
           PRODUSEN KAKAO
         </p>
       </div>
 
-      <div class="login-info">
-        <p class="section-label">SISTEM INFORMASI PRODUSEN KAKAO</p>
-        <h1>
+      <div class="login-info my-16 lg:my-0 max-w-lg">
+        <p class="section-label text-xs font-semibold tracking-[0.2em] text-[#d5a274]">
+          SISTEM INFORMASI PRODUSEN KAKAO
+        </p>
+
+        <h1 class="mt-5 text-4xl sm:text-5xl font-semibold leading-tight">
           Kelola kakao
-          <span>lebih terstruktur.</span>
+          <span class="block text-[#d5a274]">
+            lebih terstruktur.
+          </span>
         </h1>
-        <p>
+
+        <p class="mt-6 max-w-md text-sm sm:text-base leading-relaxed text-[#e8d8c9]">
           Platform untuk melakukan pemesanan,
           memantau pesanan, dan mengelola
           operasional produsen kakao.
         </p>
       </div>
+
+      <div class="hidden lg:block"></div>
     </section>
 
     <!-- BAGIAN KANAN -->
-    <section class="login-right">
-      <div class="login-box">
+    <section
+      class="login-right flex w-full lg:w-1/2 items-center justify-center p-6 sm:p-10 lg:p-16"
+    >
+      <div class="login-box w-full max-w-md">
+
         <div id="signupView">
-          <div class="login-heading">
-            <p class="section-label">BERGABUNG BERSAMA KAKAO</p>
-            <h2>Buat Akun</h2>
-            <p>Daftarkan akun pelanggan kamu.</p>
+          <div class="login-heading mb-8">
+            <p class="section-label text-xs font-semibold tracking-[0.15em] text-[#a16038]">
+              BERGABUNG BERSAMA KAKAO
+            </p>
+
+            <h2 class="mt-3 text-3xl font-semibold text-[#332116]">
+              Buat Akun
+            </h2>
+
+            <p class="mt-2 text-sm text-[#8b7766]">
+              Daftarkan akun pelanggan kamu.
+            </p>
           </div>
 
-          <form id="signupForm" @submit.prevent="submitRegister">
+          <form
+            id="signupForm"
+            class="space-y-5"
+            @submit.prevent="submitRegister"
+          >
             <div class="form-group">
-              <label for="fullName">Nama lengkap</label>
+              <label
+                for="fullName"
+                class="mb-2 block text-sm font-medium text-[#332116]"
+              >
+                Nama lengkap
+              </label>
+
               <input
                 id="fullName"
                 v-model="fullName"
@@ -125,11 +166,18 @@ async function submitRegister() {
                 placeholder="Masukkan nama lengkap"
                 autocomplete="name"
                 required
+                class="w-full rounded-lg border border-[#eadfd5] bg-white px-4 py-3 text-sm text-[#332116] outline-none transition focus:border-[#a16038] focus:ring-2 focus:ring-[#a16038]/20"
               />
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
+              <label
+                for="email"
+                class="mb-2 block text-sm font-medium text-[#332116]"
+              >
+                Email
+              </label>
+
               <input
                 id="email"
                 v-model="email"
@@ -138,11 +186,18 @@ async function submitRegister() {
                 placeholder="nama@email.com"
                 autocomplete="email"
                 required
+                class="w-full rounded-lg border border-[#eadfd5] bg-white px-4 py-3 text-sm text-[#332116] outline-none transition focus:border-[#a16038] focus:ring-2 focus:ring-[#a16038]/20"
               />
             </div>
 
             <div class="form-group">
-              <label for="phoneNumber">Nomor telepon</label>
+              <label
+                for="phoneNumber"
+                class="mb-2 block text-sm font-medium text-[#332116]"
+              >
+                Nomor telepon
+              </label>
+
               <input
                 id="phoneNumber"
                 v-model="phoneNumber"
@@ -151,11 +206,18 @@ async function submitRegister() {
                 placeholder="081234567899"
                 autocomplete="tel"
                 required
+                class="w-full rounded-lg border border-[#eadfd5] bg-white px-4 py-3 text-sm text-[#332116] outline-none transition focus:border-[#a16038] focus:ring-2 focus:ring-[#a16038]/20"
               />
             </div>
 
             <div class="form-group">
-              <label for="newPassword">Password</label>
+              <label
+                for="newPassword"
+                class="mb-2 block text-sm font-medium text-[#332116]"
+              >
+                Password
+              </label>
+
               <input
                 id="newPassword"
                 v-model="newPassword"
@@ -165,11 +227,18 @@ async function submitRegister() {
                 autocomplete="new-password"
                 minlength="8"
                 required
+                class="w-full rounded-lg border border-[#eadfd5] bg-white px-4 py-3 text-sm text-[#332116] outline-none transition focus:border-[#a16038] focus:ring-2 focus:ring-[#a16038]/20"
               />
             </div>
 
             <div class="form-group">
-              <label for="confirmPassword">Konfirmasi password</label>
+              <label
+                for="confirmPassword"
+                class="mb-2 block text-sm font-medium text-[#332116]"
+              >
+                Konfirmasi password
+              </label>
+
               <input
                 id="confirmPassword"
                 v-model="confirmPassword"
@@ -179,36 +248,57 @@ async function submitRegister() {
                 autocomplete="new-password"
                 minlength="8"
                 required
+                class="w-full rounded-lg border border-[#eadfd5] bg-white px-4 py-3 text-sm text-[#332116] outline-none transition focus:border-[#a16038] focus:ring-2 focus:ring-[#a16038]/20"
               />
             </div>
 
-            <button type="submit" :disabled="isSubmitting">
+            <button
+              type="submit"
+              :disabled="isSubmitting"
+              class="w-full rounded-lg bg-[#a16038] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#8b4f2e] disabled:cursor-not-allowed disabled:opacity-60"
+            >
               {{ isSubmitting ? 'Mendaftarkan akun...' : 'Daftar' }}
             </button>
 
             <p
               id="signupMessage"
-              class="form-message"
-              :class="messageType"
+              v-if="message"
+              class="form-message text-sm leading-relaxed"
+              :class="{
+                'text-red-600': messageType === 'error',
+                'text-green-700': messageType === 'success',
+                'text-[#8b7766]': messageType === 'info'
+              }"
               role="status"
               aria-live="polite"
-            >{{ message }}</p>
+            >
+              {{ message }}
+            </p>
           </form>
 
-          <div class="signup-link">
-            <p>
+          <div class="signup-link mt-6 text-center">
+            <p class="text-sm text-[#8b7766]">
               Sudah punya akun?
-              <a id="showLogin" href="/login">Login</a>
+              <a
+                id="showLogin"
+                href="/login"
+                class="font-semibold text-[#a16038] hover:underline"
+              >
+                Login
+              </a>
             </p>
           </div>
         </div>
 
-        <div class="back-home">
-          <a href="/">← Kembali ke halaman utama</a>
+        <div class="back-home mt-8 text-center">
+          <a
+            href="/"
+            class="text-sm text-[#8b7766] transition hover:text-[#a16038]"
+          >
+            ← Kembali ke halaman utama
+          </a>
         </div>
       </div>
     </section>
   </main>
 </template>
-
-<style scoped src="./RegisterView.css"></style>
