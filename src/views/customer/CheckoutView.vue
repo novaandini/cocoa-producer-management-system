@@ -1,8 +1,7 @@
+
 <script setup>
 import { computed, reactive, ref } from 'vue'
 
-// Informasi produk sementara. Nantinya dapat diganti dengan data API/backend.
-// ID dan stok mengikuti data ProductDetailView.vue sebelumnya.
 const products = {
   a: { name: 'Cocoa Bean A', category: 'FERMENTASI', type: 'Fermentasi', grade: 'A', stock: 500, image: '/kakao-home/cocoa-bean-a.jpg' },
   b: { name: 'Cocoa Bean B', category: 'FERMENTASI', type: 'Fermentasi', grade: 'B', stock: 800, image: '/kakao-home/cocoa-bean-b.jpg' },
@@ -14,11 +13,10 @@ const products = {
   h: { name: 'Cocoa Bean H', category: 'NON-FERMENTASI', type: 'Non-Fermentasi', grade: 'A', stock: 550, image: '/kakao-home/cocoa-bean-h.jpg' }
 }
 
-// ProductDetailView.vue sudah menyimpan data dengan key 'selectedProduct':
-// { id: 'a', name: 'Cocoa Bean A', quantity_kg: 1 }
 function readSelectedProduct() {
   try {
     const value = JSON.parse(sessionStorage.getItem('selectedProduct') || 'null')
+
     if (!value || typeof value.id !== 'string' || !Object.prototype.hasOwnProperty.call(products, value.id)) {
       return null
     }
@@ -37,10 +35,16 @@ function readSelectedProduct() {
 
 const isCustomer = ref(localStorage.getItem('userRole') === 'CUSTOMER')
 const selectedProduct = ref(readSelectedProduct())
-const product = computed(() => selectedProduct.value ? products[selectedProduct.value.id] : null)
-const backToDetail = computed(() => selectedProduct.value
-  ? `/detail-product?product=${selectedProduct.value.id}`
-  : '/products')
+
+const product = computed(() =>
+  selectedProduct.value ? products[selectedProduct.value.id] : null
+)
+
+const backToDetail = computed(() =>
+  selectedProduct.value
+    ? `/detail-product?product=${selectedProduct.value.id}`
+    : '/products'
+)
 
 const form = reactive({
   company: '',
@@ -50,35 +54,33 @@ const form = reactive({
   address: '',
   notes: ''
 })
+
 const errorMessage = ref('')
 
 function goToLogin() {
   sessionStorage.setItem('redirectAfterLogin', 'checkout')
-  // Halaman Login masih HTML lama. Saat Login dikonversi ke Vue,
-  // ganti alamat ini dengan /login.
-   window.location.href = '/login'
+  window.location.href = '/login'
 }
 
 function submitOrder() {
   errorMessage.value = ''
 
-  // Hanya untuk DEMO sisi frontend. Backend tetap wajib mengecek sesi login.
   if (localStorage.getItem('userRole') !== 'CUSTOMER') {
     isCustomer.value = false
     errorMessage.value = 'Silakan masuk sebagai pelanggan terlebih dahulu.'
     return
   }
+
   if (!selectedProduct.value || !product.value) {
     errorMessage.value = 'Pilih produk terlebih dahulu sebelum membuat pesanan.'
     return
   }
+
   if (!form.name || !form.email || !form.phone || !form.address) {
     errorMessage.value = 'Lengkapi data pemesanan dan alamat pengiriman.'
     return
   }
 
-  // Sementara simpan data form untuk tahap Payment. BELUM tersimpan ke database.
-  // Jangan gunakan sessionStorage sebagai sumber kebenaran harga/stok/transaksi nyata.
   sessionStorage.setItem('checkoutData', JSON.stringify({
     customer: { ...form },
     product: {
@@ -90,136 +92,326 @@ function submitOrder() {
     }
   }))
 
-  // Payment belum dikonversi ke Vue: untuk sementara menuju HTML lama.
-  // Ubah ke '/payment' setelah PaymentView.vue tersedia dan route diatur.
   window.location.href = '/payment'
 }
 </script>
 
 <template>
-  <div class="kakao-checkout">
+  <div class="min-h-screen bg-[#fffdf9] font-[Arial,Helvetica,sans-serif] text-[#2d2118]">
+
     <!-- HEADER -->
-    <header class="checkout-header">
-      <a href="/" class="checkout-logo">
-        <img src="/kakao-home/logo-kakao.png" alt="Logo KAKAO">
+    <header class="sticky top-0 z-50 flex min-h-19 items-center justify-between border-b border-[#eadfd3] bg-[#fffdf9] px-5 shadow-sm sm:px-8 lg:px-16">
+      <a href="/" class="flex items-center">
+        <img
+          src="/kakao-home/logo-kakao.png"
+          alt="Logo KAKAO"
+          class="h-10 w-auto object-contain sm:h-12"
+        >
       </a>
-      <a :href="backToDetail" class="back-link">← Kembali ke Detail Produk</a>
+
+      <a
+        :href="backToDetail"
+        class="text-right text-xs font-semibold text-[#795238] transition hover:text-[#a46c42] sm:text-sm"
+      >
+        ← Kembali ke Detail Produk
+      </a>
     </header>
 
-    <main class="checkout-page">
-      <section class="checkout-heading">
-        <p class="section-label">PEMESANAN</p>
-        <h1>Selesaikan <span>Pesanan Anda</span></h1>
-        <p class="checkout-description">
+    <main class="mx-auto w-full max-w-300 px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
+
+      <!-- JUDUL HALAMAN -->
+      <section class="mb-10 text-center">
+        <p class="mb-3 text-[11px] font-bold tracking-[3px] text-[#a16b43]">
+          PEMESANAN
+        </p>
+
+        <h1 class="font-[Georgia,serif] text-3xl leading-tight text-[#38271b] sm:text-4xl md:text-5xl">
+          Selesaikan
+          <span class="italic text-[#98633e]">Pesanan Anda</span>
+        </h1>
+
+        <p class="mx-auto mt-4 max-w-155 text-sm leading-7 text-[#82766c]">
           Lengkapi informasi pemesanan dan pengiriman untuk melanjutkan proses pembelian kakao.
         </p>
       </section>
 
-      <!-- Belum login / bukan pelanggan -->
-      <section v-if="!isCustomer" class="checkout-state">
-        <h2>Silakan masuk terlebih dahulu</h2>
-        <p>Pelanggan dapat melihat produk tanpa login, tetapi perlu masuk sebelum checkout dan pembayaran.</p>
-        <button type="button" class="checkout-button state-button" @click="goToLogin">Masuk sebagai Pelanggan</button>
-        <a href="/products" class="state-link">← Kembali melihat produk</a>
+      <!-- BELUM LOGIN -->
+      <section
+        v-if="!isCustomer"
+        class="mx-auto max-w-162.5 rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
+      >
+        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#f5ede4] text-2xl text-[#8a5a38]">
+          <span>♙</span>
+        </div>
+
+        <h2 class="font-[Georgia,serif] text-2xl text-[#38271b]">
+          Silakan masuk terlebih dahulu
+        </h2>
+
+        <p class="mx-auto mt-3 max-w-110 text-sm leading-7 text-[#82766c]">
+          Pelanggan dapat melihat produk tanpa login, tetapi perlu masuk sebelum checkout dan pembayaran.
+        </p>
+
+        <button
+          type="button"
+          class="mt-7 rounded-md bg-[#795238] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5d3c27]"
+          @click="goToLogin"
+        >
+          Masuk sebagai Pelanggan
+        </button>
+
+        <div class="mt-5">
+          <a href="/products" class="text-sm font-medium text-[#795238] hover:underline">
+            ← Kembali melihat produk
+          </a>
+        </div>
       </section>
 
-      <!-- Sudah login tetapi belum memilih produk -->
-      <section v-else-if="!product" class="checkout-state">
-        <h2>Belum ada produk yang dipilih</h2>
-        <p>Buka halaman produk, pilih Cocoa Bean, kemudian tekan “Pesan Sekarang”.</p>
-        <a href="/products" class="state-link">← Pilih Produk</a>
+      <!-- BELUM MEMILIH PRODUK -->
+      <section
+        v-else-if="!product"
+        class="mx-auto max-w-162.5 rounded-2xl border border-[#eadfd3] bg-white px-6 py-12 text-center shadow-sm sm:px-10"
+      >
+        <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#f5ede4] text-2xl">
+          🛒
+        </div>
+
+        <h2 class="font-[Georgia,serif] text-2xl text-[#38271b]">
+          Belum ada produk yang dipilih
+        </h2>
+
+        <p class="mx-auto mt-3 max-w-110 text-sm leading-7 text-[#82766c]">
+          Buka halaman produk, pilih Cocoa Bean, kemudian tekan “Pesan Sekarang”.
+        </p>
+
+        <a
+          href="/products"
+          class="mt-7 inline-block rounded-md bg-[#795238] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5d3c27]"
+        >
+          ← Pilih Produk
+        </a>
       </section>
 
-      <!-- Pelanggan sudah login dan produk tersedia -->
-      <section v-else class="checkout-container">
-        <div class="checkout-form">
-          <div class="form-heading">
-            <p class="section-label">INFORMASI PELANGGAN</p>
-            <h2>Data Pemesanan</h2>
+      <!-- FORM CHECKOUT -->
+      <section v-else class="grid grid-cols-1 items-start gap-7 lg:grid-cols-[1.55fr_1fr] lg:gap-9">
+
+        <!-- FORMULIR PELANGGAN -->
+        <div class="rounded-2xl border border-[#eadfd3] bg-white p-5 shadow-sm sm:p-8">
+          <div class="mb-7 border-b border-[#eee5dc] pb-5">
+            <p class="mb-2 text-[10px] font-bold tracking-[2px] text-[#a16b43]">
+              INFORMASI PELANGGAN
+            </p>
+
+            <h2 class="font-[Georgia,serif] text-2xl text-[#38271b] sm:text-3xl">
+              Data Pemesanan
+            </h2>
+
+            <p class="mt-2 text-xs leading-6 text-[#94877c]">
+              Isi data berikut dengan benar untuk keperluan pemesanan dan pengiriman.
+            </p>
           </div>
 
-          <form id="checkoutForm" @submit.prevent="submitOrder">
-            <div class="form-group">
-              <label for="company">Nama Perusahaan (opsional)</label>
-              <input id="company" v-model.trim="form.company" name="company" type="text"
-                placeholder="Masukkan nama perusahaan">
+          <form id="checkoutForm" @submit.prevent="submitOrder" class="space-y-5">
+
+            <div>
+              <label for="company" class="mb-2 block text-sm font-semibold text-[#514033]">
+                Nama Perusahaan
+                <span class="font-normal text-[#a89b90]">(opsional)</span>
+              </label>
+
+              <input
+                id="company"
+                v-model.trim="form.company"
+                name="company"
+                type="text"
+                placeholder="Masukkan nama perusahaan"
+                class="w-full rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+              >
             </div>
 
-            <div class="form-group">
-              <label for="name">Nama Pemesan</label>
-              <input id="name" v-model.trim="form.name" name="name" type="text"
-                placeholder="Masukkan nama lengkap" required>
+            <div>
+              <label for="name" class="mb-2 block text-sm font-semibold text-[#514033]">
+                Nama Pemesan
+              </label>
+
+              <input
+                id="name"
+                v-model.trim="form.name"
+                name="name"
+                type="text"
+                placeholder="Masukkan nama lengkap"
+                required
+                class="w-full rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+              >
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" v-model.trim="form.email" name="email" type="email"
-                  placeholder="nama@email.com" required>
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div>
+                <label for="email" class="mb-2 block text-sm font-semibold text-[#514033]">
+                  Email
+                </label>
+
+                <input
+                  id="email"
+                  v-model.trim="form.email"
+                  name="email"
+                  type="email"
+                  placeholder="nama@email.com"
+                  required
+                  class="w-full rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+                >
               </div>
-              <div class="form-group">
-                <label for="phone">Nomor Telepon</label>
-                <input id="phone" v-model.trim="form.phone" name="phone" type="tel"
-                  placeholder="08xxxxxxxxxx" required>
+
+              <div>
+                <label for="phone" class="mb-2 block text-sm font-semibold text-[#514033]">
+                  Nomor Telepon
+                </label>
+
+                <input
+                  id="phone"
+                  v-model.trim="form.phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="08xxxxxxxxxx"
+                  required
+                  class="w-full rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+                >
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="address">Alamat Pengiriman</label>
-              <textarea id="address" v-model.trim="form.address" name="address" rows="5"
-                placeholder="Masukkan alamat lengkap pengiriman" required></textarea>
+            <div>
+              <label for="address" class="mb-2 block text-sm font-semibold text-[#514033]">
+                Alamat Pengiriman
+              </label>
+
+              <textarea
+                id="address"
+                v-model.trim="form.address"
+                name="address"
+                rows="5"
+                placeholder="Masukkan alamat lengkap pengiriman"
+                required
+                class="w-full resize-y rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+              ></textarea>
             </div>
 
-            <div class="form-group">
-              <label for="notes">Catatan Pesanan</label>
-              <textarea id="notes" v-model.trim="form.notes" name="notes" rows="4"
-                placeholder="Tambahkan catatan jika diperlukan"></textarea>
+            <div>
+              <label for="notes" class="mb-2 block text-sm font-semibold text-[#514033]">
+                Catatan Pesanan
+                <span class="font-normal text-[#a89b90]">(opsional)</span>
+              </label>
+
+              <textarea
+                id="notes"
+                v-model.trim="form.notes"
+                name="notes"
+                rows="4"
+                placeholder="Tambahkan catatan jika diperlukan"
+                class="w-full resize-y rounded-lg border border-[#e5d9cd] bg-[#fffdf9] px-4 py-3 text-sm outline-none transition placeholder:text-[#b5aaa0] focus:border-[#9a704f] focus:ring-2 focus:ring-[#9a704f]/10"
+              ></textarea>
             </div>
           </form>
         </div>
 
-        <aside class="order-summary">
-          <div class="summary-heading">
-            <p class="section-label">RINGKASAN PESANAN</p>
-            <h2>Pesanan Anda</h2>
+        <!-- RINGKASAN PESANAN -->
+        <aside class="rounded-2xl border border-[#eadfd3] bg-white p-5 shadow-sm sm:p-7 lg:sticky lg:top-24">
+          <div class="mb-6 border-b border-[#eee5dc] pb-5">
+            <p class="mb-2 text-[10px] font-bold tracking-[2px] text-[#a16b43]">
+              RINGKASAN PESANAN
+            </p>
+
+            <h2 class="font-[Georgia,serif] text-2xl text-[#38271b]">
+              Pesanan Anda
+            </h2>
           </div>
 
-          <div class="summary-product">
-            <img :src="product.image" :alt="product.name">
-            <div class="summary-product-info">
-              <span>{{ product.category }}</span>
-              <h3>{{ product.name }}</h3>
-              <p>Grade {{ product.grade }}</p>
+          <!-- PRODUK -->
+          <div class="flex gap-4 border-b border-[#eee5dc] pb-6">
+            <img
+              :src="product.image"
+              :alt="product.name"
+              class="h-24 w-24 shrink-0 rounded-xl bg-[#f5ede4] object-cover"
+            >
+
+            <div class="min-w-0 flex-1">
+              <span class="text-[9px] font-bold tracking-[1.5px] text-[#a16b43]">
+                {{ product.category }}
+              </span>
+
+              <h3 class="mt-1 font-[Georgia,serif] text-lg font-semibold text-[#38271b]">
+                {{ product.name }}
+              </h3>
+
+              <p class="mt-1 text-sm text-[#82766c]">
+                Grade {{ product.grade }}
+              </p>
             </div>
           </div>
 
-          <div class="summary-detail">
-            <div><span>Jumlah</span><strong>{{ selectedProduct.quantity_kg }} kg</strong></div>
-            <div><span>Stok Tersedia</span><strong>{{ product.stock }} kg</strong></div>
-            <div><span>Jenis</span><strong>{{ product.type }}</strong></div>
-            <div><span>Grade</span><strong>{{ product.grade }}</strong></div>
+          <!-- DETAIL PRODUK -->
+          <div class="space-y-4 border-b border-[#eee5dc] py-6 text-sm">
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-[#82766c]">Jumlah</span>
+              <strong class="text-[#38271b]">{{ selectedProduct.quantity_kg }} kg</strong>
+            </div>
+
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-[#82766c]">Stok Tersedia</span>
+              <strong class="text-[#38271b]">{{ product.stock }} kg</strong>
+            </div>
+
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-[#82766c]">Jenis</span>
+              <strong class="text-right text-[#38271b]">{{ product.type }}</strong>
+            </div>
+
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-[#82766c]">Grade</span>
+              <strong class="text-[#38271b]">{{ product.grade }}</strong>
+            </div>
           </div>
 
-          <div class="summary-total">
-            <span>Total Pesanan</span>
-            <strong>Rp -</strong>
+          <!-- TOTAL -->
+          <div class="flex items-center justify-between gap-3 py-6">
+            <span class="font-semibold text-[#514033]">Total Pesanan</span>
+            <strong class="text-xl text-[#795238]">Rp -</strong>
           </div>
-          <p class="price-note">Harga produk belum diatur. Nilai pembayaran belum dapat dihitung.</p>
 
-          <p v-if="errorMessage" class="form-error" role="alert">{{ errorMessage }}</p>
-          <button type="submit" form="checkoutForm" class="checkout-button">Buat Pesanan</button>
-          <p class="checkout-note">
+          <p class="-mt-3 mb-6 text-[11px] leading-5 text-[#a09286]">
+            Harga produk belum diatur. Nilai pembayaran belum dapat dihitung.
+          </p>
+
+          <!-- PESAN ERROR -->
+          <p
+            v-if="errorMessage"
+            class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-xs leading-5 text-red-700"
+            role="alert"
+          >
+            {{ errorMessage }}
+          </p>
+
+          <button
+            type="submit"
+            form="checkoutForm"
+            class="w-full rounded-lg bg-[#795238] px-5 py-4 text-sm font-bold tracking-wide text-white transition hover:bg-[#5d3c27] active:scale-[0.99]"
+          >
+            Buat Pesanan
+          </button>
+
+          <p class="mt-4 text-center text-[10px] leading-5 text-[#a09286]">
             Dalam demo ini data formulir disimpan sementara di browser, lalu diarahkan ke halaman pembayaran lama.
           </p>
         </aside>
       </section>
     </main>
 
-    <footer class="checkout-footer">
-      <p>© 2026 KAKAO</p>
-      <p>Sistem Informasi Penjualan dan Pemesanan Kakao</p>
+    <!-- FOOTER -->
+    <footer class="mt-12 border-t border-[#eadfd3] bg-[#f5ede4] px-5 py-6 sm:px-8">
+      <div class="mx-auto flex max-w-300 flex-col items-center justify-between gap-2 text-center text-[11px] text-[#82766c] sm:flex-row sm:text-left">
+        <p>© 2026 KAKAO</p>
+        <p>Sistem Informasi Penjualan dan Pemesanan Kakao</p>
+      </div>
     </footer>
+
   </div>
 </template>
-
-<style scoped src="./CheckoutView.css"></style>
