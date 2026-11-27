@@ -1,9 +1,11 @@
 
 <script setup>
 import homeview from './views/customer/homeview.vue'
-import productsview from './views/customer/ProductsView.vue'
+import productsview from './views/customer/productsview.vue'
 import ProductDetailView from './views/customer/ProductDetailView.vue'
 import CheckoutView from './views/customer/CheckoutView.vue'
+import PaymentView from './views/customer/PaymentView.vue'
+import TraceabilityView from './views/customer/TraceabilityView.vue'
 
 import LoginView from './views/auth/LoginView.vue'
 import RegisterView from './views/auth/RegisterView.vue'
@@ -17,77 +19,46 @@ import AdminCustomerFormView from './views/admin/AdminCustomerFormView.vue'
 import AdminOrdersView from './views/admin/AdminOrdersView.vue'
 import AdminShippingView from './views/admin/AdminShippingView.vue'
 import AdminShippingFormView from './views/admin/AdminShippingFormView.vue'
-import PaymentView from './views/customer/PaymentView.vue'
-import TraceabilityView from './views/customer/TraceabilityView.vue'
+
+import CustomerDashboardView from './views/customer/CustomerDashboardView.vue'
+import MyOrdersView from './views/customer/MyOrdersView.vue'
+import OrderDetailView from './views/customer/OrderDetailView.vue'
+import TransactionHistoryView from './views/customer/TransactionHistoryView.vue'
+import CustomerProfileView from './views/customer/CustomerProfileView.vue'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 </script>
 
 <template>
-<!-- ADMIN -->
-<DashboardView
-  v-if="path === '/admin/dashboard'"
-/>
-
-<AdminPaymentsView
-  v-else-if="path === '/admin/payments'"
-/>
-
-<AdminCustomersView
-  v-else-if="path === '/admin/customers'"
-/>
-
-<AdminCustomerFormView
-  v-else-if="path === '/admin/customers/form'"
-/>
-
-<AdminProductsView
-  v-else-if="path === '/admin/products'"
-/>
-
-<AdminProductFormView
-  v-else-if="path === '/admin/products/form'"
-/>
-
-<AdminOrdersView
-  v-else-if="path === '/admin/orders'"
-/>
-
-<AdminShippingView
-  v-else-if="path === '/admin/shipping'"
-/>
-
-<AdminShippingFormView
-  v-else-if="path === '/admin/shipping/form'"
-/>
+  <!-- ADMIN -->
+  <DashboardView v-if="path === '/admin/dashboard'" />
+  <AdminPaymentsView v-else-if="path === '/admin/payments'" />
+  <AdminCustomersView v-else-if="path === '/admin/customers'" />
+  <AdminCustomerFormView v-else-if="path === '/admin/customers/form'" />
+  <AdminProductsView v-else-if="path === '/admin/products'" />
+  <AdminProductFormView v-else-if="path === '/admin/products/form'" />
+  <AdminOrdersView v-else-if="path === '/admin/orders'" />
+  <AdminShippingView v-else-if="path === '/admin/shipping'" />
+  <AdminShippingFormView v-else-if="path === '/admin/shipping/form'" />
 
   <!-- AUTH -->
-  <RegisterView
-    v-else-if="path === '/register'"
-  />
-
-  <LoginView
-    v-else-if="path === '/login'"
-  />
+  <RegisterView v-else-if="path === '/register'" />
+  <LoginView v-else-if="path === '/login'" />
 
   <!-- CUSTOMER -->
-  <CheckoutView
-    v-else-if="path === '/checkout'"
-  />
-
-  <ProductDetailView
-    v-else-if="path === '/detail-product'"
-  />
-
-  <productsview
-    v-else-if="path === '/products'"
-  />
-
+  <CheckoutView v-else-if="path === '/checkout'" />
+  <ProductDetailView v-else-if="path === '/detail-product'" />
+  <productsview v-else-if="path === '/products'" />
   <PaymentView v-else-if="path === '/payment'" />
+  <TraceabilityView v-else-if="path === '/traceability'" />
 
-  <TraceabilityView
-  v-else-if="path === '/traceability'"
-/>
+  <!-- CUSTOMER DASHBOARD -->
+  <CustomerDashboardView v-else-if="path === '/customer/dashboard'" />
+  <MyOrdersView v-else-if="path === '/customer/orders'" />
+  <OrderDetailView v-else-if="path === '/customer/order-detail'" />
+  <TransactionHistoryView v-else-if="path === '/customer/transactions'" />
+  <CustomerProfileView v-else-if="path === '/customer/profile'" />
 
+  <!-- DEFAULT -->
   <homeview v-else />
 </template>
