@@ -9,7 +9,7 @@ const products = {
     type: 'Fermentasi', stock: 500, image: '/kakao-home/cocoa-bean-a.jpg',
     description: 'Biji kakao fermentasi dengan kualitas Grade A yang diproses untuk menghasilkan kualitas kakao yang baik dan sesuai kebutuhan.',
     descriptionOne: 'Cocoa Bean A merupakan biji kakao fermentasi dengan kualitas Grade A. Produk ini tersedia dalam jumlah stok 500 kg.'
-  },
+  }, 
   b: {
     name: 'Cocoa Bean B', category: 'FERMENTASI', grade: 'B',
     type: 'Fermentasi', stock: 800, image: '/kakao-home/cocoa-bean-b.jpg',
